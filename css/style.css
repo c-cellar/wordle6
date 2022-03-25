@@ -1,0 +1,16 @@
+* {
+    font-family: Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+}
+
+h1 {
+    text-align: center;   
+}
+
+.round {
+    width: 360px;
+    height: 45px;
+    margin: 5px auto;
+    display: block;
+    border: 1px solid black;
+}
