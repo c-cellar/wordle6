@@ -8,6 +8,8 @@ h1 {
 }
 
 .round {
+    text-align: center;
+    font-size: 2rem;
     width: 360px;
     height: 45px;
     margin: 5px auto;
