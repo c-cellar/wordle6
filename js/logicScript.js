@@ -2,12 +2,12 @@
 let word = 'gunman';
 // let guess = 'target';
 // let guess = 'gdfnam';
-let guess = 'gunman';
+// let guess = 'gunman';
 
 const checkLetter = (word, guess) => {
     let index = 0;
-    const searchedWord = word.split('');
-    const guessWord = guess.split('');
+    const searchedWord = word.toUpperCase().split('');
+    const guessWord = guess.toUpperCase().split('');
 
     while (index < 6) {
         if (guessWord[index] === searchedWord[index]) {
@@ -34,4 +34,4 @@ const greyLetter = (letterFromGuess, index) => {
     console.log('ist nicht im Word vorhanden => GRAU ' + letterFromGuess  + ':' + index);
 }
 
-checkLetter(word, guess);
+// checkLetter(word, guess);
