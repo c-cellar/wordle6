@@ -20,6 +20,7 @@ const checkLetter = (word, guess) => {
     return guessWord[index];
 };
 
+// TODO: Farbenauswähle(grün, orange, lightGrey)
 // Output div.letter für korrekte Position und Buchstaben
 const greenLetter = (index) => {
     idRoundSelector(roundCounter)[index].style.background = 'green';
@@ -35,7 +36,7 @@ const yellowLetter = (index) => {
 
 // Output div.letter für flasche Buchstaben
 const greyLetter = (index) => {
-    idRoundSelector(roundCounter)[index].style.background = 'grey';
+    idRoundSelector(roundCounter)[index].style.background = 'lightGrey';
     idRoundSelector(roundCounter)[index].style.color = 'white';
     // console.log('ist nicht im Word vorhanden => GRAU ' + letterFromGuess  + ':' + index);
 };
