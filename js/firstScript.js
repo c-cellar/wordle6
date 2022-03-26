@@ -5,6 +5,8 @@ const $$ = (q) => document.querySelectorAll(q)
 
 // abzugleichendes Wort
 let arrayGuess = [];
+let roundCounter = 1;
+let currentRound = 'first';
 
 // maximale Wortlänge
 const maxLength = 6;
@@ -32,14 +34,29 @@ const inputWord = (letter) => arrayGuess.push(letter.toUpperCase());
 const deleteLastLetter = () => arrayGuess.pop();
 
 // Letter in Display
-const putLetterIn = (arrayGuess) => {
-    // console.log($$('.round > div')[arrayGuess.length]);
-    // console.log(arrayGuess[arrayGuess.length - 1])
-    $$('.round > div')[arrayGuess.length - 1].innerHTML = arrayGuess[arrayGuess.length - 1];
+const putLetterIn = (arrayGuess, roundCounter) => {
+    let currentRound = round(roundCounter)
+    $$('#' + currentRound + ' > div')[arrayGuess.length - 1].innerHTML = arrayGuess[arrayGuess.length - 1];
 };
 
 // Letter aus Display
 const removeLetter = (arrayGuess) => $$('.round > div')[arrayGuess.length].innerHTML = '';
+
+// nächste Runde 
+const round = (roundCounter) => {
+    let roundSelector = $('.container > div:nth-child(' + roundCounter + ')').id;
+    console.log(roundSelector);
+    return roundSelector;
+}
+
+// TODO: roundSelector erstellen
+const idRoundSelector = (roundCounter) => {
+    currentRound = round(roundCounter);
+    console.log('idRound: ' + currentRound);
+    let roundSelectorID = $$('#' + currentRound + ' > div');
+    console.log('idRoundSelector: ' + roundSelectorID);
+    return roundSelectorID;
+}
 
 
 // Überprüft Eingabe...
@@ -51,7 +68,7 @@ const getKey = (e) => {
         // auf maximale Länge
         if (arrayGuess.length < maxLength) {
             inputWord(e.key);
-            putLetterIn(arrayGuess);
+            putLetterIn(arrayGuess, roundCounter);
         };
     }
 
@@ -66,6 +83,9 @@ const getKey = (e) => {
     if (e.key === "Enter" && arrayGuess.length == maxLength) {
         console.log('Wort auswerten ' + arrayGuess);
         checkLetter(word, arrayGuess);
+        arrayGuess = [];
+        roundCounter++
+        round(roundCounter);
     }
 }
 
