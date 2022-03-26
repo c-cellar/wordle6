@@ -3,12 +3,18 @@
 const $ = (q) => document.querySelector(q)
 const $$ = (q) => document.querySelectorAll(q)
 
+// abzugleichendes Wort
+let arrayGuess = [];
+let guess = arrayGuess;
+// let guess = '';
+
 // maximale Wortlänge
 const maxLength = 6;
 
 // Selector
 const input = $('.input');
-
+const oneOutput = $('.letter')
+const allOutputs = $$('.letter');
 
 // === INIT =========
 const init = () => {
@@ -17,16 +23,19 @@ const init = () => {
 
 
 // === EVENTS & XHR =======
-const addKeyhandler = () => document.addEventListener('keydown', getKey)
+const addKeyhandler = () => document.addEventListener('keydown', getKey);
 
 
 // === FUNCTIONS ====
-
+// TODO: löschen funktioniert nicht immer 
 // löscht letzte Eingabe
-const deleteLastLetter = (input) => {
-    input.innerHTML = input.innerHTML.substring(0, input.innerHTML.length - 1);
-    console.log(input.innerHTML)
-}
+const deleteLastLetter = (guess) => {
+    guess = guess.substring(0, guess.length - 1);
+    console.log(guess);
+    // Array ===========
+    arrayGuess.pop();
+    console.log(arrayGuess);
+} 
 
 // Überprüft Eingabe...
 const getKey = (e) => {
@@ -35,26 +44,40 @@ const getKey = (e) => {
     if (pattern.test(e.key) && (e.key.length < 2)) {
          
         // auf maximale Länge
-        if (input.innerHTML.length < maxLength) {
+        if (guess.length < maxLength) {
             inputWord(e.key);
         };
     }
 
     // auf "Backspace"-Eingabe
     if (e.key === "Backspace") {
-        deleteLastLetter(input);
+        console.log(e.key)
+        deleteLastLetter(guess);
     };   
 
     // mit "Enter" und mindestlänge Vorhanden Wort auswerten
-    if (e.key === "Enter" && input.innerHTML.length == maxLength) {
-        let guess = input.innerHTML;
-        console.log('Wort auswerten');
+    // if (e.key === "Enter" && input.innerHTML.length == maxLength) {
+    if (e.key === "Enter" && guess.length == maxLength) {
+        // guess = input.innerHTML;
+        console.log('Wort auswerten ' + guess);
         checkLetter(word, guess);
     }
 };
 
-// erzeugt ausgabe
-const inputWord = (letter) => input.innerHTML = input.innerHTML + letter.toUpperCase(); 
+// erzeugt Ausgabe
+const inputWord = (letter) => {
+    // guess = guess + letter.toUpperCase();
+    // console.log(guess);
+
+    // ================ Array
+    arrayGuess.push(letter.toUpperCase());
+    console.log(arrayGuess);
+}
+
+// output 
+const outputLetter = (letter) => {
+    
+}
 
 
 init();

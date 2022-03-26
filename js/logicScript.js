@@ -7,7 +7,8 @@ let word = 'gunman';
 const checkLetter = (word, guess) => {
     let index = 0;
     const searchedWord = word.toUpperCase().split('');
-    const guessWord = guess.toUpperCase().split('');
+    // const guessWord = guess.toUpperCase().split('');
+    const guessWord = guess;
 
     while (index < 6) {
         if (guessWord[index] === searchedWord[index]) {
