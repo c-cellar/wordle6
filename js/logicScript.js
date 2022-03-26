@@ -20,20 +20,23 @@ const checkLetter = (word, guess) => {
     return guessWord[index];
 };
 
+// Output div.letter für korrekte Position und Buchstaben
 const greenLetter = (index) => {
     idRoundSelector(roundCounter)[index].style.background = 'green';
     idRoundSelector(roundCounter)[index].style.color = 'white';
 };
 
+// Output div.letter für korrekter Buchstaben an falscher Position
 const yellowLetter = (index) => {
-    $$('.round > div')[index].style.background = 'orange';
-    $$('.round > div')[index].style.color = 'white';
+    idRoundSelector(roundCounter)[index].style.background = 'orange';
+    idRoundSelector(roundCounter)[index].style.color = 'white';
     // console.log('ist im gesuchten Word vorhanden => GELB ' + letterFromGuess  + ':' + index);
 };
 
+// Output div.letter für flasche Buchstaben
 const greyLetter = (index) => {
-    $$('.round > div')[index].style.background = 'grey';
-    $$('.round > div')[index].style.color = 'white';
+    idRoundSelector(roundCounter)[index].style.background = 'grey';
+    idRoundSelector(roundCounter)[index].style.color = 'white';
     // console.log('ist nicht im Word vorhanden => GRAU ' + letterFromGuess  + ':' + index);
 };
 
