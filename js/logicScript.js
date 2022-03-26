@@ -24,15 +24,26 @@ const checkLetter = (word, guess) => {
 };
 
 const greenLetter = (letterFromGuess, index) => {
-    console.log('sind gleich => GRÜN ' + letterFromGuess + ':' + index);
+
+    $$('.round > div')[index].style.background = 'green';
+    $$('.round > div')[index].style.color = 'white';
+
+    // console.log($$('.round > div')[index].style);
+    // console.log('sind gleich => GRÜN ' + letterFromGuess + ':' + index);
 }
 
 const yellowLetter = (letterFromGuess, index) => {
-    console.log('ist im gesuchten Word vorhanden => GELB ' + letterFromGuess  + ':' + index);
+    
+    $$('.round > div')[index].style.background = 'orange';
+    $$('.round > div')[index].style.color = 'white';
+    // console.log('ist im gesuchten Word vorhanden => GELB ' + letterFromGuess  + ':' + index);
 }
 
 const greyLetter = (letterFromGuess, index) => {
-    console.log('ist nicht im Word vorhanden => GRAU ' + letterFromGuess  + ':' + index);
+
+    $$('.round > div')[index].style.background = 'grey';
+    $$('.round > div')[index].style.color = 'white';
+    // console.log('ist nicht im Word vorhanden => GRAU ' + letterFromGuess  + ':' + index);
 }
 
 // checkLetter(word, guess);
