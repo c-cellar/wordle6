@@ -11,7 +11,7 @@ const maxLength = 6;
 
 // Selector
 const input = $('.input');
-const oneOutput = $('.letter')
+const oneOutput = $('.letter');
 const allOutputs = $$('.letter');
 
 // === INIT =========
@@ -25,13 +25,11 @@ const addKeyhandler = () => document.addEventListener('keydown', getKey);
 
 
 // === FUNCTIONS ====
-// TODO: löschen funktioniert nicht immer 
-// löscht letzte Eingabe
-const deleteLastLetter = () => {
-    // Array ===========
-    arrayGuess.pop();
-    console.log(arrayGuess);
-} 
+
+// fügt Eingabe dem Array hinzu
+const inputWord = (letter) => arrayGuess.push(letter.toUpperCase());
+// löscht letzte Eingabe aus Array
+const deleteLastLetter = () => arrayGuess.pop();
 
 // Überprüft Eingabe...
 const getKey = (e) => {
@@ -42,32 +40,32 @@ const getKey = (e) => {
         // auf maximale Länge
         if (arrayGuess.length < maxLength) {
             inputWord(e.key);
+            putLetterIn(arrayGuess);
         };
     }
 
     // auf "Backspace"-Eingabe
     if (e.key === "Backspace") {
-        console.log(e.key)
         deleteLastLetter();
-    };   
+        removeLetter(arrayGuess);
+    }
 
     // mit "Enter" und mindestlänge Vorhanden Wort auswerten
     // if (e.key === "Enter" && input.innerHTML.length == maxLength) {
     if (e.key === "Enter" && arrayGuess.length == maxLength) {
-        // guess = input.innerHTML;
         console.log('Wort auswerten ' + arrayGuess);
         checkLetter(word, arrayGuess);
     }
 };
 
-// erzeugt Ausgabe
-const inputWord = (letter) => {
-    // ================ Array
-    arrayGuess.push(letter.toUpperCase());
-    console.log(arrayGuess);
-}
+// Letter in Display
+const putLetterIn = (arrayGuess) => {
+    // console.log($$('.round > div')[arrayGuess.length]);
+    // console.log(arrayGuess[arrayGuess.length - 1])
+    $$('.round > div')[arrayGuess.length - 1].innerHTML = arrayGuess[arrayGuess.length - 1];
+};
 
-// TODO: output
-
+// Letter aus Display
+const removeLetter = (arrayGuess) => $$('.round > div')[arrayGuess.length].innerHTML = '';
 
 init();
