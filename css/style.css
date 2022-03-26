@@ -1,18 +1,46 @@
 * {
+    margin: 0px;
     font-family: Geneva, Tahoma, sans-serif;
     font-weight: lighter;
 }
 
+body {
+    background-color: rgba(231, 231, 231, 0.507);
+}
+
 h1 {
+    padding-top: 7px;
     text-align: center;   
+    color: black;
+}
+
+header {
+    background: rgba(243, 239, 239, 0.507); 
+    height: 50px;
+    box-shadow: 0px 5px 10px 5px rgba(128, 128, 128, 0.507);
+    margin-bottom: 20px;
+}
+
+.letter {
+    background:rgba(255, 255, 255, 0.507);
+    text-align: center;
+    font-weight: 500;
+    margin: 2px;
+    width: 45px;
+    border:  2px solid black;
+}
+
+.focus {
+    border: 3px solid black;
 }
 
 .round {
-    text-align: center;
     font-size: 2rem;
     width: 360px;
-    height: 45px;
-    margin: 5px auto;
+    height: 50px;
+    margin: 0px auto;
     display: block;
-    border: 1px solid black;
+    display: flex;
+    align-content: space-between;
+    justify-content: center;
 }

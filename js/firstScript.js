@@ -31,6 +31,17 @@ const inputWord = (letter) => arrayGuess.push(letter.toUpperCase());
 // löscht letzte Eingabe aus Array
 const deleteLastLetter = () => arrayGuess.pop();
 
+// Letter in Display
+const putLetterIn = (arrayGuess) => {
+    // console.log($$('.round > div')[arrayGuess.length]);
+    // console.log(arrayGuess[arrayGuess.length - 1])
+    $$('.round > div')[arrayGuess.length - 1].innerHTML = arrayGuess[arrayGuess.length - 1];
+};
+
+// Letter aus Display
+const removeLetter = (arrayGuess) => $$('.round > div')[arrayGuess.length].innerHTML = '';
+
+
 // Überprüft Eingabe...
 const getKey = (e) => {
     const pattern = /[A-Za-z]/;
@@ -56,16 +67,6 @@ const getKey = (e) => {
         console.log('Wort auswerten ' + arrayGuess);
         checkLetter(word, arrayGuess);
     }
-};
-
-// Letter in Display
-const putLetterIn = (arrayGuess) => {
-    // console.log($$('.round > div')[arrayGuess.length]);
-    // console.log(arrayGuess[arrayGuess.length - 1])
-    $$('.round > div')[arrayGuess.length - 1].innerHTML = arrayGuess[arrayGuess.length - 1];
-};
-
-// Letter aus Display
-const removeLetter = (arrayGuess) => $$('.round > div')[arrayGuess.length].innerHTML = '';
+}
 
 init();
