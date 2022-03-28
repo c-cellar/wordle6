@@ -6,6 +6,9 @@
 
 body {
     background-color: rgba(231, 231, 231, 0.507);
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto;
 }
 
 h1 {
@@ -18,7 +21,7 @@ header {
     background: rgba(243, 239, 239, 0.507); 
     height: 50px;
     box-shadow: 0px 5px 10px 5px rgba(128, 128, 128, 0.507);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .letter {
@@ -43,4 +46,33 @@ header {
     display: flex;
     align-content: space-between;
     justify-content: center;
+}
+
+.keyboard {
+    align-self: end;
+    margin-bottom: 15px;
+}
+
+.keyboardRow {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 2px 0px;
+}
+
+.keyboardRow > div {
+    text-align: center;
+    line-height: 25px;
+    border: 2px solid black;
+    border-radius: 4px;
+    width: 20px;
+    height: 25px;
+}
+
+#enter {
+    width: 40px;
+}
+
+#backspace {
+    width: 40px;
 }
