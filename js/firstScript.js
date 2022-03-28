@@ -15,16 +15,18 @@ const maxLength = 6;
 const input = $('.input');
 const oneOutput = $('.letter');
 const allOutputs = $$('.letter');
+const allKeys = $$('.key');
 
 // === INIT =========
 const init = () => {
     addKeyhandler();
+    addClickEventOnKey();
 };
 
 
 // === EVENTS & XHR =======
 const addKeyhandler = () => document.addEventListener('keydown', getKey);
-
+const addClickEventOnKey = () => allKeys.forEach(key => key.addEventListener('click', digitalKeyboard));
 
 // === FUNCTIONS ====
 
@@ -35,29 +37,28 @@ const deleteLastLetter = () => arrayGuess.pop();
 
 // Letter in Display
 const putLetterIn = (arrayGuess, roundCounter) => {
-    let currentRound = round(roundCounter)
+    currentRound = round(roundCounter)
     $$('#' + currentRound + ' > div')[arrayGuess.length - 1].innerHTML = arrayGuess[arrayGuess.length - 1];
 };
 
 // Letter aus Display
-const removeLetter = (arrayGuess) => $$('.round > div')[arrayGuess.length].innerHTML = '';
+const removeLetter = (arrayGuess) => idRoundSelector(roundCounter)[arrayGuess.length].innerHTML = '';
 
 // nächste Runde 
 const round = (roundCounter) => {
-    let roundSelector = $('.container > div:nth-child(' + roundCounter + ')').id;
+    let roundSelector = $('.letterContainer > div:nth-child(' + roundCounter + ')').id;
     console.log(roundSelector);
     return roundSelector;
 }
 
-// TODO: roundSelector erstellen
+// Rundenabhängiger id-Selector in Abhängigkeit vom Rundenzähler 
 const idRoundSelector = (roundCounter) => {
     currentRound = round(roundCounter);
-    console.log('idRound: ' + currentRound);
+    // console.log('idRound: ' + currentRound);
     let roundSelectorID = $$('#' + currentRound + ' > div');
-    console.log('idRoundSelector: ' + roundSelectorID);
+    // console.log('idRoundSelector: ' + roundSelectorID);
     return roundSelectorID;
 }
-
 
 // Überprüft Eingabe...
 const getKey = (e) => {
@@ -87,6 +88,12 @@ const getKey = (e) => {
         roundCounter++
         round(roundCounter);
     }
+}
+
+// ====== keyboard 
+const digitalKeyboard = (key) => {
+    const clickedKey = key.target.id.toUpperCase();
+    console.log(clickedKey);
 }
 
 init();

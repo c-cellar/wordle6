@@ -69,6 +69,26 @@ header {
     height: 25px;
 }
 
+.key:hover {
+    cursor: pointer;
+    background: blanchedalmond;
+}
+
+.rightPlace {
+    color: white;
+    background: green
+}
+
+.wrongPlace {
+    color: white;
+    background: orange;
+}
+
+.wrong {
+    color: white;
+    background-color: lightslategray;
+}
+
 #enter {
     width: 40px;
 }
