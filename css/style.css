@@ -60,15 +60,6 @@ header {
     padding: 2px 0px;
 }
 
-/* .keyboardRow > div {
-    text-align: center;
-    line-height: 25px;
-    border: 2px solid black;
-    border-radius: 4px;
-    width: 20px;
-    height: 25px;
-} */
-
 /* Für Desktop-Ansicht */
 .keyboardRow > div {
     font-size: 1.5rem;
@@ -80,12 +71,12 @@ header {
     height: 35px;
 }
 
-#enter {
+#Enter {
     width: 70px;
     font-size: 2rem;
 }
 
-#backspace {
+#Backspace {
     width: 70px;
     line-height: 30px;
     font-size: 2rem;
