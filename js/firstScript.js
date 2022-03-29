@@ -28,8 +28,8 @@ const init = () => {
 
 
 // === EVENTS & XHR =======
-const addKeyhandler = () => document.addEventListener('keydown', getLetterFromEvent);
-const addClickEventOnKey = () => allKeys.forEach(key => key.addEventListener('click', getLetterFromEvent));
+const addKeyhandler = () => document.addEventListener('keydown', checksGetsLetterFromInput);
+const addClickEventOnKey = () => allKeys.forEach(key => key.addEventListener('click', checksGetsLetterFromInput));
 
 // === FUNCTIONS ====
 // fügt Eingabe dem Array hinzu
@@ -76,7 +76,7 @@ const checksGetsLetterFromInput = (e) => {
 };
 
 // Überprüft Eingabe...
-const checkInputFor = (e) => {
+const checkInputFor = (key) => {
     const pattern = /[A-Za-z]/;
     // überprüfung nach e.key === Buchstabe und kein Wort
     if (pattern.test(key) && (key.length < 2)) {
