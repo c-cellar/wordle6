@@ -32,6 +32,7 @@ const addClickEventOnKey = () => allKeys.forEach(key => key.addEventListener('cl
 
 // fügt Eingabe dem Array hinzu
 const inputWord = (letter) => arrayGuess.push(letter.toUpperCase());
+
 // löscht letzte Eingabe aus Array
 const deleteLastLetter = () => arrayGuess.pop();
 
@@ -90,10 +91,11 @@ const getKey = (e) => {
     }
 }
 
-// ====== keyboard 
+// ====== Virtuelles Keyboard =========
+// Eingabe über virutelles Keyboard
 const digitalKeyboard = (key) => {
     const clickedKey = key.target.id.toUpperCase();
-    console.log(clickedKey);
+    console.log(clickedKey)
 }
 
 init();

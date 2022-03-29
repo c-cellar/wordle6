@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: rgba(231, 231, 231, 0.507);
+    background-color: rgba(189, 189, 189, 0.5);
     height: 100vh;
     display: grid;
     grid-template-rows: auto;
@@ -18,7 +18,7 @@ h1 {
 }
 
 header {
-    background: rgba(243, 239, 239, 0.507); 
+    background: rgba(243, 239, 239, 0.671); 
     height: 50px;
     box-shadow: 0px 5px 10px 5px rgba(128, 128, 128, 0.507);
     margin-bottom: 25px;
@@ -50,7 +50,7 @@ header {
 
 .keyboard {
     align-self: end;
-    margin-bottom: 15px;
+    margin-bottom: 60px;
 }
 
 .keyboardRow {
@@ -60,13 +60,35 @@ header {
     padding: 2px 0px;
 }
 
-.keyboardRow > div {
+/* .keyboardRow > div {
     text-align: center;
     line-height: 25px;
     border: 2px solid black;
     border-radius: 4px;
     width: 20px;
     height: 25px;
+} */
+
+/* Für Desktop-Ansicht */
+.keyboardRow > div {
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 35px;
+    border: 2px solid black;
+    border-radius: 4px;
+    width: 40px;
+    height: 35px;
+}
+
+#enter {
+    width: 70px;
+    font-size: 2rem;
+}
+
+#backspace {
+    width: 70px;
+    line-height: 30px;
+    font-size: 2rem;
 }
 
 .key:hover {
@@ -74,25 +96,21 @@ header {
     background: blanchedalmond;
 }
 
+.standard {
+    background:rgba(255, 255, 255, 0.507);
+}
+
 .rightPlace {
     color: white;
-    background: green
+    background: rgb(14, 128, 20);
 }
 
 .wrongPlace {
     color: white;
-    background: orange;
+    background: rgb(226, 188, 17)
 }
 
 .wrong {
     color: white;
-    background-color: lightslategray;
-}
-
-#enter {
-    width: 40px;
-}
-
-#backspace {
-    width: 40px;
+    background-color: rgb(124, 142, 160);
 }
