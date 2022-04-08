@@ -1,13 +1,13 @@
 'use strict'
 // ====== VAR =======
-let word = 'target';
+let word = 'lothar';
 const green = 'rgb(14, 128, 20)';
 const yellow = 'rgb(226, 188, 17)';
 const grey = 'rgb(124, 142, 160)';
 
 // ====== FUNCTIONS =======
 // Auswertung von guess-word (verlgeich mit word mit guess-word)
-const checkLetter = (word, guess) => {
+const checkGuess = (word, guess) => {
     let index = 0;
     const searchedWord = word.toUpperCase().split('');
     const guessWord = guess;

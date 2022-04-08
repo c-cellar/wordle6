@@ -98,7 +98,7 @@ const checkInputFor = (key) => {
     // if (e.key === "Enter" && input.innerHTML.length == maxLength) {
     if (key === "Enter" && arrayGuess.length == maxLength) {
         console.log('Wort auswerten ' + arrayGuess);
-        checkLetter(word, arrayGuess);
+        checkGuess(word, arrayGuess);
         arrayGuess = [];
         roundCounter++
         round(roundCounter);
