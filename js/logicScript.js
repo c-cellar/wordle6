@@ -1,6 +1,6 @@
 'use strict'
 // ====== VAR =======
-let word = 'lothar';
+let word = 'tamara';
 const green = 'rgb(14, 128, 20)';
 const yellow = 'rgb(226, 188, 17)';
 const grey = 'rgb(124, 142, 160)';
