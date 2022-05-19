@@ -41,6 +41,7 @@ const deleteLastLetter = () => arrayGuess.pop();
 // put letter in letterboard
 const putLetterIn = (arrayGuess, roundCounter) => {
     currentRound = round(roundCounter)
+    console.log(currentRound);
     $$('#' + currentRound + ' > div')[arrayGuess.length - 1].innerHTML = arrayGuess[arrayGuess.length - 1];
 };
 
@@ -50,7 +51,7 @@ const removeLetter = (arrayGuess) => idRoundSelector(roundCounter)[arrayGuess.le
 // nächste Runde 
 const round = (roundCounter) => {
     let roundSelector = $('.letterContainer > div:nth-child(' + roundCounter + ')').id;
-    console.log(roundSelector);
+    // console.log(roundSelector);
     return roundSelector;
 };
 
@@ -75,6 +76,13 @@ const checksGetsLetterFromInput = (e) => {
     }
 };
 
+// Initiert nächte Raterunde 
+const nextRound = () => {
+    arrayGuess = [];
+    roundCounter++
+    round(roundCounter);
+}
+
 // Überprüft Eingabe...
 const checkInputFor = (key) => {
     const pattern = /[A-Za-z]/;
@@ -94,15 +102,10 @@ const checkInputFor = (key) => {
         removeLetter(arrayGuess);
     }
 
-    // mit "Enter" und mindestlänge Vorhanden Wort auswerten
-    // if (e.key === "Enter" && input.innerHTML.length == maxLength) {
-    if (key === "Enter" && arrayGuess.length == maxLength) {
-        console.log('Wort auswerten ' + arrayGuess);
-        checkGuess(word, arrayGuess);
-        arrayGuess = [];
-        roundCounter++
-        round(roundCounter);
-    }
+    // AUSWERTEN: mit "Enter" und mindestlänge Vorhanden Wort auswerten
+    if ((key === "Enter" && arrayGuess.length == maxLength)) {
+        existingWord(arrayGuess);
+    } 
 };
 
 init();

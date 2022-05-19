@@ -6,7 +6,7 @@ const yellow = 'rgb(226, 188, 17)';
 const grey = 'rgb(124, 142, 160)';
 
 // ====== FUNCTIONS =======
-// Auswertung von guess-word (verlgeich mit word mit guess-word)
+// Auswertung von guess-word (verlgeich word mit guess-word)
 const checkGuess = (word, guess) => {
     let index = 0;
     const searchedWord = word.toUpperCase().split('');
