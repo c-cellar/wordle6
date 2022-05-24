@@ -14,6 +14,11 @@ async function existingWord (arrayGuess) {
             } else {
                 console.log('versuch es mal mit einem richtigen Wort');
                 console.log(response.status);
+                notification.innerHTML = `
+                    <span class="wrongWord">${guessWord}</span>
+                    <span>is not in used dictionary</span>
+                `
+                showNotification();
             }
     });
 };
