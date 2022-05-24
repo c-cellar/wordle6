@@ -167,15 +167,24 @@ h1 {
 }
 
 #notification {
-    position: fixed;
+    /* center element mit position absolute */
+    position: absolute;
+    top: 30vh;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    
+    z-index: 200;
+    padding: 0.8rem;
     display: none;
+    width: fit-content;
     margin: 0px auto;
     border: solid 2px rgba(250, 250, 250, 0.705);
-    background-color: rgba(65, 65, 65, 0.7);
+    background-color: rgba(65, 65, 65, 0.95);
     box-shadow: 0px 0px 1em  #555555;
     opacity: 0;
 
-    
     animation-name: fadeOut-notification;
     animation-timing-function: ease-out;
     animation-duration:1.5s;
@@ -187,6 +196,7 @@ h1 {
     text-align: center;
     height: fit-content;
     display: block;
+    z-index: 200;
 } 
 
 @keyframes fadeOut-notification {
