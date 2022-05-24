@@ -187,7 +187,7 @@ h1 {
 
     animation-name: fadeOut-notification;
     animation-timing-function: ease-out;
-    animation-duration:1.5s;
+    animation-duration:1.75s;
 }
 
 #notification > span {
