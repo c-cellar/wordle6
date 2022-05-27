@@ -19,19 +19,41 @@ const input = $('.input');
 const oneOutput = $('.letter');
 const allOutputs = $$('.letter');
 const allKeys = $$('.key');
+const btnNewGame = $('#btn-newGame')
 
 // === INIT =========
 const init = () => {
     addKeyhandler();
     addClickEventOnKey();
+    addBtnHandlerNewGame();
 };
 
 
 // === EVENTS & XHR =======
 const addKeyhandler = () => document.addEventListener('keydown', checksGetsLetterFromInput);
 const addClickEventOnKey = () => allKeys.forEach(key => key.addEventListener('click', checksGetsLetterFromInput));
+const addBtnHandlerNewGame = () => btnNewGame.addEventListener('click', newGame)
 
 // === FUNCTIONS ====
+// neues Spiel 
+const newGame = () => {
+    console.log('New Game')
+    closeNotification(winningNotification);
+    arrayGuess = [];
+    roundCounter = 1;
+    currentRound = 'first';
+    allOutputs.forEach(output => output.innerHTML = '');
+    allOutputs.forEach(output => removeClass(output)); 
+    allKeys.forEach(key => removeClass(key));
+};
+
+// entfernt alle Klassen, die eine Spielrunde zuvor zugeordnet wurden
+const removeClass = (element) => {
+    element.classList.remove('wrongPlace');
+    element.classList.remove('rightPlace');
+    element.classList.remove('wrong');
+};
+
 // fügt Eingabe dem Array hinzu
 const inputWord = (letter) => arrayGuess.push(letter.toUpperCase());
 

@@ -6,17 +6,18 @@ async function existingWord (arrayGuess) {
 
     await fetch(`${url}${guessWord}`) 
         .then(response => {
-            console.log('das wort gibt es!')
             console.log(response.status);
             if (response.status === 200) {   
+                console.log('das wort gibt es!');
                 checkGuess(word, arrayGuess);
                 nextRound();
             } else {
                 console.log('versuch es mal mit einem richtigen Wort');
-                console.log(response.status);
-                blendInAndOutNotification(guessWord);
+                blendInAndOutNoWordNotification(guessWord);
             }
     });
 };
+
+// TODO: API für deutsches Wörterbuch einbinden
 
 

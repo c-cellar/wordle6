@@ -1,7 +1,6 @@
 * {
     font-family: Geneva, Tahoma, sans-serif;
     font-weight: lighter;
-    color: rgb(56, 56, 56);
     margin: 0px;
 }
 
@@ -10,6 +9,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-rows: auto;
+    color: rgb(56, 56, 56);
 }
 
 header {
@@ -179,25 +179,54 @@ h1 {
     padding: 0.8rem;
     display: none;
     width: fit-content;
-    margin: 0px auto;
+    color: rgba(250, 250, 250, 0.905);
     border: solid 2px rgba(250, 250, 250, 0.705);
     background-color: rgba(65, 65, 65, 0.95);
     box-shadow: 0px 0px 1em  #555555;
-    opacity: 0;
+    opacity: 1;
 
     animation-name: fadeOut-notification;
     animation-timing-function: ease-out;
-    animation-duration:1.75s;
+    animation-duration:1.80s;
 }
 
 #notification > span {
-    color: rgba(250, 250, 250, 0.905);
     margin: 0px 10px;
     text-align: center;
     height: fit-content;
     display: block;
     z-index: 200;
 } 
+
+#win-notification {
+    position: absolute;
+    top: 35vh;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    
+    z-index: 200;
+    padding: 0.8rem;
+    display: none;
+    width: fit-content;
+    color: rgba(250, 250, 250, 0.905);
+    border: solid 2px rgba(250, 250, 250, 0.705);
+    background-color: rgba(65, 65, 65, 0.95);
+    box-shadow: 0px 0px 1em  #555555;
+    opacity: 1;
+    text-align: center;
+}
+
+#win-notification > span {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+#win-notification > p {
+    display: block;
+    padding: 0.5rem;
+}
 
 @keyframes fadeOut-notification {
     0% {

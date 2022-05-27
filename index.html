@@ -13,11 +13,21 @@
 </head>
 <body>
     <header>
-        <h1><span class="letter rightPlace">W</span>ORDL<span class="letter wrongPlace">E</span><span class="letter wrong">6</span></h1>
+        <h1><span class="rightPlace">W</span>ORDL<span class="wrongPlace">E</span><span class="wrong">6</span></h1>
     </header>
-    <div class="" id="notification">
+    <div id="notification">
         <span id="noWord"></span>
         <span>is not in used dictionary</span>
+    </div>
+    <div id="win-notification">
+        <span>CONGRATULATIONS!</span>
+        <p>Word: 
+            <span id="winningWord"></span>
+        </p>
+        <p>Trys:    
+            <span id="rounds"></span>
+        </p>
+        <button id="btn-newGame">New Round</button>
     </div>
     <div class="letterContainer">
         <div class="round" id="first">

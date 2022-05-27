@@ -1,6 +1,6 @@
 'use strict'
 // ====== VAR =======
-let word = 'tamara';
+let word = 'result';
 const green = 'rgb(14, 128, 20)';
 const yellow = 'rgb(226, 188, 17)';
 const grey = 'rgb(124, 142, 160)';
@@ -22,9 +22,16 @@ const checkGuess = (word, guess) => {
         } else {
             wrong(index);
             wrongKey(guessWord[index]);
-        }
+        } 
         index++;
-    } 
+    }
+
+    // check for win 
+    if (word === (guess.join('').toLowerCase())) {
+        showWinningNotification(word, roundCounter);
+        return;
+    }
+
     return guessWord[index];
 };
 
@@ -69,3 +76,6 @@ const wrong = (index) => {
 };
 
 // checkLetter(word, guess);
+
+// TODO: Auswertung und Vergebung der Farben verbessern (Tastatur)
+// TODO: deutsches Wörterbuch: Button für Auswahl der Sprache (ändern der URL) 

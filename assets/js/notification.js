@@ -1,29 +1,29 @@
 'use strict';
 // === DOM & VARS ===
-
-// Selector
 const notification = $('#notification');
 const noWord = $('#noWord');
-
-// === INIT =========
-
-
-// === EVENTS & XHR =======
+const winningNotification = $('#win-notification')
 
 
 // === FUNCTIONS ====
-// hinweis einblenden
-const showNotification = (guessWord) => {
+// Gewinn vom Spiel Hinweis
+const showWinningNotification = (word, roundCounter) => {
+    winningNotification.style.display = 'block';
+    $('#winningWord').innerHTML = word;
+    $('#rounds').innerHTML = roundCounter;
+}
+
+// "kein Wort" Hinweis einblenden
+const noWordNotification = (guessWord) => {
     notification.style.display = 'block';
     noWord.innerHTML = guessWord;
 };
-// hinweis ausblenden 
-const closeNotification = () => {
-    notification.style.display = 'none';
+// Hinweis Ausblenden
+const closeNotification = (selector) => {
+    selector.style.display = 'none';
 };
 
-const blendInAndOutNotification = (guessWord) => {
-    showNotification(guessWord)
-
-    setTimeout(closeNotification, 2000);
+const blendInAndOutNoWordNotification = (guessWord) => {
+    noWordNotification(guessWord);
+    setTimeout(() => closeNotification(notification), 1800);
 };
