@@ -176,7 +176,7 @@ h1 {
     margin-right: auto;
     
     z-index: 200;
-    padding: 0.8rem;
+    padding: 1rem;
     display: none;
     width: fit-content;
     color: rgba(250, 250, 250, 0.905);
@@ -207,7 +207,7 @@ h1 {
     margin-right: auto;
     
     z-index: 200;
-    padding: 0.8rem;
+    padding: 1rem;
     display: none;
     width: fit-content;
     color: rgba(250, 250, 250, 0.905);
@@ -218,14 +218,23 @@ h1 {
     text-align: center;
 }
 
-#win-notification > span {
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-}
-
 #win-notification > p {
     display: block;
-    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+#btn-newGame {
+    padding: 10px;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    background-color:rgb(14, 128, 20);
+    color: white;
+    border: white
+}
+
+#btn-newGame {
+    cursor: pointer;
 }
 
 @keyframes fadeOut-notification {
