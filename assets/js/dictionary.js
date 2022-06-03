@@ -14,8 +14,8 @@ async function existingWord (arrayGuess) {
             } else {
                 console.log('versuch es mal mit einem richtigen Wort');
                 blendInAndOutNoWordNotification(guessWord);
-            }
-    });
+            }})
+        .catch((err) => console.log(err));
 };
 
 // TODO: API für deutsches Wörterbuch einbinden
