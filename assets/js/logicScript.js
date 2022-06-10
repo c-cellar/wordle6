@@ -62,8 +62,8 @@ const wrongKey = (key) => {
     $(`#${key}`).classList.add('wrong');
 }
 
-// Klassen für "Letterboard" für farbliche Auswertung hinzufügen oder entfernen
-// css-Klassen müssen nicht entfernt werden, da die diese dem Element nur nach der Auswertung hinzugefügt werden. 
+// css-Klassen für "Letterboard" für farbliche Auswertung hinzufügen oder entfernen
+// css-Klassen müssen nicht entfernt werden, da die dem Element nur nach der Auswertung hinzugefügt werden. 
 // add class "rightPlace"
 const rightPlace = (index) => {
     idRoundSelector(roundCounter)[index].classList.add('rightPlace');
@@ -78,8 +78,6 @@ const wrongPlace = (index) => {
 const wrong = (index) => {
     idRoundSelector(roundCounter)[index].classList.add('wrong');
 };
-
-// checkLetter(word, guess);
 
 // TODO: Auswertung und Vergebung der Farben verbessern (Tastatur)
 // TODO: deutsches Wörterbuch: Button für Auswahl der Sprache (ändern der URL) 
