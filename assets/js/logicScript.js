@@ -35,12 +35,11 @@ const checkGuess = (word, guess) => {
     return guessWord[index];
 };
 
-// Klassen für Funktionen für farbliche Auswertung vom virutellen KEYBOARD hinzufügen bzw. entfernen
+// Funktionen um den Keys des virutellen KEYBOARDs css-Klassen hinzuzufügen bzw. zu entfernen
 // get GREEN background
 const rightKey = (key) => {
     key = key.toLowerCase();
     if ($(`#${key}`).classList.contains('wrongPlace')) {
-        $(`#${key}`).classList.remove('wrongPlace');
         $(`#${key}`).classList.remove('wrongPlace');
     }
     $(`#${key}`).classList.add('rightPlace');
@@ -49,8 +48,11 @@ const rightKey = (key) => {
 // get YELLOW background
 const wrongPlaceKey = (key) => {
     key = key.toLowerCase();
-    $(`#${key}`).classList.remove('standard');
-    $(`#${key}`).classList.add('wrongPlace');
+    if (!$(`#${key}`).classList.contains('rightPlace')) {
+        $(`#${key}`).classList.remove('standard');
+        $(`#${key}`).classList.add('wrongPlace');
+        return;
+    }
 } 
 
 // get GREY background
@@ -61,6 +63,8 @@ const wrongKey = (key) => {
 }
 
 // Klassen für "Letterboard" für farbliche Auswertung hinzufügen oder entfernen
+// css-Klassen müssen nicht entfernt werden, da die diese dem Element nur nach der Auswertung hinzugefügt werden. 
+// add class "rightPlace"
 const rightPlace = (index) => {
     idRoundSelector(roundCounter)[index].classList.add('rightPlace');
 };
@@ -79,3 +83,5 @@ const wrong = (index) => {
 
 // TODO: Auswertung und Vergebung der Farben verbessern (Tastatur)
 // TODO: deutsches Wörterbuch: Button für Auswahl der Sprache (ändern der URL) 
+
+
