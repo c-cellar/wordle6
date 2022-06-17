@@ -19,7 +19,7 @@ const input = $('.input');
 const oneOutput = $('.letter');
 const allOutputs = $$('.letter');
 const allKeys = $$('.key');
-const btnNewGame = $('#btn-newGame')
+const btnNewGame = $('#newGame')
 
 // === INIT =========
 const init = () => {
@@ -32,13 +32,13 @@ const init = () => {
 // === EVENTS & XHR =======
 const addKeyhandler = () => document.addEventListener('keydown', checksGetsLetterFromInput);
 const addClickEventOnKey = () => allKeys.forEach(key => key.addEventListener('click', checksGetsLetterFromInput));
-const addBtnHandlerNewGame = () => btnNewGame.addEventListener('click', newGame)
+const addBtnHandlerNewGame = () => btnNewGame.addEventListener('click', newGame);
 
 // === FUNCTIONS ====
 // neues Spiel 
 const newGame = () => {
     console.log('New Game')
-    closeNotification(winningNotification);
+    closeNotification(successfulNotification);
     arrayGuess = [];
     roundCounter = 1;
     currentRound = 'first';

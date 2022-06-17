@@ -1,14 +1,15 @@
 'use strict';
 // === DOM & VARS ===
-const notification = $('#notification');
+const notification = $('#noWord-notification');
 const noWord = $('#noWord');
-const winningNotification = $('#win-notification')
+const successfulNotification = $('#successful');
+const unsuccessfulNotification = $('#unsuccessful');
 
 
 // === FUNCTIONS ====
 // Gewinn vom Spiel Hinweis
 const showWinningNotification = (word, roundCounter) => {
-    winningNotification.style.display = 'block';
+    successfulNotification.style.display = 'block';
     $('#winningWord').innerHTML = word;
     $('#rounds').innerHTML = roundCounter;
 }
