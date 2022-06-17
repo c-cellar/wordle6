@@ -83,5 +83,7 @@ const wrong = (index) => {
 
 
 // TODO: deutsches Wörterbuch: Button für Auswahl der Sprache (ändern der URL) 
+// TODO: Einfügen einer Erklärung, für Auflösung (showWord) des gesuchten Wortes (unsuccessfulNotification)
+// TODO: Nach Auflösung (showWord) das Wort aus ungespielte Wörter entfernen (z.B. branch "Array": push in playedWords)
 
 
