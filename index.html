@@ -15,11 +15,13 @@
     <header>
         <h1><span class="rightPlace">W</span>ORDL<span class="wrongPlace">E</span><span class="wrong">6</span></h1>
     </header>
-    <div id="notification">
+    <!-- Notification: noWord -->
+    <div id="noWord-notification" class="notification">
         <span id="noWord"></span>
         <span>is not in used dictionary</span>
     </div>
-    <div id="win-notification">
+    <!-- Notification: successful -->
+    <div id="successful" class="notification">
         <span>CONGRATULATIONS</span>
         <p>word: 
             <span id="winningWord"></span>
@@ -27,82 +29,73 @@
         <p>attempts:    
             <span id="rounds"></span>
         </p>
-        <button id="btn-newGame">New Round</button>
+        <button id="newGame" class="btn">New Round</button>
     </div>
+    <!-- Notification: unsuccessful -->
     <div id="unsuccessful" class="notification">
         <span>maybe next round...</span>
         <p>word: 
             <span id="searchedWord"></span>
-            <span id="btn-showWord">Show Word</span>
+            <span id="showWord" class="btn">Show Word</span>
         </p>
         <p>attempts:    
             <span id="rounds"></span>
         </p>
-        <button id="btn-newGame">New Round</button>
+        <button id="newGame" class="btn">New Round</button>
     </div>
+
+    <!-- Letter Box -->
     <div class="letterContainer">
         <div class="round" id="first">
-            <!-- hard gecodet -->
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
-            <!-- divContainer mit AppendChild? -->
         </div>
         <div class="round" id="second">
-            <!-- hard gecodet -->
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
-            <!-- divContainer mit AppendChild? -->
         </div>
         <div class="round" id="third">
-            <!-- hard gecodet -->
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
-            <!-- divContainer mit AppendChild? -->
         </div>
         <div class="round" id="fourth">
-            <!-- hard gecodet -->
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
-            <!-- divContainer mit AppendChild? -->
         </div>
         <div class="round" id="fifth">
-            <!-- hard gecodet -->
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
-            <!-- divContainer mit AppendChild? -->
         </div>
         <div class="round" id="sixth">
-            <!-- hard gecodet -->
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
-            <!-- divContainer mit AppendChild? -->
         </div>
     </div>
-    <!-- digitale Tastatur einfügen -->
+    <!-- digital keyboard -->
     <div class="keyboard">
         <div class="keyboardRow">
             <div class="key standard" id="q">Q</div>    
