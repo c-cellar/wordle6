@@ -19,26 +19,35 @@ const input = $('.input');
 const oneOutput = $('.letter');
 const allOutputs = $$('.letter');
 const allKeys = $$('.key');
-const btnNewGame = $('#btn-newGame')
+const btnNewGame = $$('.btn-NewGame');
+const btnShowWord = $('#btn-showWord');
 
 // === INIT =========
 const init = () => {
     addKeyhandler();
     addClickEventOnKey();
-    addBtnHandlerNewGame();
+    addBtnHandlerShowWord();
 };
 
 
 // === EVENTS & XHR =======
 const addKeyhandler = () => document.addEventListener('keydown', checksGetsLetterFromInput);
 const addClickEventOnKey = () => allKeys.forEach(key => key.addEventListener('click', checksGetsLetterFromInput));
-const addBtnHandlerNewGame = () => btnNewGame.addEventListener('click', newGame)
+const addBtnHandlerNewGame = () => btnNewGame.forEach(btn => btn.addEventListener('click', newGame));
+const addBtnHandlerShowWord = () => btnShowWord.addEventListener('click', showWordInUnsuccessfulNotification);
 
 // === FUNCTIONS ====
+// showWord
+const showWordInUnsuccessfulNotification = (e) => {
+    e.target.style.display = 'none';
+    $('#searchedWord').style.display = 'block';
+}
+
 // neues Spiel 
-const newGame = () => {
-    console.log('New Game')
-    closeNotification(winningNotification);
+const newGame = (selector) => {
+    console.log('New Game');
+    // console.log(selector.currentTarget.parentElement.id);   
+    closeNotification(selector.currentTarget.parentElement.id);
     arrayGuess = [];
     roundCounter = 1;
     currentRound = 'first';
@@ -65,7 +74,6 @@ const deleteLastLetter = () => arrayGuess.pop();
 // put letter in letterboard
 const putLetterIn = (arrayGuess, roundCounter) => {
     currentRound = round(roundCounter)
-    console.log(currentRound);
     $$('#' + currentRound + ' > div')[arrayGuess.length - 1].innerHTML = arrayGuess[arrayGuess.length - 1];
 };
 
@@ -75,7 +83,6 @@ const removeLetter = (arrayGuess) => idRoundSelector(roundCounter)[arrayGuess.le
 // nächste Runde 
 const round = (roundCounter) => {
     let roundSelector = $('.letterContainer > div:nth-child(' + roundCounter + ')').id;
-    // console.log(roundSelector);
     return roundSelector;
 };
 
@@ -97,15 +104,26 @@ const checksGetsLetterFromInput = (e) => {
             key = e.target.id;
             checkInputFor(key);
             break;
-    }
+    };
 };
 
-// Initiert nächte Raterunde 
+// Initiert nächste Raterunde 
 const nextRound = () => {
-    arrayGuess = [];
-    roundCounter++
-    round(roundCounter);
-}
+    // Solange das Spiel nicht in der letzten Runde ist: 
+    if(roundCounter < 6) {
+         // arrayGuess leeren
+        arrayGuess = [];
+         // roundCounter um eins erhöhen
+        roundCounter++;
+        // nächste Runde einleiten
+        round(roundCounter);
+    } else {
+        // notification Anzeigen
+        showUnsuccessfulNotification(word);
+        // Eventhandler hinzufügen
+        addBtnHandlerNewGame(unsuccessfulNotification);
+    };
+};
 
 // Überprüft Eingabe...
 const checkInputFor = (key) => {

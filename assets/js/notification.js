@@ -1,29 +1,38 @@
 'use strict';
 // === DOM & VARS ===
-const notification = $('#notification');
+const notification = $('#noWord-notification');
 const noWord = $('#noWord');
-const winningNotification = $('#win-notification')
+const successfulNotification = $('#successful');
+const unsuccessfulNotification = $('#unsuccessful');
 
 
 // === FUNCTIONS ====
-// Gewinn vom Spiel Hinweis
-const showWinningNotification = (word, roundCounter) => {
-    winningNotification.style.display = 'block';
+// notification for a successful game
+const showSuccessfulNotification = (word, roundCounter) => {
+    successfulNotification.style.display = 'block';
     $('#winningWord').innerHTML = word;
     $('#rounds').innerHTML = roundCounter;
 }
 
-// "kein Wort" Hinweis einblenden
+// notification for a unlisted word
 const noWordNotification = (guessWord) => {
     notification.style.display = 'block';
     noWord.innerHTML = guessWord;
 };
-// Hinweis Ausblenden
+
+// close notification 
 const closeNotification = (selector) => {
-    selector.style.display = 'none';
+    $(`#${selector}`).style.display = 'none';
 };
 
+// automatische Ein- und Ausblenden der Notification
 const blendInAndOutNoWordNotification = (guessWord) => {
     noWordNotification(guessWord);
-    setTimeout(() => closeNotification(notification), 1800);
+    setTimeout(() => closeNotification(notification.id), 1800);
 };
+
+// notification for unsuccessful round
+const showUnsuccessfulNotification = (word) => {
+    unsuccessfulNotification.style.display = 'block';
+    $('#searchedWord').innerHTML = word;
+}

@@ -8,7 +8,7 @@ const yellow = 'rgb(226, 188, 17)';
 const grey = 'rgb(124, 142, 160)';
 
 // ====== FUNCTIONS =======
-// Auswertung von guess-word (verlgeich word mit guess-word)
+// Auswertung von guess-word (verlgeich word mit searchedWord), wenn das guessWord existiert 
 const checkGuess = (word, guess) => {
     let index = 0;
     const searchedWord = word.toUpperCase().split('');
@@ -28,11 +28,13 @@ const checkGuess = (word, guess) => {
         index++;
     }
 
-    // check for win 
+    // check for for win(successful) or lose(unsuccessful);
     if (word === (guess.join('').toLowerCase())) {
-        showWinningNotification(word, roundCounter);
+        showSuccessfulNotification(word, roundCounter);
+        addBtnHandlerNewGame();
         return;
-    }
+    } 
+    
 
     return guessWord[index];
 };
@@ -81,7 +83,9 @@ const wrong = (index) => {
     idRoundSelector(roundCounter)[index].classList.add('wrong');
 };
 
-// TODO: Auswertung und Vergebung der Farben verbessern (Tastatur)
+
 // TODO: deutsches Wörterbuch: Button für Auswahl der Sprache (ändern der URL) 
+// TODO: Einfügen einer Erklärung, für Auflösung (showWord) des gesuchten Wortes (unsuccessfulNotification)
+// TODO: Nach Auflösung (showWord) das Wort aus ungespielte Wörter entfernen (z.B. branch "Array": push in playedWords)
 
 
