@@ -26,16 +26,34 @@ const checkGuess = (word, guess) => {
         index++;
     }
 
-    // check for for win(successful) or lose(unsuccessful);
-    if (word === (guess.join('').toLowerCase())) {
-        showSuccessfulNotification(word, roundCounter);
+    // check for win(successful) or lose(unsuccessful);
+    checkForWin(word, guessWord, counterRound);
+    
+    // return guessWord[index];
+};
+
+// check for win(successful) or lose(unsuccessful) 
+const checkForWin = (word, guessWord, counterRound) => {
+    if (counterRound < 6 && (word === (guessWord.join('').toLowerCase()))) {
+        showSuccessfulNotification(word, counterRound);
         addBtnHandlerNewGame();
         return;
     } 
-    
 
-    return guessWord[index];
-};
+    if ((counterRound === 6) && (word === (guessWord.join('').toLowerCase()))) {
+        showSuccessfulNotification(word, counterRound);
+        addBtnHandlerNewGame();
+        return;
+    };  
+    
+    if (counterRound === 6 && !(word === (guessWord.join('').toLowerCase()))) {
+        // notification Anzeigen
+        showUnsuccessfulNotification(word);
+        // Eventhandler hinzufügen
+        addBtnHandlerNewGame(unsuccessfulNotification);
+        return;
+    }; 
+}
 
 // Funktionen um den Keys des virutellen KEYBOARDs css-Klassen hinzuzufügen bzw. zu entfernen
 // get GREEN background
@@ -68,17 +86,17 @@ const wrongKey = (key) => {
 // css-Klassen müssen nicht entfernt werden, da die dem Element nur nach der Auswertung hinzugefügt werden. 
 // add class "rightPlace"
 const rightPlace = (index) => {
-    idRoundSelector(roundCounter)[index].classList.add('rightPlace');
+    idRoundSelector(counterRound)[index].classList.add('rightPlace');
 };
 
 // add class "wrongPlace"
 const wrongPlace = (index) => {
-    idRoundSelector(roundCounter)[index].classList.add('wrongPlace');
+    idRoundSelector(counterRound)[index].classList.add('wrongPlace');
 };
 
 // add class "wrong"
 const wrong = (index) => {
-    idRoundSelector(roundCounter)[index].classList.add('wrong');
+    idRoundSelector(counterRound)[index].classList.add('wrong');
 };
 
 
