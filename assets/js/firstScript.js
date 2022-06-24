@@ -44,6 +44,7 @@ const showWordInUnsuccessfulNotification = (e) => {
 }
 
 const hideWordInUnsuccessfulNotification = () => {
+    $('#btn-showWord').style.display = 'block';
     $('#searchedWord').style.display = 'none';
 } 
 
@@ -61,10 +62,7 @@ const newGame = (selector) => {
     allOutputs.forEach(output => removeClass(output)); 
     allKeys.forEach(key => removeClass(key));
 
-    
-    // TODO: fix bug: bei einer 'loser'-Runde und die Anzeige des Wortes am Ende, 
-    // wird das Wort in der nächten 'loser'-Runde sofort angezeigt 
-    // bzw. nun gar nicht mehr angezeigt  
+    // checks if the word was shown at the end of the last unsuccessful round and hides it
     ($('#searchedWord').style.display === 'block') ? hideWordInUnsuccessfulNotification() : '';
 };
 
