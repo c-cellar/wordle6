@@ -25,7 +25,7 @@ const closeNotification = (selector) => {
     $(`#${selector}`).style.display = 'none';
 };
 
-// automatische Ein- und Ausblenden der Notification
+// automatische Ein- und Ausblenden der unlisted word notification
 const blendInAndOutNoWordNotification = (guessWord) => {
     noWordNotification(guessWord);
     setTimeout(() => closeNotification(notification.id), 1800);
