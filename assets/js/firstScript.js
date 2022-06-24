@@ -5,7 +5,7 @@ const $$ = (q) => document.querySelectorAll(q)
 
 // guess-Wort
 let arrayGuess = [];
-let roundCounter = 1;
+let counterRound = 1;
 let currentRound = 'first';
 
 // input
@@ -43,17 +43,27 @@ const showWordInUnsuccessfulNotification = (e) => {
     $('#searchedWord').style.display = 'block';
 }
 
+const hideWordInUnsuccessfulNotification = () => {
+    $('#searchedWord').style.display = 'none';
+} 
+
 // neues Spiel 
 const newGame = (selector) => {
     console.log('New Game');
     // console.log(selector.currentTarget.parentElement.id);   
     closeNotification(selector.currentTarget.parentElement.id);
     arrayGuess = [];
-    roundCounter = 1;
+    counterRound = 1;
     currentRound = 'first';
     allOutputs.forEach(output => output.innerHTML = '');
     allOutputs.forEach(output => removeClass(output)); 
     allKeys.forEach(key => removeClass(key));
+
+    
+    // TODO: fix bug: bei einer 'loser'-Runde und die Anzeige des Wortes am Ende, 
+    // wird das Wort in der nächten 'loser'-Runde sofort angezeigt 
+    // bzw. nun gar nicht mehr angezeigt  
+    ($('#searchedWord').style.display === 'block') ? hideWordInUnsuccessfulNotification() : '';
 };
 
 // entfernt alle Klassen, die eine Spielrunde zuvor zugeordnet wurden
@@ -70,23 +80,23 @@ const inputWord = (letter) => arrayGuess.push(letter.toUpperCase());
 const deleteLastLetter = () => arrayGuess.pop();
 
 // put letter in letterboard
-const putLetterIn = (arrayGuess, roundCounter) => {
-    currentRound = round(roundCounter)
+const putLetterIn = (arrayGuess, counterRound) => {
+    currentRound = round(counterRound)
     $$('#' + currentRound + ' > div')[arrayGuess.length - 1].innerHTML = arrayGuess[arrayGuess.length - 1];
 };
 
 // remove letter from letterboard
-const removeLetter = (arrayGuess) => idRoundSelector(roundCounter)[arrayGuess.length].innerHTML = '';
+const removeLetter = (arrayGuess) => idRoundSelector(counterRound)[arrayGuess.length].innerHTML = '';
 
 // nächste Runde 
-const round = (roundCounter) => {
-    let roundSelector = $('.letterContainer > div:nth-child(' + roundCounter + ')').id;
+const round = (counterRound) => {
+    let roundSelector = $('.letterContainer > div:nth-child(' + counterRound + ')').id;
     return roundSelector;
 };
 
 // Rundenabhängiger id-Selector in Abhängigkeit vom Rundenzähler 
-const idRoundSelector = (roundCounter) => {
-    currentRound = round(roundCounter);
+const idRoundSelector = (counterRound) => {
+    currentRound = round(counterRound);
     let roundSelectorID = $$('#' + currentRound + ' > div');
     return roundSelectorID;
 };
@@ -108,19 +118,15 @@ const checksGetsLetterFromInput = (e) => {
 // Initiert nächste Raterunde 
 const nextRound = () => {
     // Solange das Spiel nicht in der letzten Runde ist: 
-    if(roundCounter < 6) {
+    if (counterRound < 6) {
          // arrayGuess leeren
         arrayGuess = [];
-         // roundCounter um eins erhöhen
-        roundCounter++;
+         // counterRound um eins erhöhen
+        counterRound++;
         // nächste Runde einleiten
-        round(roundCounter);
-    } else {
-        // notification Anzeigen
-        showUnsuccessfulNotification(word);
-        // Eventhandler hinzufügen
-        addBtnHandlerNewGame(unsuccessfulNotification);
-    };
+        round(counterRound);
+    } 
+    return
 };
 
 // Überprüft Eingabe...
@@ -132,7 +138,7 @@ const checkInputFor = (key) => {
         // auf maximale Länge
         if (arrayGuess.length < maxLength) {
             inputWord(key);
-            putLetterIn(arrayGuess, roundCounter);
+            putLetterIn(arrayGuess, counterRound);
         };
     }
 
