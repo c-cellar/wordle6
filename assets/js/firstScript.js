@@ -55,6 +55,8 @@ const newGame = (selector) => {
     arrayGuess = [];
     counterRound = 1;
     currentRound = 'first';
+    arrayPlayedWords.push(word);
+    word = getWordFromArray(arrayWords);
     allOutputs.forEach(output => output.innerHTML = '');
     allOutputs.forEach(output => removeClass(output)); 
     allKeys.forEach(key => removeClass(key));
