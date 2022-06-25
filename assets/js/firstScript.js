@@ -51,26 +51,39 @@ const hideWordInUnsuccessfulNotification = () => {
 // neues Spiel 
 const newGame = (selector) => {
     console.log('New Game');
-    // console.log(selector.currentTarget.parentElement.id);   
-    closeNotification(selector.currentTarget.parentElement.id);
     arrayGuess = [];
     counterRound = 1;
     currentRound = 'first';
-
-    arrayPlayedWords.push(word);
-
-    // current arrayWords wird dem localStorage hinzugefügt 
-    setLocalStorage(arrayWords);
-    word = getWordFromArray(arrayWords);
-
-
     allOutputs.forEach(output => output.innerHTML = '');
     allOutputs.forEach(output => removeClass(output)); 
     allKeys.forEach(key => removeClass(key));
 
+    // Abfrage ob das gespielte ungelöste Wort am Ende aufgelöst wurde oder nicht
+    if (wasWordrevealed() || winningRound()) {
+        console.log(wasWordrevealed());
+        console.log(winningRound());
+        // current arrayWords wird ohne das gespielte Wort dem localStorage hinzugefügt  
+        setLocalStorage(arrayWords);
+        word = getWordFromArray(arrayWords);
+    } else {
+        // gespieltes Wort wird an das Ende von arrayWords hinzugefügt, da es am Ende nicht aufgelöst wurde
+        console.log(wasWordrevealed())
+        arrayWords.push(word);
+        setLocalStorage(arrayWords);
+        word = getWordFromArray(arrayWords);
+    };
+
+    // schließt notification Fenster
+    closeNotification(selector.currentTarget.parentElement.id);
     // checks if the word was shown at the end of the last unsuccessful round and hides it
     ($('#searchedWord').style.display === 'block') ? hideWordInUnsuccessfulNotification() : '';
 };
+
+// überprüft ob das Wort am Ende des Spiels vom Spieler aufgelöst wurde oder nicht
+const wasWordrevealed = () => ($('#searchedWord').style.display === 'block') ? true : false;
+
+// Überprüft ob das Spiel gewonnen wurde oder nicht
+const winningRound = () => (successfulNotification.style.display === 'block') ? true : false;
 
 // entfernt alle Klassen, die eine Spielrunde zuvor zugeordnet wurden
 const removeClass = (element) => {
