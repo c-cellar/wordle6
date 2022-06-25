@@ -7,8 +7,5 @@ const setLocalStorage = (array) => {
 // get Word from local storage
 const getArrayFromLocalStorage = () => {
     const myWordsFromStorage = JSON.parse(localStorage.getItem('unplayedWords'));
-    console.log(myWordsFromStorage);
     return myWordsFromStorage;
 };
-
-// getWordFromLocalStorage(2);
