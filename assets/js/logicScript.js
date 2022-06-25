@@ -102,6 +102,5 @@ const wrong = (index) => {
 };
 
 // TODO: Einfügen einer Erklärung, für Auflösung (showWord) des gesuchten Wortes (unsuccessfulNotification)
-// TODO: Nach Auflösung (showWord) das Wort aus ungespielte Wörter entfernen (z.B. branch "Array": push in playedWords)
 
 

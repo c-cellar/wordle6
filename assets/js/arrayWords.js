@@ -37,3 +37,9 @@ const getWordFromArray = () => {
 const pushWordInArray = (word, array) => {
     array.push(word);
 };
+
+// TODO: zufällige Wortauswahl /Index für array random generieren (z.B. einen Index zwischen 1-10) / 
+// Umsetzung: 
+// mit func random(). 
+// Bei einer array.length < 10, immer das erste Wort verwenden 
+// oder func ab einer array.length = 10 anpassen ()  
