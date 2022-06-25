@@ -1,6 +1,6 @@
 'use strict'
 // ====== VAR =======
-let word = getWordFromArray(arrayWords);
+let word = getWordFromArray();
 console.log(word);
 
 const green = 'rgb(14, 128, 20)';

@@ -1,10 +1,20 @@
 'use strict';
 // Arrays with words and played words 
-const arrayWords = ['result', 'target', 'flying', 'random'];
-const arrayPlayedWords = [];
+let arrayWords = ['result', 'target', 'flying', 'random'];
+let arrayPlayedWords = [];
 
-const getWordFromArray = (array) => {
-    const word = array.shift();
+const getWordFromArray = () => {
+    // set LocalStorage(array)
+    // array with words stored to localStorage
+    if (getArrayFromLocalStorage() === null) {
+        console.log('keine Daten vorhanden und Array aus script verwenden')
+        const word = arrayWords.shift();
+        return word
+    }
+
+    arrayWords = getArrayFromLocalStorage();
+    console.log('wort aus localstorage genommen');
+    const word = arrayWords.shift();
     return word;
 };
 
