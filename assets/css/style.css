@@ -1,3 +1,33 @@
+:root {
+    /* background-color */
+    --main-background:  rgba(250, 250, 250, 0.705);
+    --header-background: rgba(250, 244, 244, 0.801);
+    --letterbox-background: rgba(255, 255, 255, 0.507); 
+    --notifiction-background: rgba(65, 65, 65, 0.95);
+    --key-letter-background: rgba(255, 255, 255, 0.507);
+    --color-rightPlace: rgb(14, 128, 20);
+    --color-wrongPlace: rgb(226, 188, 17);
+    --color-wrong: rgba(185, 185, 185, 0.9);
+    --btn-searched-word-background: rgba(250, 250, 250, 0.705);
+
+    /* text-color */
+    --main-text: rgba(56, 56, 56);
+    --secondary-text: rgba(128, 128, 128, 0.8);
+    --notification-text: rgba(250, 250, 250, 0.905);
+    --searched-word-text: rgb(56, 56, 56);
+    --checked-letter: white;
+    --btn-newGame-text: white;
+
+    /* Akzente */
+    --letterbox-border: rgba(63, 63, 63, 0.5);
+    --header-shadow: rgba(128, 128, 128, 0.507);
+    --key-border: rgba(185, 185, 185, 0.9);
+    --notification-border: rgba(128, 128, 128, 0.507);
+    --notification-shadow: #555555;
+    --btn-searched-word-border: rgba(250, 250, 250, 0.705);
+    --btn-newGame-border: white;
+}
+
 * {
     font-family: Geneva, Tahoma, sans-serif;
     font-weight: lighter;
@@ -5,24 +35,24 @@
 }
 
 body {
-    background-color: rgba(250, 250, 250, 0.705);
+    background-color: var(--main-background);
     height: 100vh;
     display: grid;
     grid-template-rows: auto;
-    color: rgb(56, 56, 56);
+    color: var(--main-text);
 }
 
 header {
-    background: rgba(250, 244, 244, 0.801); 
+    background: var(--header-background); 
     height: 70px;
-    box-shadow: 0px 5px 10px 5px rgba(128, 128, 128, 0.507);
+    box-shadow: 0px 5px 10px 5px var(--header-shadow);
     margin-bottom: 15px;
 }
 
 h1 {
     padding-top: 18px;
     text-align: center;
-    color: rgba(128, 128, 128, 0.8); 
+    color: var(--secondary-text); 
 }
 
 h1 > span {
@@ -54,13 +84,13 @@ h1 > span {
 }
 
 .letter {
-    background:rgba(255, 255, 255, 0.507);
+    background: var(--letterbox-background);
     text-align: center;
     font-weight: 500;
     line-height: 55px;
     margin: 2px;
     width: 50px;
-    border:  2px solid rgba(63, 63, 63, 0.5); 
+    border: 2px solid var(--letterbox-border);
 }
 
 .keyboard {
@@ -73,7 +103,7 @@ h1 > span {
     font-size: 1.2rem;
     text-align: center;
     line-height: 50px;
-    border: 2px solid rgba(185, 185, 185, 0.9); 
+    border: 2px solid var(--key-border); 
     border-radius: 5px;
     width: 40px;
     height: 50px;
@@ -119,20 +149,20 @@ h1 > span {
     }
 
     .letter {
-        background:rgba(255, 255, 255, 0.507);
+        background: var(--key-letter-background);
         text-align: center;
         font-weight: 500;
         line-height: 55px;
         margin: 2px;
         width: 50px;
-        border: 2px solid rgba(63, 63, 63, 0.5); 
+        border: 2px solid var(--letterbox-border); 
     }
 
     .key {
         font-size: 1.2rem;
         text-align: center;
         line-height: 50px;
-        border: 2px solid rgba(185, 185, 185, 0.9); 
+        border: 2px solid var(--key-border); 
         border-radius: 5px;
         width: 31px;
         height: 50px;
@@ -156,25 +186,25 @@ h1 > span {
 }
 
 .standard {
-    background:rgba(255, 255, 255, 0.507);
+    background:var(--letterbox-background);
 }
 
 .rightPlace {
-    color: white;
-    background: rgb(14, 128, 20);
-    border-color: rgb(14, 128, 20);
+    color: var(--checked-letter);
+    background: var(--color-rightPlace);
+    border-color: var(--color-rightPlace);
 }
 
 .wrongPlace {
-    color: white;
-    background: rgb(226, 188, 17);
-    border-color: rgb(226, 188, 17);
+    color: var(--checked-letter);
+    background: var(--color-wrongPlace);
+    border-color: var(--color-wrongPlace);
 }
 
 .wrong {
-    color: white;
-    border-color: rgba(185, 185, 185, 0.9);
-    background-color: rgba(185, 185, 185, 0.9);
+    color: var(--checked-letter);
+    border-color: var(--color-wrong);
+    background-color: var(--color-wrong);
 }
 
 .notification {
@@ -190,10 +220,10 @@ h1 > span {
     padding: 1rem;
     display: none;
     width: fit-content;
-    color: rgba(250, 250, 250, 0.905);
-    border: solid 2px rgba(250, 250, 250, 0.705);
-    background-color: rgba(65, 65, 65, 0.95);
-    box-shadow: 0px 0px 1em  #555555;
+    color: var(--notification-text);
+    border: solid 2px var(--notification-border);
+    background-color: var(--notifiction-background);
+    box-shadow: 0px 0px 1em var(--notification-shadow);
     opacity: 1;
     text-align: center;
 }
@@ -216,9 +246,9 @@ h1 > span {
     padding: 10px;
     margin-top: 0.5rem;
     font-size: 1rem;
-    background-color:rgb(14, 128, 20);
-    color: white;
-    border: white;
+    background-color:var(--color-rightPlace);
+    color: var(--btn-newGame-text);
+    border: var(--btn-newGame-border);
 }
 
 /* Automatisches Ein- und Ausblenden Notification */
@@ -232,14 +262,14 @@ h1 > span {
     margin-top: 0.5rem;
     display: none;
     padding: 2px 0px;
-    background-color: rgba(250, 250, 250, 0.705);
-    border: solid 1px rgba(250, 250, 250, 0.705);
-    color: rgb(56, 56, 56);
+    background-color: var(--btn-searched-word-background);
+    border: solid 1px var(--btn-searched-word-border);
+    color: var(--searched-word-text);
 }
 
 #btn-showWord {
     margin-top: 0.5rem;
-    border: solid 1px rgba(250, 250, 250, 0.705);
+    border: solid 1px var(--btn-searched-word-border);
     padding: 2px 0px;
     display: block;
 }
@@ -257,6 +287,8 @@ h1 > span {
         opacity: 0;
     }
 }
+
+/* TODO: 80'er effekt. Leuchtstoffröhren effekt auf Borders, Buttons ect. */
 
 
 
