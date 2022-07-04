@@ -33,6 +33,7 @@ const blendInAndOutNoWordNotification = (guessWord) => {
 
 // notification for unsuccessful round
 const showUnsuccessfulNotification = (word) => {
+    word = word.toUpperCase();
     unsuccessfulNotification.style.display = 'block';
     $('#searchedWord').innerHTML = word;
 }
