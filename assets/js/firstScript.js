@@ -16,8 +16,8 @@ const maxLength = 6;
 
 // Selector
 const input = $('.input');
-const oneOutput = $('.letter');
-const allOutputs = $$('.letter');
+const oneOutput = $('.box-letter');
+const allOutputs = $$('.box-letter');
 const allKeys = $$('.key');
 const btnNewGame = $$('.btn-NewGame');
 const btnShowWord = $('#btn-showWord');
@@ -59,15 +59,15 @@ const newGame = (selector) => {
     allKeys.forEach(key => removeClass(key));
 
     // Abfrage ob das gespielte ungelöste Wort am Ende aufgelöst wurde oder nicht
-    if (wasWordrevealed() || winningRound()) {
-        console.log(wasWordrevealed());
+    if (wasWordRevealed() || winningRound()) {
+        console.log(wasWordRevealed());
         console.log(winningRound());
         // current arrayWords wird ohne das gespielte Wort dem localStorage hinzugefügt  
         setLocalStorage(arrayWords);
         word = getWordFromArray(arrayWords);
     } else {
         // gespieltes Wort wird an das Ende von arrayWords hinzugefügt, da es am Ende nicht aufgelöst wurde
-        console.log(wasWordrevealed())
+        console.log(wasWordRevealed())
         arrayWords.push(word);
         setLocalStorage(arrayWords);
         word = getWordFromArray(arrayWords);
@@ -80,7 +80,7 @@ const newGame = (selector) => {
 };
 
 // überprüft ob das Wort am Ende des Spiels vom Spieler aufgelöst wurde oder nicht
-const wasWordrevealed = () => ($('#searchedWord').style.display === 'block') ? true : false;
+const wasWordRevealed = () => ($('#searchedWord').style.display === 'block') ? true : false;
 
 // Überprüft ob das Spiel gewonnen wurde oder nicht
 const winningRound = () => (successfulNotification.style.display === 'block') ? true : false;
