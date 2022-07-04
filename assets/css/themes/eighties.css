@@ -1,0 +1,92 @@
+:root {
+    /* =============== 80'er style ==================== */
+    --main-background:  rgb(26, 26, 26);
+    --letterbox-background: rgba(26, 26, 26, 0.8); 
+    --letterbox-border: rgb(236, 239, 239);
+    --color-rightPlace: rgb(32, 249, 29);
+    --color-wrongPlace: rgb(255, 255, 0);
+    --color-wrong: rgb(130, 130, 130);
+
+    --grey-dark: 56, 56, 56;
+    --grey-medium: 150, 150, 150;
+    --grey-bright: 250, 250, 250;
+}
+
+body {
+    color: rgb(var(--grey-bright));
+}
+
+header {
+    box-shadow: 0 0 1rem rgb(var(--grey-medium));
+}
+
+h1 {
+    color: rgb(var(--grey-bright));
+    text-shadow:
+        -0.2rem -0.2rem 1rem rgb(var(--grey-medium)),
+        0.2rem 0.2rem 1rem rgb(var(--grey-medium));
+}
+
+.box-letter {
+    border-radius: 0.5rem;
+    box-shadow: 
+        0 0 0.5rem var(--letterbox-border), 
+        inset 0 0 0.5rem var(--letterbox-border);
+
+    text-shadow:   
+        -0.1rem -0.1rem 1rem var(--letterbox-border),
+        0.1rem 0.1rem 1rem var(--letterbox-border);
+}
+
+.notification {
+    border-radius: 0.5rem;
+}
+
+.rightPlace {
+    color: var(--color-rightPlace);
+    border-radius: 0.5rem;
+    box-shadow: 
+        inset 0 0 0.5rem var(--color-rightPlace),
+        0 0 0.5rem var(--color-rightPlace);
+    text-shadow:   
+        -0.2rem -0.2rem 1rem var(--color-rightPlace),
+        0.2rem 0.2rem 1rem var(--color-rightPlace);
+}
+
+.wrongPlace {
+    color: var(--color-wrongPlace);
+    border-radius: 0.5rem;
+    box-shadow: 
+        inset 0 0 0.5rem var(--color-wrongPlace),
+        0 0 0.5rem var(--color-wrongPlace);
+    text-shadow:   
+        -0.2rem -0.2rem 1rem var(--color-wrongPlace),
+        0.2rem 0.2rem 1rem var(--color-wrongPlace);
+}
+
+.wrong {
+    color: var(--color-wrong);
+    border-radius: 0.5rem;
+    box-shadow: 
+        inset 0 0 0.5rem var(--color-wrong),
+        0 0 0.5rem var(--color-wrong);
+    text-shadow:   
+        -0.2rem -0.2rem 1rem var(--color-wrong),
+        0.2rem 0.2rem 1rem var(--color-wrong);
+}
+
+.btn-NewGame {
+    border-radius: 0.5rem;
+    border-color: var(--color-rightPlace);
+    box-shadow: 
+        inset 0 0 0.5rem var(--color-rightPlace),
+        0 0 0.5rem var(--color-rightPlace);
+}
+
+.btn-NewGame:hover {
+    background-color: var(--color-rightPlace);
+    box-shadow: 
+        inset 0 0 0.5rem var(--color-rightPlace),
+        0 0 0.5rem var(--color-rightPlace),
+        0 0 1rem var(--color-rightPlace);
+}
