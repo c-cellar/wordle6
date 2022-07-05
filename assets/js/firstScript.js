@@ -21,12 +21,14 @@ const allOutputs = $$('.box-letter');
 const allKeys = $$('.key');
 const btnNewGame = $$('.btn-NewGame');
 const btnShowWord = $('#btn-showWord');
+const hamburgerMenu = $('.hamburger-menu');
 
 // === INIT =========
 const init = () => {
     addKeyhandler();
     addClickEventOnKey();
     addBtnHandlerShowWord();
+    addEventHandlerMenu();
 };
 
 
@@ -35,9 +37,17 @@ const addKeyhandler = () => document.addEventListener('keydown', checksGetsLette
 const addClickEventOnKey = () => allKeys.forEach(key => key.addEventListener('click', checksGetsLetterFromInput));
 const addBtnHandlerNewGame = () => btnNewGame.forEach(btn => btn.addEventListener('click', newGame));
 const addBtnHandlerShowWord = () => btnShowWord.addEventListener('click', showWordInUnsuccessfulNotification);
+const addEventHandlerMenu = () => hamburgerMenu.addEventListener('click', openMenu);
 
 // === FUNCTIONS ====
+// hamburger menu 
+function openMenu () {
+    console.log(hamburgerMenu);
+    hamburgerMenu.classList.toggle('open');
+};
+
 // showWord
+// TODO: vielleicht Refactoring mit toggle()
 const showWordInUnsuccessfulNotification = (e) => {
     e.target.style.display = 'none';
     $('#searchedWord').style.display = 'block';
