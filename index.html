@@ -11,13 +11,18 @@
     <script src="assets/js/dictionary.js" defer></script>
     <script src="assets/js/notification.js" defer></script>
     <title>Wordle6</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/themes/standard.css">
-    <!-- <link rel="stylesheet" href="assets/css/themes/eighties.css"> -->
+    <link rel="stylesheet" href="assets/css/common.css">
+    <!-- <link rel="stylesheet" href="assets/css/themes/standard.css"> -->
+    <link rel="stylesheet" href="assets/css/themes/eighties.css">
 </head>
 <body>
     <header>
         <h1><span class="rightPlace">W</span>ORDL<span class="wrongPlace">E</span><span class="wrong">6</span></h1>
+        <label for="themes">change style:</label>
+        <select name="themes" id="themes">
+            <option value="eighties">standad</option>
+            <option value="eighties">dark/eighties</option>
+        </select>
     </header>
     <!-- Notification: noWord -->
     <div id="noWord-notification" class="notification">
