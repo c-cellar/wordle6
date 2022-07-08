@@ -17,6 +17,7 @@ header {
     margin-bottom: 15px;
     box-shadow: 0px 5px 10px 5px rgb(var(--grey-medium));
     position: relative;
+    width: 100%;
 }
 
 h1 {
