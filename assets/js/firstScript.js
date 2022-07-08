@@ -22,6 +22,9 @@ const allKeys = $$('.key');
 const btnNewGame = $$('.btn-NewGame');
 const btnShowWord = $('#btn-showWord');
 const hamburgerMenuIcon = $('.hamburger-menu-icon');
+const darkButton = $('#dark');
+const lightButton = $('#light');
+const html = $('html');
 
 // === INIT =========
 const init = () => {
@@ -29,6 +32,8 @@ const init = () => {
     addClickEventOnKey();
     addBtnHandlerShowWord();
     addEventHandlerMenu();
+    addEventhandlerDarkBtn();
+    addEventhandlerlightBtn();
 };
 
 
@@ -38,8 +43,20 @@ const addClickEventOnKey = () => allKeys.forEach(key => key.addEventListener('cl
 const addBtnHandlerNewGame = () => btnNewGame.forEach(btn => btn.addEventListener('click', newGame));
 const addBtnHandlerShowWord = () => btnShowWord.addEventListener('click', showWordInUnsuccessfulNotification);
 const addEventHandlerMenu = () => hamburgerMenuIcon.addEventListener('click', openMenu);
+const addEventhandlerDarkBtn = () => darkButton.addEventListener('click', changeThemeToDark);
+const addEventhandlerlightBtn = () => lightButton.addEventListener('click', changeThemeToLight);
 
 // === FUNCTIONS ====
+
+function changeThemeToLight () {
+    html.classList.remove('dark')
+    html.classList.add('light');
+}
+
+function changeThemeToDark () {
+    html.classList.remove('light')
+    html.classList.add('dark');
+}
 // hamburger menu 
 function openMenu () {
     hamburgerMenuIcon.classList.toggle('open');
