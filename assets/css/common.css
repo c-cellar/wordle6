@@ -31,12 +31,6 @@ h1 > span {
     padding: 5px;
 }
 
-.wrap-dropdown {
-    float: right;
-    line-height: 70px;
-    padding: 0px 10px;
-}
-
 .btn:hover {
     cursor: pointer;
 }
@@ -110,22 +104,22 @@ h1 > span {
     font-size: 2rem;
 }
 
+/********** theme selection *******/
+.hamburger-menu-wrapper {
+    opacity: 0;
+}
+
+.radio-btn-theme-wrapper {
+    opacity: 1;
+    float: right;
+    line-height: 70px;
+}
+
 
 /*******************  Media Queries **************************/
 @media screen and (max-width: 640px) {
     header {
         margin-bottom: 15px;
-    }
-
-.radio-btn-theme-wrapper {
-    opacity: 1;
-        float: right;
-        line-height: 70px;
-        padding: 0px 10px;
-    }
-
-    label {
-        display: none;
     }
   
     .keyboard { 
@@ -294,21 +288,21 @@ h1 > span {
 
     .hamburger-menu-icon:hover div:nth-child(1) {
         box-shadow: 
-            0 0 1em var(--color-rightPlace), 
+            0 0 1em var(--color-rightPlace),
             0 0 2em var(--color-rightPlace),
             inset 0 0 1em var(--color-rightPlace);
     }
 
     .hamburger-menu-icon:hover div:nth-child(2) {
         box-shadow: 
-            0 0 1em var(--color-wrong), 
+            0 0 1em var(--color-wrong),
             0 0 2em var(--color-wrong),
             inset 0 0 1em var(--color-wrong);
     }
 
     .hamburger-menu-icon:hover div:nth-child(3) {
         box-shadow: 
-            0 0 1em var(--color-wrongPlace), 
+            0 0 1em var(--color-wrongPlace),
             0 0 2em var(--color-wrongPlace),
             inset 0 0 1em var(--color-wrongPlace);
     }
