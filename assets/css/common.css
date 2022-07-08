@@ -117,8 +117,8 @@ h1 > span {
         margin-bottom: 15px;
     }
 
-    .wrap-dropdown {
-        display: none;
+.radio-btn-theme-wrapper {
+    opacity: 1;
         float: right;
         line-height: 70px;
         padding: 0px 10px;
