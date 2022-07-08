@@ -178,8 +178,78 @@ h1 > span {
         font-size: 2rem;
     }
 
+    /******* theme selection ***********/
+    .hamburger-menu-wrapper {
+        opacity: 1;
+    }
+
+    .radio-btn-theme-wrapper {
+        opacity: 0;
+    }
+
     /******************* Hamburger Menu *************/
-    .hamburger-menu {
+    .dropdown-wrapper {
+        width: fit-content;
+        opacity: 1;
+    }
+    
+    .dropdown {
+        /* border: solid 1px blue;
+        box-sizing: border-box; */
+        
+        padding: 0px;
+        margin: 0px;
+        position: absolute;
+        top: 70px;
+        width: 100%;
+        height: 55px;
+        background-color: var(--main-background);
+        box-shadow: 0px 7px 7px rgb(var(--grey-medium));
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 5;
+        opacity: 0;
+    }
+
+    .dropdown-item a::before {
+        content: ' ';
+        border: 1px solid currentColor;
+        border-radius: 50%;
+        width: 1.5rem;
+        height: 1.5rem;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+
+    .dropdown.open {
+        opacity: 1;
+    }
+    
+    .dropdown-item {
+        /* border: solid 1px white; */
+
+        list-style: none;
+        background-color: var(--main-background);
+    }
+
+    a {
+        text-decoration: none;
+        color: currentColor;
+    }
+
+    a:hover {
+        color: var(--color-rightPlace);
+    }
+
+    a:focus {
+        color: var(--color-rightPlace);
+    }
+
+    /***************** Hamburger Menu Icon *******************/
+    .hamburger-menu-icon {
         width: 35px;
         height: 30px;
         margin: 10px 10px;
@@ -187,10 +257,10 @@ h1 > span {
         cursor: pointer;
         display: inline-block;
         top: 8px;
-        left: 85%;
+        left: 83%;
     }
 
-    .hamburger-menu div {
+    .hamburger-menu-icon div {
         position: absolute;
         border-radius: 2px;
         transition: .3s cubic-bezier(.8, .5, .2, 1.4);
@@ -198,28 +268,66 @@ h1 > span {
         height: 4px;
     }
 
-    .hamburger-menu div:nth-child(1) {
+    .hamburger-menu-icon div:nth-child(1) {
         background-color: var(--color-rightPlace);
         top: 0px;
+        /* box-shadow: 
+            0 0 1em var(--color-rightPlace), 
+            inset 0 0 1em var(--color-rightPlace); */
+    }
+
+    .hamburger-menu-icon div:nth-child(2) {
+        background-color: var(--color-wrong);
+        top: 13px;
+        /* box-shadow: 
+            0 0 1em var(--color-wrong), 
+            inset 0 0 1em var(--color-wrong); */
+    }
+
+    .hamburger-menu-icon div:nth-child(3) {
+        background-color: var(--color-wrongPlace);
+        bottom: 0px;
+        /* box-shadow: 
+            0 0 1em var(--color-wrongPlace), 
+            inset 0 0 1em var(--color-wrongPlace); */
+    }
+
+    .hamburger-menu-icon:hover div:nth-child(1) {
         box-shadow: 
             0 0 1em var(--color-rightPlace), 
+            0 0 2em var(--color-rightPlace),
             inset 0 0 1em var(--color-rightPlace);
     }
 
-    .hamburger-menu div:nth-child(2) {
-        background-color: var(--color-wrong);
-        top: 13px;
+    .hamburger-menu-icon:hover div:nth-child(2) {
         box-shadow: 
             0 0 1em var(--color-wrong), 
+            0 0 2em var(--color-wrong),
             inset 0 0 1em var(--color-wrong);
     }
 
-    .hamburger-menu div:nth-child(3) {
-        background-color: var(--color-wrongPlace);
-        bottom: 0px;
+    .hamburger-menu-icon:hover div:nth-child(3) {
         box-shadow: 
             0 0 1em var(--color-wrongPlace), 
+            0 0 2em var(--color-wrongPlace),
             inset 0 0 1em var(--color-wrongPlace);
+    }
+
+    .hamburger-menu-icon.open div:nth-child(1) {
+        transform: rotate(45deg) scaleX(0.8);
+        top: 13px;
+        left: -9px;
+    }
+
+    .hamburger-menu-icon.open div:nth-child(2) {
+        transform: rotate(180deg) scale(0);
+        transition-duration: 100ms;
+    }
+
+    .hamburger-menu-icon.open div:nth-child(3) {
+        transform: rotate(-45deg) scaleX(0.8);
+        bottom: 13px;
+        left: 9px;
     }
 }
 
