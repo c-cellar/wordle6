@@ -25,9 +25,11 @@ const hamburgerMenuIcon = $('.hamburger-menu-icon');
 const darkButton = $('#dark');
 const lightButton = $('#light');
 const html = $('html');
+const h1Span = $$('h1 span');
 
 // === INIT =========
 const init = () => {
+    checkSelectedTheme();
     addKeyhandler();
     addClickEventOnKey();
     addBtnHandlerShowWord();
@@ -47,6 +49,20 @@ const addEventhandlerDarkBtn = () => darkButton.addEventListener('click', change
 const addEventhandlerlightBtn = () => lightButton.addEventListener('click', changeThemeToLight);
 
 // === FUNCTIONS ====
+// checks which theme is/was selected 
+function checkSelectedTheme () {
+    if (html.classList.contains('dark')) {
+        h1Span.forEach(el => {
+            el.classList.add('header-dark');
+            el.classList.add('box-letter-dark');
+        });
+    } else {
+        h1Span.forEach(el => {
+            el.classList.remove('box-letter-dark');
+            el.classList.remove('header-dark');
+        })
+    }
+};
 
 function changeThemeToLight () {
     html.classList.remove('dark');
