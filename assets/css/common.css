@@ -272,11 +272,11 @@ h1 > span {
         content: ' ';
         border: 1px solid currentColor;
         border-radius: 50%;
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1rem;
+        height: 1rem;
         display: inline-block;
         vertical-align: middle;
-        margin-right: 8px;
+        margin-right: 5px;
     }
 
     .dropdown-wrapper.open {
@@ -323,27 +323,18 @@ h1 > span {
     }
 
     .hamburger-menu-icon div:nth-child(1) {
-        background-color: var(--bg-rightPlace);
+        background-color: var(--border-rightPlace);
         top: 0px;
-        box-shadow: 
-            0 0 1em var(--color-rightPlace), 
-            inset 0 0 1em var(--color-rightPlace);
     }
 
     .hamburger-menu-icon div:nth-child(2) {
-        background-color: var(--bg-wrong);
+        background-color: var(--border-wrong);
         top: 13px;
-        box-shadow: 
-            0 0 1em var(--color-wrong), 
-            inset 0 0 1em var(--color-wrong);
     }
 
     .hamburger-menu-icon div:nth-child(3) {
-        background-color: var(--bg-wrongPlace);
+        background-color: var(--border-wrongPlace);
         bottom: 0px;
-        box-shadow: 
-            0 0 1em var(--color-wrongPlace), 
-            inset 0 0 1em var(--color-wrongPlace);
     }
 
     .hamburger-menu-icon:hover div:nth-child(1) {
@@ -561,4 +552,4 @@ h1 > span {
     }
 }
 
-/* TODO: 80'er effekt. Leuchtstoffröhren effekt auf Borders, Buttons ect. */
+/* TODO: dropdown radio-btn and name to same hight-level*/
