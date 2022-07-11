@@ -115,6 +115,7 @@ h1 > span {
     opacity: 1;
     float: right;
     line-height: 70px;
+    transform: translateX(-15%);
 }
 
 
