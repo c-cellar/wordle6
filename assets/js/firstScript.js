@@ -49,9 +49,15 @@ const addEventhandlerlightBtn = () => lightButton.addEventListener('click', chan
 // === FUNCTIONS ====
 
 function changeThemeToLight () {
-    html.classList.remove('dark')
+    html.classList.remove('dark');
     html.classList.add('light');
-}
+    allOutputs.forEach(output => {
+        output.classList.remove('box-letter-dark')
+    });
+    allKeys.forEach(key => {
+        key.classList.remove('box-letter-dark')
+    });
+    
 
 function changeThemeToDark () {
     html.classList.remove('light');
