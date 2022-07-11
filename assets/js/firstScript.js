@@ -72,6 +72,10 @@ function changeThemeToDark () {
         key.classList.add('box-letter-dark');
     });
 
+    // checks for h1 which theme is selected
+    checkSelectedTheme();
+};
+
 // hamburger menu 
 function openMenu () {
     hamburgerMenuIcon.classList.toggle('open');
