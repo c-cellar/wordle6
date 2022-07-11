@@ -31,19 +31,32 @@ h1 > span {
     padding: 5px;
 }
 
-.btn:hover {
-    cursor: pointer;
+/***************** HEADER DARK *********************/
+.header-dark.rightPlace {
+    box-shadow: 
+        inset 0 0 0.5rem var(--text-shadow-rightPlace),
+        0 0 0.5rem var(--text-shadow-rightPlace);
+    text-shadow:   
+        -0.2rem -0.2rem 1rem var(--text-shadow-rightPlace),
+        0.2rem 0.2rem 1rem var(--text-shadow-rightPlace);
 }
 
-.keyboardRow {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    padding: 2px 0px;
+.header-dark.wrongPlace {
+    box-shadow: 
+        inset 0 0 0.5rem var(--text-shadow-wrongPlace),
+        0 0 0.5rem var(--text-shadow-wrongPlace);
+    text-shadow:   
+        -0.2rem -0.2rem 1rem var(--text-shadow-wrongPlace),
+        0.2rem 0.2rem 1rem var(--text-shadow-wrongPlace);
 }
 
-.key {
-    border: 2px solid var(--letterbox-border);
+.header-dark.wrong {
+    box-shadow: 
+        inset 0 0 0.5rem var(--text-shadow-wrong),
+        0 0 0.5rem var(--text-shadow-wrong);
+    text-shadow:   
+        -0.2rem -0.2rem 1rem var(--text-shadow-wrong),
+        0.2rem 0.2rem 1rem var(--text-shadow-wrong);
 }
 
 .key:hover {
