@@ -54,9 +54,15 @@ function changeThemeToLight () {
 }
 
 function changeThemeToDark () {
-    html.classList.remove('light')
+    html.classList.remove('light');
     html.classList.add('dark');
-}
+    allOutputs.forEach(output => {
+        output.classList.add('box-letter-dark');
+    });
+    allKeys.forEach(key => {
+        key.classList.add('box-letter-dark');
+    });
+
 // hamburger menu 
 function openMenu () {
     hamburgerMenuIcon.classList.toggle('open');
