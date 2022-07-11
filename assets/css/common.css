@@ -59,18 +59,7 @@ h1 > span {
         0.2rem 0.2rem 1rem var(--text-shadow-wrong);
 }
 
-.key:hover {
-    cursor: pointer;
-}
-
-.standard {
-    background: var(--letterbox-background);
-}
-
-.box-letter {
-    border: 2px solid var(--letterbox-border);
-}
-
+/****************** BOX LETTERS  *************************/
 .round {
     font-size: 2rem;
     width: 360px;
