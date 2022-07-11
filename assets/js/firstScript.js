@@ -61,7 +61,7 @@ function changeThemeToDark () {
 function openMenu () {
     hamburgerMenuIcon.classList.toggle('open');
     $('header').classList.toggle('open');
-    $('.dropdown').classList.toggle('open');
+    $('.dropdown-wrapper').classList.toggle('open');
 };
 
 // showWord in notification at the end of a "unsuccessful" game
