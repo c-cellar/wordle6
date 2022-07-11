@@ -58,6 +58,9 @@ function changeThemeToLight () {
         key.classList.remove('box-letter-dark')
     });
     
+    // checks for h1 which theme is selected
+    checkSelectedTheme();
+};
 
 function changeThemeToDark () {
     html.classList.remove('light');
