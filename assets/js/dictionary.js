@@ -18,5 +18,3 @@ async function existingWord(arrayGuess) {
     })
     .catch((err) => console.log(err));
 }
-
-// TODO: API für deutsches Wörterbuch einbinden
