@@ -1,73 +1,202 @@
-@import 'themes/eighties.css';
+@import "themes/eighties.css";
 
 * {
-    font-family: Geneva, Tahoma, sans-serif;
-    font-weight: lighter;
-    margin: 0px;
+  font-family: Geneva, Tahoma, sans-serif;
+  font-weight: lighter;
+  margin: 0px;
 }
 
 body {
-    height: 100vh;
-    display: grid;
-    grid-template-rows: auto;
-    color: var(--main-text);
-    background: var(--main-background);
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto;
+  color: var(--main-text);
+  background: var(--main-background);
 }
 
 header {
-    height: 70px;
-    margin-bottom: 15px;
-    box-shadow: 0px 5px 10px 5px var(--grey-medium);
-    position: relative;
-    width: 100%;
+  height: 70px;
+  margin-bottom: 15px;
+  box-shadow: 0px 5px 10px 5px var(--grey-medium);
+  position: relative;
+  width: 100%;
 }
 
 h1 {
-    color: var(--main-text);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  color: var(--main-text);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    text-shadow:
-        -0.2rem -0.2rem 1rem var(--text-shadow-h1),
-        0.2rem 0.2rem 1rem var(--text-shadow-h1);
+  text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-h1),
+    0.2rem 0.2rem 1rem var(--text-shadow-h1);
 }
 
-h1 > span {
-    padding: 5px;
+h1>span {
+  padding: 5px;
 }
 
 /***************** HEADER DARK *********************/
 .header-dark.rightPlace {
-    box-shadow: 
-        inset 0 0 0.5rem var(--text-shadow-rightPlace),
-        0 0 0.5rem var(--text-shadow-rightPlace);
-    text-shadow:   
-        -0.2rem -0.2rem 1rem var(--text-shadow-rightPlace),
-        0.2rem 0.2rem 1rem var(--text-shadow-rightPlace);
+  box-shadow: inset 0 0 0.5rem var(--text-shadow-rightPlace),
+    0 0 0.5rem var(--text-shadow-rightPlace);
+  text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-rightPlace),
+    0.2rem 0.2rem 1rem var(--text-shadow-rightPlace);
 }
 
 .header-dark.wrongPlace {
-    box-shadow: 
-        inset 0 0 0.5rem var(--text-shadow-wrongPlace),
-        0 0 0.5rem var(--text-shadow-wrongPlace);
-    text-shadow:   
-        -0.2rem -0.2rem 1rem var(--text-shadow-wrongPlace),
-        0.2rem 0.2rem 1rem var(--text-shadow-wrongPlace);
+  box-shadow: inset 0 0 0.5rem var(--text-shadow-wrongPlace),
+    0 0 0.5rem var(--text-shadow-wrongPlace);
+  text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-wrongPlace),
+    0.2rem 0.2rem 1rem var(--text-shadow-wrongPlace);
 }
 
 .header-dark.wrong {
-    box-shadow: 
-        inset 0 0 0.5rem var(--text-shadow-wrong),
-        0 0 0.5rem var(--text-shadow-wrong);
-    text-shadow:   
-        -0.2rem -0.2rem 1rem var(--text-shadow-wrong),
-        0.2rem 0.2rem 1rem var(--text-shadow-wrong);
+  box-shadow: inset 0 0 0.5rem var(--text-shadow-wrong),
+    0 0 0.5rem var(--text-shadow-wrong);
+  text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-wrong),
+    0.2rem 0.2rem 1rem var(--text-shadow-wrong);
 }
 
 /****************** BOX LETTERS  *************************/
 .round {
+  font-size: 2rem;
+  width: 360px;
+  height: 62px;
+  margin: 0px auto;
+  display: block;
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+}
+
+.box-letter {
+  border: 2px solid var(--letterbox-border);
+  text-align: center;
+  font-weight: 500;
+  line-height: 55px;
+  margin: 2px;
+  width: 50px;
+}
+
+/************* KEYBOARD/KEYS ******************************/
+.key {
+  border: 2px solid var(--letterbox-border);
+}
+
+.keyboardRow {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 2px 0px;
+}
+
+.key:hover {
+  cursor: pointer;
+}
+
+.keyboard {
+  align-self: end;
+  margin-bottom: 10px;
+  height: fit-content;
+}
+
+.key {
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 5px;
+  width: 40px;
+  height: 50px;
+}
+
+#Enter {
+  width: 70px;
+  font-size: 2rem;
+  line-height: 40px;
+}
+
+#Backspace {
+  width: 70px;
+  line-height: 40px;
+  font-size: 2rem;
+}
+
+/************************ RADIO BUTTON CUSTOM ********************/
+.radio-btn-theme-wrapper {
+  opacity: 1;
+  float: right;
+  line-height: 70px;
+}
+
+.container-radio {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+.container-radio input {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.container-radio .checkmark {
+  content: " ";
+  border: 2px solid;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 5px;
+  left: 20px;
+  vertical-align: middle;
+}
+
+.container-radio:hover input~.checkmark {
+  background: var(--grey-medium);
+  border-color: var(--grey-bright);
+  box-shadow: 0px 0px 2px 1px var(--grey-medium);
+}
+
+.container-radio input:checked~.checkmark {
+  background: var(--border-rightPlace);
+  border-color: var(--grey-bright);
+  box-shadow: 0px 0px 2px 1px var(--border-rightPlace);
+}
+
+/****************** HAMBURGER MENU *******************************/
+.hamburger-menu-wrapper {
+  opacity: 0;
+  position: relative;
+  z-index: -1;
+}
+
+.dropdown-wrapper {
+  position: relative;
+  opacity: 0;
+  top: 0;
+  z-index: -10;
+}
+
+/*******************  MEDIA QUERIES **************************/
+@media screen and (max-width: 640px) {
+  header {
+    margin-bottom: 15px;
+  }
+
+  .keyboard {
+    display: grid;
+    align-items: end;
+    align-self: end;
+  }
+
+  .keyboardRow {
+    gap: 3px;
+  }
+
+  .round {
     font-size: 2rem;
     width: 360px;
     height: 62px;
@@ -76,480 +205,339 @@ h1 > span {
     display: flex;
     align-content: space-between;
     justify-content: center;
-}
+  }
 
-.box-letter {
-    border: 2px solid var(--letterbox-border);
+  .box-letter {
     text-align: center;
     font-weight: 500;
     line-height: 55px;
     margin: 2px;
     width: 50px;
-}
+  }
 
-/************* KEYBOARD/KEYS ******************************/
-.key {
-    border: 2px solid var(--letterbox-border);
-}
-
-.keyboardRow {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    padding: 2px 0px;
-}
-
-.key:hover {
-    cursor: pointer;
-}
-
-.keyboard {
-    align-self: end;
-    margin-bottom: 10px;
-    height: fit-content;
-}
-
-.key {
+  .key {
     font-size: 1.2rem;
     text-align: center;
     line-height: 50px;
     border-radius: 5px;
-    width: 40px;
+    width: 31px;
     height: 50px;
-}
+  }
 
-#Enter {
-    width: 70px;
+  #Enter {
+    width: 50px;
     font-size: 2rem;
     line-height: 40px;
-}
+  }
 
-#Backspace {
-    width: 70px;
+  #Backspace {
+    width: 50px;
     line-height: 40px;
     font-size: 2rem;
-}
+  }
 
-/************* RADIO BUTTON CUSTOM **************************/
-.radio-btn-theme-wrapper {
-    opacity: 1;
+  /**************** RADIO BUTTON ************************/
+  .radio-btn-theme-wrapper {
+    opacity: -1;
     float: right;
     line-height: 70px;
-}
+  }
 
-.container-radio {
-    display: inline-block;
-    cursor: pointer;
-    margin-right: 12px;
-}
+  /******************* HAMBURGER MENU **********************/
+  .hamburger-menu-wrapper {
+    opacity: 1;
+    z-index: 2;
+  }
 
-.container-radio input{
+  .dropdown-wrapper {
+    width: 100%;
+    z-index: -10;
     opacity: 0;
-    height: 0;
-    width: 0;
-}
 
-.container-radio .checkmark {
-    content: ' ';
-    border: 1px solid currentColor;
+    transition: opacity 0.15s ease-out;
+  }
+
+  .dropdown {
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    top: 17px;
+    width: 100%;
+    height: 55px;
+    background-color: var(--main-background);
+    box-shadow: 0px 7px 7px var(--grey-medium);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .dropdown-item a::before {
+    content: " ";
+    border: 2px solid var(--main-text);
     border-radius: 50%;
     width: 1rem;
     height: 1rem;
     display: inline-block;
-    margin-right: 5px;
-    left: 20px;
     vertical-align: middle;
-}
+    margin-right: 5px;
+  }
 
-/****************** HAMBURGER MENU *******************************/
-.hamburger-menu-wrapper {
-    opacity: 0;
-    position: relative; 
-    z-index: -1;
-}
+  .dropdown .dropdown-item:hover a::before {
+    background: var(--grey-medium);
+    border-color: var(--grey-bright);
+    box-shadow: 0px 0px 2px 1px var(--grey-medium);
+  }
 
-.dropdown-wrapper {
+  .dropdown .dropdown-item a:focus a::before {
+    background: var(--border-rightPlace);
+    border-color: var(--grey-bright);
+    box-shadow: 0px 0px 2px 1px var(--border-rightPlace);
+  }
+
+  .dropdown-wrapper.open {
+    opacity: 1;
+    z-index: 10;
+  }
+
+  .dropdown-item {
+    list-style: none;
+    background-color: var(--main-background);
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--main-text);
+  }
+
+  /***************** Hamburger Menu Icon *******************/
+  .hamburger-menu-icon {
+    width: 35px;
+    height: 30px;
+    margin: 10px 10px;
     position: relative;
-    opacity: 0;
-    top: 0;
-    z-index: -10;
-}
+    cursor: pointer;
+    display: inline-block;
+    top: 8px;
+    left: 83%;
+  }
 
+  .hamburger-menu-icon div {
+    position: absolute;
+    border-radius: 2px;
+    transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    width: 100%;
+    height: 4px;
+  }
 
-/*******************  MEDIA QUERIES **************************/
-@media screen and (max-width: 640px) {
-    header {
-        margin-bottom: 15px;
-    }
-  
-    .keyboard { 
-        display: grid;
-        align-items: end;
-        align-self: end;
-    }
-    
-    .keyboardRow {
-        gap: 3px;
-    }
+  .hamburger-menu-icon div:nth-child(1) {
+    background-color: var(--border-rightPlace);
+    top: 0px;
+  }
 
-    .round {
-        font-size: 2rem;
-        width: 360px;
-        height: 62px;
-        margin: 0px auto;
-        display: block;
-        display: flex;
-        align-content: space-between;
-        justify-content: center;
-    }
+  .hamburger-menu-icon div:nth-child(2) {
+    background-color: var(--border-wrong);
+    top: 13px;
+  }
 
-    .box-letter {
-        text-align: center;
-        font-weight: 500;
-        line-height: 55px;
-        margin: 2px;
-        width: 50px;
-    }
+  .hamburger-menu-icon div:nth-child(3) {
+    background-color: var(--border-wrongPlace);
+    bottom: 0px;
+  }
 
-    .key {
-        font-size: 1.2rem;
-        text-align: center;
-        line-height: 50px;
-        border-radius: 5px;
-        width: 31px;
-        height: 50px;
-    }
-    
-    #Enter {
-        width: 50px;
-        font-size: 2rem;
-        line-height: 40px;
-    }
-    
-    #Backspace {
-        width: 50px;
-        line-height: 40px;
-        font-size: 2rem;
-    }
+  .hamburger-menu-icon:hover div:nth-child(1) {
+    box-shadow: 0 0 1em var(--border-rightPlace),
+      0 0 2em var(--border-rightPlace), inset 0 0 1em var(--border-rightPlace);
+  }
 
-    /**************** RADIO BUTTON ************************/
-    .radio-btn-theme-wrapper {
-        opacity: -1;
-        float: right;
-        line-height: 70px;
-    }
-    
-    /******************* HAMBURGER MENU **********************/
-    .hamburger-menu-wrapper {
-        opacity: 1;
-        z-index: 2;
-    }
+  .hamburger-menu-icon:hover div:nth-child(2) {
+    box-shadow: 0 0 1em var(--border-wrong), 0 0 2em var(--border-wrong),
+      inset 0 0 1em var(--border-wrong);
+  }
 
-    .dropdown-wrapper {
-        width: 100%;
-        z-index: -10;
-        opacity: 0;
-        
-        transition: opacity 0.15s ease-out;
-    }
-    
-    .dropdown {
-        padding: 0px;
-        margin: 0px;
-        position: absolute;
-        top: 17px;
-        width: 100%;
-        height: 55px;
-        background-color: var(--main-background);
-        box-shadow: 0px 7px 7px var(--grey-medium);
+  .hamburger-menu-icon:hover div:nth-child(3) {
+    box-shadow: 0 0 1em var(--border-wrongPlace),
+      0 0 2em var(--border-wrongPlace), inset 0 0 1em var(--border-wrongPlace);
+  }
 
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
+  .hamburger-menu-icon.open div:nth-child(1) {
+    transform: rotate(45deg) scaleX(0.8);
+    top: 13px;
+    left: -9px;
+  }
 
-    .dropdown-item a::before {
-        content: ' ';
-        border: 1px solid currentColor;
-        border-radius: 50%;
-        width: 1rem;
-        height: 1rem;
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: 5px;
-    }
+  .hamburger-menu-icon.open div:nth-child(2) {
+    transform: rotate(180deg) scale(0);
+    transition-duration: 100ms;
+  }
 
-    .dropdown-wrapper.open {
-        opacity: 1;
-        z-index: 10;
-    }
-    
-    .dropdown-item {
-        list-style: none;
-        background-color: var(--main-background);
-    }
-
-    a {
-        text-decoration: none;
-        color: currentColor;
-    }
-
-    a:hover {
-        color: var(--color-rightPlace);
-    }
-
-    a:focus {
-        color: var(--color-rightPlace);
-    }
-
-    /***************** Hamburger Menu Icon *******************/
-    .hamburger-menu-icon {
-        width: 35px;
-        height: 30px;
-        margin: 10px 10px;
-        position: relative;
-        cursor: pointer;
-        display: inline-block;
-        top: 8px;
-        left: 83%;
-    }
-
-    .hamburger-menu-icon div {
-        position: absolute;
-        border-radius: 2px;
-        transition: .3s cubic-bezier(.8, .5, .2, 1.4);
-        width:100%;
-        height: 4px;
-    }
-
-    .hamburger-menu-icon div:nth-child(1) {
-        background-color: var(--border-rightPlace);
-        top: 0px;
-    }
-
-    .hamburger-menu-icon div:nth-child(2) {
-        background-color: var(--border-wrong);
-        top: 13px;
-    }
-
-    .hamburger-menu-icon div:nth-child(3) {
-        background-color: var(--border-wrongPlace);
-        bottom: 0px;
-    }
-
-    .hamburger-menu-icon:hover div:nth-child(1) {
-        box-shadow: 
-            0 0 1em var(--border-rightPlace),
-            0 0 2em var(--border-rightPlace),
-            inset 0 0 1em var(--border-rightPlace);
-    }
-
-    .hamburger-menu-icon:hover div:nth-child(2) {
-        box-shadow: 
-            0 0 1em var(--border-wrong),
-            0 0 2em var(--border-wrong),
-            inset 0 0 1em var(--border-wrong);
-    }
-
-    .hamburger-menu-icon:hover div:nth-child(3) {
-        box-shadow: 
-            0 0 1em var(--border-wrongPlace),
-            0 0 2em var(--border-wrongPlace),
-            inset 0 0 1em var(--border-wrongPlace);
-    }
-
-    .hamburger-menu-icon.open div:nth-child(1) {
-        transform: rotate(45deg) scaleX(0.8);
-        top: 13px;
-        left: -9px;
-    }
-
-    .hamburger-menu-icon.open div:nth-child(2) {
-        transform: rotate(180deg) scale(0);
-        transition-duration: 100ms;
-    }
-
-    .hamburger-menu-icon.open div:nth-child(3) {
-        transform: rotate(-45deg) scaleX(0.8);
-        bottom: 13px;
-        left: 9px;
-    }
+  .hamburger-menu-icon.open div:nth-child(3) {
+    transform: rotate(-45deg) scaleX(0.8);
+    bottom: 13px;
+    left: 9px;
+  }
 }
 
 /********** AUSWERTUNG DER EINGABE ******************************/
-
 .rightPlace {
-    color: var(--color-rightPlace);
-    background: var(--bg-rightPlace);
-    border: 2px solid var(--border-rightPlace);
+  color: var(--color-rightPlace);
+  background: var(--bg-rightPlace);
+  border: 2px solid var(--border-rightPlace);
 }
 
 .wrongPlace {
-    color: var(--color-wrongPlace);
-    background: var(--bg-wrongPlace);
-    border: 2px solid var(--border-wrongPlace);
+  color: var(--color-wrongPlace);
+  background: var(--bg-wrongPlace);
+  border: 2px solid var(--border-wrongPlace);
 }
 
 .wrong {
-    color: var(--color-wrong);
-    background: var(--bg-wrong);
-    border: 2px solid var(--border-wrong);
+  color: var(--color-wrong);
+  background: var(--bg-wrong);
+  border: 2px solid var(--border-wrong);
 }
 
 .box-letter.box-letter-dark.rightPlace {
-    box-shadow: 
-        inset 0 0 0.5rem var(--text-shadow-rightPlace),
-        0 0 0.5rem var(--text-shadow-rightPlace);
-    text-shadow:   
-        -0.2rem -0.2rem 1rem var(--text-shadow-rightPlace),
-        0.2rem 0.2rem 1rem var(--text-shadow-rightPlace);
+  box-shadow: inset 0 0 0.5rem var(--text-shadow-rightPlace),
+    0 0 0.5rem var(--text-shadow-rightPlace);
+  text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-rightPlace),
+    0.2rem 0.2rem 1rem var(--text-shadow-rightPlace);
 }
 
 .box-letter.box-letter-dark.wrongPlace {
-    box-shadow: 
-        inset 0 0 0.5rem var(--text-shadow-wrongPlace),
-        0 0 0.5rem var(--text-shadow-wrongPlace);
-    text-shadow:   
-        -0.2rem -0.2rem 1rem var(--text-shadow-wrongPlace),
-        0.2rem 0.2rem 1rem var(--text-shadow-wrongPlace);
+  box-shadow: inset 0 0 0.5rem var(--text-shadow-wrongPlace),
+    0 0 0.5rem var(--text-shadow-wrongPlace);
+  text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-wrongPlace),
+    0.2rem 0.2rem 1rem var(--text-shadow-wrongPlace);
 }
 
 .box-letter.box-letter-dark.wrong {
-    box-shadow: 
-        inset 0 0 0.5rem var(--text-shadow-wrong),
-        0 0 0.5rem var(--text-shadow-wrong);
-    text-shadow:   
-        -0.2rem -0.2rem 1rem var(--text-shadow-wrong),
-        0.2rem 0.2rem 1rem var(--text-shadow-wrong);
+  box-shadow: inset 0 0 0.5rem var(--text-shadow-wrong),
+    0 0 0.5rem var(--text-shadow-wrong);
+  text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-wrong),
+    0.2rem 0.2rem 1rem var(--text-shadow-wrong);
 }
 
 .key.box-letter-dark.rightPlace {
-    border-radius: 0.5rem;
-    box-shadow: 
-        0 0 0.5rem var(--text-shadow-rightPlace), 
-        inset 0 0 0.5rem var(--text-shadow-rightPlace);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem var(--text-shadow-rightPlace),
+    inset 0 0 0.5rem var(--text-shadow-rightPlace);
 
-    text-shadow:   
-        -0.1rem -0.1rem 1rem var(--text-shadow-rightPlace),
-        0.1rem 0.1rem 1rem var(--text-shadow-rightPlace);
+  text-shadow: -0.1rem -0.1rem 1rem var(--text-shadow-rightPlace),
+    0.1rem 0.1rem 1rem var(--text-shadow-rightPlace);
 }
 
 .key.box-letter-dark.wrongPlace {
-    border-radius: 0.5rem;
-    box-shadow: 
-        0 0 0.5rem var(--text-shadow-wrongPlace), 
-        inset 0 0 0.5rem var(--text-shadow-wrongPlace);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem var(--text-shadow-wrongPlace),
+    inset 0 0 0.5rem var(--text-shadow-wrongPlace);
 
-    text-shadow:   
-        -0.1rem -0.1rem 1rem var(--text-shadow-wrongPlace),
-        0.1rem 0.1rem 1rem var(--text-shadow-wrongPlace);
+  text-shadow: -0.1rem -0.1rem 1rem var(--text-shadow-wrongPlace),
+    0.1rem 0.1rem 1rem var(--text-shadow-wrongPlace);
 }
 
 .key.box-letter-dark.wrong {
-    border-radius: 0.5rem;
-    box-shadow: 
-        0 0 0.5rem var(--text-shadow-wrong), 
-        inset 0 0 0.5rem var(--text-shadow-wrong);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem var(--text-shadow-wrong),
+    inset 0 0 0.5rem var(--text-shadow-wrong);
 
-    text-shadow:   
-        -0.1rem -0.1rem 1rem var(--text-shadow-wrong),
-        0.1rem 0.1rem 1rem var(--text-shadow-wrong);
+  text-shadow: -0.1rem -0.1rem 1rem var(--text-shadow-wrong),
+    0.1rem 0.1rem 1rem var(--text-shadow-wrong);
 }
 
 /****************** NOTIFICATIONS *******************************/
 .notification {
-    /* center element mit position absolute */
-    position: absolute;
-    top: 30vh;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    
-    z-index: 200;
-    padding: 1rem;
-    display: none;
-    width: fit-content;
-    text-align: center;
-    opacity: 1;
-    background: var(--grey-dark-95);
-    /* opacity: 0.95; */
-    color: var(--grey-bright);
-    border: solid 2px var(--grey-bright);
-    box-shadow: 0px 0px 1em var(--grey-medium);
+  /* center element mit position absolute */
+  position: absolute;
+  top: 30vh;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  z-index: 200;
+  padding: 1rem;
+  display: none;
+  width: fit-content;
+  text-align: center;
+  opacity: 1;
+  background: var(--grey-dark-95);
+  /* opacity: 0.95; */
+  color: var(--grey-bright);
+  border: solid 2px var(--grey-bright);
+  box-shadow: 0px 0px 1em var(--grey-medium);
 }
 
-.notification > p {
-    display: block;
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
+.notification>p {
+  display: block;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-.notification > span {
-    margin: 0px 10px;
-    text-align: center;
-    height: fit-content;
-    display: block;
-    z-index: 200;
-} 
+.notification>span {
+  margin: 0px 10px;
+  text-align: center;
+  height: fit-content;
+  display: block;
+  z-index: 200;
+}
 
 /*********************** BUTTONS ****************************/
 .btn-NewGame {
-    padding: 10px;
-    margin-top: 0.5rem;
-    font-size: 1rem;
-    color: var(--grey-bright);
-    background-color:var(--border-rightPlace);
-    border: 2px solid var(--border-rightPlace);
-    box-shadow: 
-    inset 0 0 0.5rem var(--text-shadow-rightPlace),
-        0 0 0.5rem var(--text-shadow-rightPlace);
+  padding: 10px;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--grey-bright);
+  background-color: var(--border-rightPlace);
+  border: 2px solid var(--border-rightPlace);
+  box-shadow: inset 0 0 0.5rem var(--text-shadow-rightPlace),
+    0 0 0.5rem var(--text-shadow-rightPlace);
 }
 
 .btn-NewGame:hover {
-    border: 2px solid var(--color-rightPlace);
-    background-color: var(--border-rightPlace);
-    box-shadow: 
-        inset 0 0 0.5rem var(--text-shadow-rightPlace),
-        0 0 0.5rem var(--text-shadow-rightPlace),
-        0 0 1rem var(--text-shadow-rightPlace);
+  border: 2px solid var(--color-rightPlace);
+  background-color: var(--border-rightPlace);
+  box-shadow: inset 0 0 0.5rem var(--text-shadow-rightPlace),
+    0 0 0.5rem var(--text-shadow-rightPlace),
+    0 0 1rem var(--text-shadow-rightPlace);
 }
 
 #searchedWord {
-    margin-top: 0.5rem;
-    display: none;
-    padding: 2px 0px;
-    color: var(--color-wrongPlace);
+  margin-top: 0.5rem;
+  display: none;
+  padding: 2px 0px;
+  color: var(--color-wrongPlace);
 }
 
 #btn-showWord {
-    margin-top: 0.5rem;
-    padding: 2px 0px;
-    display: block;
-    color: var(--color-wrongPlace);
-    border: solid 1px var(--color-wrongPlace);
+  margin-top: 0.5rem;
+  padding: 2px 0px;
+  display: block;
+  color: var(--color-wrongPlace);
+  border: solid 1px var(--color-wrongPlace);
 }
-
 
 /********* Automatisches Ein- und Ausblenden Notification **************/
 #noWord-notification {
-    animation-name: fadeOut-notification;
-    animation-timing-function: ease-out;
-    animation-duration:1.90s;
+  animation-name: fadeOut-notification;
+  animation-timing-function: ease-out;
+  animation-duration: 1.9s;
 }
 
 @keyframes fadeOut-notification {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-    90% {
-        opacity: 1;
-    }
+  90% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
+/* TODO: bei hover über dropdown-link im light-mode: link verschwindet(gleiche Farbe wie Hintergrund)*/
 /* TODO: dropdown radio-btn and name to same hight-level*/
