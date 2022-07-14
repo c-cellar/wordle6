@@ -18,19 +18,19 @@ const checkGuess = (word, guess) => {
         if (guessWord[index] === searchedWord[index]) {
             rightPlace(index);
             rightKey(guessWord[index]);
-        } else if (searchedWord.includes(guessWord[index])) { 
+        } else if (searchedWord.includes(guessWord[index])) {
             wrongPlace(index);
             wrongPlaceKey(guessWord[index]);
         } else {
             wrong(index);
             wrongKey(guessWord[index]);
-        } 
+        }
         index++;
     }
 
     // check for win(successful) or lose(unsuccessful);
     checkForWin(word, guessWord, counterRound);
-    
+
     // return guessWord[index];
 };
 
@@ -40,21 +40,21 @@ const checkForWin = (word, guessWord, counterRound) => {
         showSuccessfulNotification(word, counterRound);
         addBtnHandlerNewGame();
         return;
-    } 
+    }
 
     if ((counterRound === 6) && (word === (guessWord.join('').toLowerCase()))) {
         showSuccessfulNotification(word, counterRound);
         addBtnHandlerNewGame();
         return;
-    };  
-    
+    };
+
     if (counterRound === 6 && !(word === (guessWord.join('').toLowerCase()))) {
         // notification Anzeigen
         showUnsuccessfulNotification(word);
         // Eventhandler hinzufügen
         addBtnHandlerNewGame(unsuccessfulNotification);
         return;
-    }; 
+    };
 }
 
 // Funktionen um den Keys des virutellen KEYBOARDs css-Klassen hinzuzufügen bzw. zu entfernen
@@ -75,7 +75,7 @@ const wrongPlaceKey = (key) => {
         $(`#${key}`).classList.add('wrongPlace');
         return;
     }
-} 
+}
 
 // get GREY background
 const wrongKey = (key) => {
