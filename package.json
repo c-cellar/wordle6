@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "devstart": "nodemon index.js"
+    "dev": "browser-sync start --server --watch"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,5 @@
   },
   "devDependencies": {
     "browser-sync": "^2.27.10"
-    
   }
 }
