@@ -1,22 +1,40 @@
 'use strict';
 // Arrays with words and played words 
 let arrayWords = [
+    'result',
                     'result', 
+    'result',
+    'target',
                     'target', 
+    'target',
+    'flying',
                     'flying', 
+    'flying',
+    'random',
                     'random', 
+    'random',
+    'strong',
                     'strong', 
+    'strong',
+    'breath',
                     'breath', 
+    'breath',
+    'flinch',
                     'flinch', 
+    'flinch',
+    'animal',
                     'animal', 
+    'animal',
+    'pretty',
                     'pretty', 
-                    'danger',
-                    'resort',
-                    'counts',
-                    'goalie',
-                    'resets',
-                    'driver'
-                ];
+    'pretty',
+    'danger',
+    'resort',
+    'counts',
+    'goalie',
+    'resets',
+    'driver'
+];
 
 const getWordFromArray = () => {
     // set LocalStorage(array)
