@@ -22,5 +22,6 @@
   },
   "devDependencies": {
     "browser-sync": "^2.27.10"
+    
   }
 }
