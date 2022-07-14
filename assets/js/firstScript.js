@@ -15,17 +15,19 @@ let key = '';
 const maxLength = 6;
 
 // Selector
-const input = $('.input');
-const oneOutput = $('.box-letter');
-const allOutputs = $$('.box-letter');
-const allKeys = $$('.key');
-const btnNewGame = $$('.btn-NewGame');
-const btnShowWord = $('#btn-showWord');
-const hamburgerMenuIcon = $('.hamburger-menu-icon');
-const darkButton = $('#dark');
-const lightButton = $('#light');
-const html = $('html');
-const h1Span = $$('h1 span');
+const input = $(".input");
+const oneOutput = $(".box-letter");
+const allOutputs = $$(".box-letter");
+const allKeys = $$(".key");
+const btnNewGame = $$(".btn-NewGame");
+const btnShowWord = $("#btn-showWord");
+const hamburgerMenuIcon = $(".hamburger-menu-icon");
+const lightButtonDropdown = $("#lightDropdown");
+const darkButtonDropdown = $("#darkDropdown");
+const darkButtonRadio = $("#dark");
+const lightButtonRadio = $("#light");
+const html = $("html");
+const h1Span = $$("h1 span");
 
 // === INIT =========
 const init = () => {
