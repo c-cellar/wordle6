@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="assets/js/arrayWords.js" defer></script>
     <script src="assets/js/webStorage.js" defer></script>
     <script src="assets/js/firstScript.js" defer></script>
@@ -11,11 +11,9 @@
     <script src="assets/js/dictionary.js" defer></script>
     <script src="assets/js/notification.js" defer></script>
     <title>Wordle6</title>
-    <link rel="stylesheet" href="assets/css/common.css">
-    <!-- <link rel="stylesheet" href="assets/css/themes/light.css"> -->
-    <link rel="stylesheet" href="assets/css/themes/eighties.css">
-</head>
-<body class="light">
+    <link rel="stylesheet" href="assets/css/common.css" />
+  </head>
+  <body>
     <header>
       <h1>
         <span class="rightPlace">W</span>ORDL<span class="wrongPlace">E</span
@@ -33,142 +31,145 @@
         </label>
       </div>
 
-        <!-- Hamburger Menu Dropdown -->
-        <div class="hamburger-menu-wrapper">
-            <div class="hamburger-menu-icon">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-            </div>
-            <div class="dropdown-wrapper">
-                <ul class="dropdown">
-                    <li class="dropdown-item">
-                        <a id="light" href="">standard mode</a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a id="dark" href="">80'er/dark mode</a>
-                    </li>
-                </ul>    
-            </div>
+      <!-- Hamburger Menu Dropdown -->
+      <div class="hamburger-menu-wrapper">
+        <div class="hamburger-menu-icon">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
+        <div class="dropdown-wrapper">
+          <ul class="dropdown">
+            <li class="dropdown-item" id="lightDropdown">
+              <a href="#">light</a>
+            </li>
+            <li class="dropdown-item" id="darkDropdown">
+              <a href="#">dark/eighties</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </header>
 
     <!-- Notification: noWord -->
     <div id="noWord-notification" class="notification">
-        <span id="noWord"></span>
-        <span>is not in used dictionary</span>
+      <span id="noWord"></span>
+      <span>is not in used dictionary</span>
     </div>
 
     <!-- Notification: successful -->
     <div id="successful" class="notification">
-        <span>CONGRATULATIONS</span>
-        <p>word: 
-            <span id="winningWord"></span>
-        </p>
-        <p>attempts:    
-            <span id="rounds"></span>
-        </p>
-        <button id="btn-successful" class="btn btn-NewGame">New Game</button>
+      <span>CONGRATULATIONS</span>
+      <p>
+        word:
+        <span id="winningWord"></span>
+      </p>
+      <p>
+        attempts:
+        <span id="rounds"></span>
+      </p>
+      <button id="btn-successful" class="btn btn-NewGame">New Game</button>
     </div>
 
     <!-- Notification: unsuccessful -->
     <div id="unsuccessful" class="notification">
-        <span>maybe next round...</span>
-        <p>searched word: 
-            <span id="searchedWord"></span>
-            <span id="btn-showWord" class="btn">Show Word</span>
-        </p>
-        <button id="btn-unsuccessful" class="btn btn-NewGame">New Game</button>
+      <span>maybe next round...</span>
+      <p>
+        searched word:
+        <span id="searchedWord"></span>
+        <span id="btn-showWord" class="btn">Show Word</span>
+      </p>
+      <button id="btn-unsuccessful" class="btn btn-NewGame">New Game</button>
     </div>
 
     <!-- Letter Box -->
     <div class="letterContainer">
-        <div class="round" id="first">
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-        </div>
-        <div class="round" id="second">
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-        </div>
-        <div class="round" id="third">
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-        </div>
-        <div class="round" id="fourth">
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-        </div>
-        <div class="round" id="fifth">
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-        </div>
-        <div class="round" id="sixth">
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-            <div class="box-letter"></div>
-        </div>
+      <div class="round" id="first">
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+      </div>
+      <div class="round" id="second">
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+      </div>
+      <div class="round" id="third">
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+      </div>
+      <div class="round" id="fourth">
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+      </div>
+      <div class="round" id="fifth">
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+      </div>
+      <div class="round" id="sixth">
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+        <div class="box-letter"></div>
+      </div>
     </div>
 
     <!-- digital keyboard -->
     <div class="keyboard">
-        <div class="keyboardRow">
-            <div class="key" id="q">Q</div>    
-            <div class="key" id="w">W</div>
-            <div class="key" id="e">E</div>
-            <div class="key" id="r">R</div>
-            <div class="key" id="t">T</div>
-            <div class="key" id="z">Z</div>
-            <div class="key" id="u">U</div>
-            <div class="key" id="i">I</div>
-            <div class="key" id="o">O</div>
-            <div class="key" id="p">P</div>
-        </div>
-        <div class="keyboardRow">
-            <div class="key" id="a">A</div>
-            <div class="key" id="s">S</div>
-            <div class="key" id="d">D</div>
-            <div class="key" id="f">F</div>
-            <div class="key" id="g">G</div>
-            <div class="key" id="h">H</div>
-            <div class="key" id="j">J</div>
-            <div class="key" id="k">K</div>
-            <div class="key" id="l">L</div>
-        </div>
-        <div class="keyboardRow">
-            <div class="key" id="Enter">&#8629;</div>
-            <div class="key" id="y">Y</div>
-            <div class="key" id="x">X</div>
-            <div class="key" id="c">C</div>
-            <div class="key" id="v">V</div>
-            <div class="key" id="b">B</div>
-            <div class="key" id="n">N</div>
-            <div class="key" id="m">M</div>
-            <div class="key" id="Backspace">&#8592;</div>
-        </div>
+      <div class="keyboardRow">
+        <div class="key" id="q">Q</div>
+        <div class="key" id="w">W</div>
+        <div class="key" id="e">E</div>
+        <div class="key" id="r">R</div>
+        <div class="key" id="t">T</div>
+        <div class="key" id="z">Z</div>
+        <div class="key" id="u">U</div>
+        <div class="key" id="i">I</div>
+        <div class="key" id="o">O</div>
+        <div class="key" id="p">P</div>
+      </div>
+      <div class="keyboardRow">
+        <div class="key" id="a">A</div>
+        <div class="key" id="s">S</div>
+        <div class="key" id="d">D</div>
+        <div class="key" id="f">F</div>
+        <div class="key" id="g">G</div>
+        <div class="key" id="h">H</div>
+        <div class="key" id="j">J</div>
+        <div class="key" id="k">K</div>
+        <div class="key" id="l">L</div>
+      </div>
+      <div class="keyboardRow">
+        <div class="key" id="Enter">&#8629;</div>
+        <div class="key" id="y">Y</div>
+        <div class="key" id="x">X</div>
+        <div class="key" id="c">C</div>
+        <div class="key" id="v">V</div>
+        <div class="key" id="b">B</div>
+        <div class="key" id="n">N</div>
+        <div class="key" id="m">M</div>
+        <div class="key" id="Backspace">&#8592;</div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
