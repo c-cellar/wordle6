@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 // Arrays with words and played words
 let arrayWords = [
   'result',
