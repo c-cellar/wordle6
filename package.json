@@ -11,8 +11,8 @@
     "server": "browser-sync start --server --watch",
     "sass-dev": "sass sass:temp --watch",
     "sass-build": "sass sass:temp",
-    "postcss-dev": "postcss temp/*.css --dir css --use postcss-preset-env --map --watch",
-    "postcss-build": "postcss temp/*.css --dir css --use postcss-preset-env cssnano --map"
+    "postcss-dev": "postcss temp/*.css --dir assets/css --use postcss-preset-env --map --watch",
+    "postcss-build": "postcss temp/*.css --dir assets/css --use postcss-preset-env cssnano --map"
   },
   "repository": {
     "type": "git",
