@@ -1,21 +1,21 @@
 "use strict";
 // Arrays with words and played words
 let arrayWords = [
-  "result",
-  "target",
-  "flying",
-  "random",
-  "strong",
-  "breath",
-  "flinch",
-  "animal",
-  "pretty",
-  "danger",
-  "resort",
-  "counts",
-  "goalie",
-  "resets",
-  "driver",
+  'result',
+  'target',
+  'flying',
+  'random',
+  'strong',
+  'breath',
+  'flinch',
+  'animal',
+  'pretty',
+  'danger',
+  'resort',
+  'counts',
+  'goalie',
+  'resets',
+  'driver',
 ];
 
 const getWordFromArray = () => {
