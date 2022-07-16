@@ -1,0 +1,61 @@
+:root {
+  // variablen zum Beschreiben der Farbe
+  --grey-dark: #383838;
+  --grey-dark-95: #383838f2;
+  --grey-dark-80: #3f3f3f80;
+  --grey-medium-2: #515151;
+  --grey-medium: #969696;
+  --grey-bright-80: #ffffff80;
+  --grey-bright: #fafafa;
+  --grey-bright-2: #ecefef;
+  --bright-green: #20f91d;
+  --green: #0e8014;
+  --bright-yellow: #ffff00;
+  --yellow: #e2bc11;
+  --grey-middle: #828282;
+  --grey-middle-80: #b9b9b9e6;
+  --black-95: #1a1a1acc;
+  --black: #1a1a1a;
+}
+
+/* =============== 80'er style ==================== */
+// Variablennamen zum Beschreiben der Funktion
+.dark {
+  --main-text: var(--grey-bright);
+  --main-background: var(--black);
+  --letterbox-background: var(--black-95);
+  --letterbox-border: var(--grey-bright-2);
+  --bg-rightPlace: var(--main-background);
+  --color-rightPlace: var(--bright-green);
+  --border-rightPlace: var(--bright-green);
+  --text-shadow-rightPlace: var(--bright-green);
+  --bg-wrongPlace: var(--main-background);
+  --color-wrongPlace: var(--bright-yellow);
+  --text-shadow-wrongPlace: var(--bright-yellow);
+  --border-wrongPlace: var(--bright-yellow);
+  --bg-wrong: var(--main-background);
+  --color-wrong: var(--grey-middle);
+  --border-wrong: var(--grey-middle);
+  --text-shadow-wrong: var(--grey-middle);
+
+  --text-shadow-h1: var(--grey-medium);
+}
+
+/* =================== light style =============== */
+.light {
+  --main-text: var(--grey-medium-2);
+  --main-background: var(--grey-bright);
+  --letterbox-background: var(--grey-bright-80);
+  --letterbox-border: var(--grey-dark-80);
+  --color-rightPlace: var(--grey-bright);
+  --bg-rightPlace: var(--green);
+  --border-rightPlace: var(--green);
+  --color-wrongPlace: var(--grey-bright);
+  --bg-wrongPlace: var(--yellow);
+  --border-wrongPlace: var(--yellow);
+  --color-wrong: var(--grey-bright);
+  --bg-wrong: var(--grey-middle-80);
+  --border-wrong: var(--grey-middle-80);
+
+  --text-shadow-h1: none;
+}
