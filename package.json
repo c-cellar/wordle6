@@ -6,7 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "browser-sync start --server --watch"
+    "dev": "npm-run-all --parallel sass-dev postcss-dev server",
+    "build": "npm-run-all sass-build postcss-build",
+    "server": "browser-sync start --server --watch",
+    "sass-dev": "sass sass:temp --watch",
+    "sass-build": "sass sass:temp",
+    "postcss-dev": "postcss temp/*.css --dir css --use postcss-preset-env --map --watch",
+    "postcss-build": "postcss temp/*.css --dir css --use postcss-preset-env cssnano --map"
   },
   "repository": {
     "type": "git",
