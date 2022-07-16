@@ -1,0 +1,71 @@
+header {
+  height: 70px;
+  margin-bottom: 15px;
+  box-shadow: 0px 5px 10px 5px var(--grey-medium);
+  position: relative;
+  width: 100%;
+}
+
+/****************** BOX LETTERS  *************************/
+.round {
+  font-size: 2rem;
+  width: 360px;
+  height: 62px;
+  margin: 0px auto;
+  display: block;
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+
+  .box-letter {
+    border: 2px solid var(--letterbox-border);
+    text-align: center;
+    font-weight: 500;
+    line-height: 55px;
+    margin: 2px;
+    width: 50px;
+  }
+}
+
+/************* KEYBOARD/KEYS ******************************/
+.key {
+  border: 2px solid var(--letterbox-border);
+}
+
+.keyboardRow {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 2px 0px;
+}
+
+.key:hover {
+  cursor: pointer;
+}
+
+.keyboard {
+  align-self: end;
+  margin-bottom: 10px;
+  height: fit-content;
+}
+
+.key {
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 5px;
+  width: 40px;
+  height: 50px;
+}
+
+#Enter {
+  width: 70px;
+  font-size: 2rem;
+  line-height: 40px;
+}
+
+#Backspace {
+  width: 70px;
+  line-height: 40px;
+  font-size: 2rem;
+}
