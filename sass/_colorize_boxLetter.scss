@@ -1,0 +1,69 @@
+/********** FARBLICHE AUSWERTUNG ******************************/
+.rightPlace {
+  color: var(--color-rightPlace);
+  background: var(--bg-rightPlace);
+  border: 2px solid var(--border-rightPlace);
+}
+
+.wrongPlace {
+  color: var(--color-wrongPlace);
+  background: var(--bg-wrongPlace);
+  border: 2px solid var(--border-wrongPlace);
+}
+
+.wrong {
+  color: var(--color-wrong);
+  background: var(--bg-wrong);
+  border: 2px solid var(--border-wrong);
+}
+
+.box-letter.box-letter-dark.rightPlace {
+  box-shadow: inset 0 0 0.5rem var(--text-shadow-rightPlace),
+    0 0 0.5rem var(--text-shadow-rightPlace);
+  text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-rightPlace),
+    0.2rem 0.2rem 1rem var(--text-shadow-rightPlace);
+}
+
+.box-letter.box-letter-dark.wrongPlace {
+  box-shadow: inset 0 0 0.5rem var(--text-shadow-wrongPlace),
+    0 0 0.5rem var(--text-shadow-wrongPlace);
+  text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-wrongPlace),
+    0.2rem 0.2rem 1rem var(--text-shadow-wrongPlace);
+}
+
+.box-letter.box-letter-dark.wrong {
+  box-shadow: inset 0 0 0.5rem var(--text-shadow-wrong),
+    0 0 0.5rem var(--text-shadow-wrong);
+  text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-wrong),
+    0.2rem 0.2rem 1rem var(--text-shadow-wrong);
+}
+
+.key.box-letter-dark.rightPlace {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem var(--text-shadow-rightPlace),
+    inset 0 0 0.5rem var(--text-shadow-rightPlace);
+
+  text-shadow: -0.1rem -0.1rem 1rem var(--text-shadow-rightPlace),
+    0.1rem 0.1rem 1rem var(--text-shadow-rightPlace);
+}
+
+.key.box-letter-dark.wrongPlace {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem var(--text-shadow-wrongPlace),
+    inset 0 0 0.5rem var(--text-shadow-wrongPlace);
+
+  text-shadow: -0.1rem -0.1rem 1rem var(--text-shadow-wrongPlace),
+    0.1rem 0.1rem 1rem var(--text-shadow-wrongPlace);
+}
+
+.key.box-letter-dark.wrong {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem var(--text-shadow-wrong),
+    inset 0 0 0.5rem var(--text-shadow-wrong);
+
+  text-shadow: -0.1rem -0.1rem 1rem var(--text-shadow-wrong),
+    0.1rem 0.1rem 1rem var(--text-shadow-wrong);
+}
+
+/* TODO: bei hover über dropdown-link im light-mode: link verschwindet(gleiche Farbe wie Hintergrund)*/
+/* TODO: dropdown radio-btn and name to same hight-level*/
