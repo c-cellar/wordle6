@@ -1,10 +1,20 @@
-/************************ RADIO BUTTON CUSTOM ********************/
-.radio-btn-theme-wrapper {
+/**************** RADIO BUTTON ************************************/
+.radio-btn-wrapper {
   opacity: 1;
   float: right;
   line-height: 70px;
 }
 
+/*******************  MEDIA QUERIES *****************/
+@media screen and (max-width: 640px) {
+  .radio-btn-wrapper {
+    opacity: 0;
+    float: right;
+    line-height: 70px;
+  }
+}
+
+/************************ RADIO BUTTON CUSTOM ********************/
 .container-radio {
   display: inline-block;
   cursor: pointer;
