@@ -1,3 +1,12 @@
+header {
+  box-shadow: 0px 5px 10px 5px var(--grey-medium);
+}
+
+h1 {
+  text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-h1),
+    0.2rem 0.2rem 1rem var(--text-shadow-h1);
+}
+
 /***************** HEADER DARK *********************/
 .header-dark.rightPlace {
   box-shadow: inset 0 0 0.5rem var(--text-shadow-rightPlace),
@@ -18,4 +27,11 @@
     0 0 0.5rem var(--text-shadow-wrong);
   text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-wrong),
     0.2rem 0.2rem 1rem var(--text-shadow-wrong);
+}
+
+/*******************  MEDIA QUERIES **************************/
+@media screen and (max-width: 640px) {
+  header {
+    margin-bottom: 15px;
+  }
 }
