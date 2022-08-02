@@ -1,5 +1,5 @@
-node_modules
-temp
-assets/css/*.css
-assets/css/*.map
-css2
+/node_modules
+/temp
+assets/css
+assets/css
+/css2
