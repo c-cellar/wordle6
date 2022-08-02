@@ -27,9 +27,18 @@ header {
   }
 }
 
-/************* KEYBOARD/KEYS ******************************/
-.key {
-  border: 2px solid var(--letterbox-border);
+/******************** BOX LETTER DARK ***********************/
+.box-letter-dark {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem var(--letterbox-border),
+    inset 0 0 0.5rem var(--letterbox-border);
+  text-shadow: -0.1rem -0.1rem 1rem var(--letterbox-border),
+    0.1rem 0.1rem 1rem var(--letterbox-border);
+}
+
+.key.box-letter-dark {
+  box-shadow: none;
+  text-shadow: none;
 }
 
 /*******************  MEDIA QUERIES **************************/
