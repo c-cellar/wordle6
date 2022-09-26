@@ -1,8 +1,7 @@
 {
   "name": "wordle6",
-  "version": "2.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "3.0.0",
+  "description": "wordle6 with react",
   "scripts": {
     "dev": "npm-run-all --parallel server sass-dev postcss-dev parcel-dev",
     "build": "npm-run-all --sequential clean sass-build postcss-build",
