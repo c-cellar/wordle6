@@ -25,9 +25,6 @@ export default function ReactComponents() {
     localStorage.setItem('unplayedWords', JSON.stringify(searchedWord)),
       [searchedWord];
   }, [searchedWord]);
-  // TODO: guessWord mit searchedWord vergleichen.
-  // TODO: arrayGuess mit digitaler und manueller Eingabe füllen.
-  // const [arrayGuess, setArrayGuess] = useState([]);
 
   return (
     <div>
@@ -45,33 +42,19 @@ export default function ReactComponents() {
 function processInput(arrayGuess, message) {
   console.log(message);
 
-  switch (message.inputType) {
-    case 'keyup':
-      console.log(message.inputType);
+  const pattern = /[A-Za-z]/;
+
+  switch (true) {
+    case pattern.test(message.input) && message.input.length < 2:
+      console.log('Buchstabe');
       return [...arrayGuess, message.input];
-    case 'click':
-      console.log(message.inputType);
-      return [...arrayGuess, message.input];
+    case message.input === 'Backspace':
+      console.log('Backspace');
+      return arrayGuess.slice(0, arrayGuess.length - 1);
+    case message.input === 'Enter':
+      console.log('Enter');
+      return (arrayGuess = []);
   }
-
-  // // Überprüft Eingabe...
-  // const checkInputFor = (inputKeyButton) => {
-  //   const pattern = /[A-Za-z]/;
-  //   // überprüfung nach e.key === Buchstabe und kein Wort
-  //   if (pattern.test(inputKeyButton) && inputKeyButton.length < 2) {
-  //     // auf maximale Länge
-  //     if (arrayGuess.length < maxLength) {
-  //       // inputWord(inputKeyButton);
-  //       // putLetterIn(arrayGuess, counterRound);
-  //     }
-  //   }
-
-  //   // auf "Backspace"-Eingabe
-  //   if (inputKeyButton === 'Backspace') {
-  //     deleteLastLetter();
-  //     removeLetter(arrayGuess);
-  //     // console.log('RemoveLetter');
-  //   }
 
   //   // AUSWERTEN: mit "Enter" und mindestlänge Vorhanden Wort auswerten
   //   if (inputKeyButton === 'Enter' && arrayGuess.length == maxLength) {
@@ -79,3 +62,6 @@ function processInput(arrayGuess, message) {
   //   }
   // };
 }
+
+// TODO: guessWord mit searchedWord vergleichen.
+// TODO: arrayGuess undefined nach 'Enter'-Eingabe abfangen
