@@ -1,8 +1,8 @@
-export default function ContainerLetters({ arrayGuess }) {
+export default function ContainerLetters() {
   return (
     <div className="letterContainer">
       <div className="round" id="first">
-        <div className="box-letter">{arrayGuess}</div>
+        <div className="box-letter"></div>
         <div className="box-letter"></div>
         <div className="box-letter"></div>
         <div className="box-letter"></div>
