@@ -1,13 +1,13 @@
-export default function ContainerLetters() {
+export default function ContainerLetters({ arrayGuess }) {
   return (
     <div className="letterContainer">
       <div className="round" id="first">
-        <div className="box-letter"></div>
-        <div className="box-letter"></div>
-        <div className="box-letter"></div>
-        <div className="box-letter"></div>
-        <div className="box-letter"></div>
-        <div className="box-letter"></div>
+        <div className="box-letter">{arrayGuess[0] ?? ''}</div>
+        <div className="box-letter">{arrayGuess[1] ?? ''}</div>
+        <div className="box-letter">{arrayGuess[2] ?? ''}</div>
+        <div className="box-letter">{arrayGuess[3] ?? ''}</div>
+        <div className="box-letter">{arrayGuess[4] ?? ''}</div>
+        <div className="box-letter">{arrayGuess[5] ?? ''}</div>
       </div>
       <div className="round" id="second">
         <div className="box-letter"></div>
@@ -52,3 +52,5 @@ export default function ContainerLetters() {
     </div>
   );
 }
+
+// TODO: Ausgabe vom arrayGuess
