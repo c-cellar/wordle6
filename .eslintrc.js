@@ -1,30 +1,34 @@
-// Übersicht zu den ESLint-Regeln: https://eslint.org/docs/rules/
+// Übersicht zu den JavaScript-Regeln: https://eslint.org/docs/rules/
+
 module.exports = {
   env: {
     //Wo soll der Code später funktionieren?
-    // https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-environments
     browser: true, // Läuft im Browser
-    es2022: true, // Legt fest, welche Version von JS und damit welche Features erlaubt sind
+    es2022: true, // Legt fest, das neue Features von JavaScript erlaubt sind
     node: true, // Läuft mit Node
   },
+  // Nutze die Standard-Regeln
+  // Deaktiviere alle Formatierungsregeln, die mit Prettier in Konflikt stehen
+  // Wichtig: Prettier immer als letztes auflisten
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+    'prettier',
+  ],
   parserOptions: {
-    // https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-parser-options
-    sourceType: 'module', // Werden JavaScript-Module genutzt, oder normale Scripte?
+    sourceType: 'module',
   },
-  /* Liste der Regelsätze, die ESLint prüfen soll. Hier die empfohlenen Standard-Regeln
-    und danach ein Regelsatz, der alle Regeln aufhebt, die mit Prettier in Konflikt
-    stehen, so dass Prettier bei Formatierungsfragen das letze Wort hat.
-    Wichtig: Prettier deshalb immer als letztes auflisten.
-    https://eslint.org/docs/latest/user-guide/configuring/configuration-files#extending-configuration-files
-    */
-  extends: ['eslint:recommended', 'prettier'],
-  /*
-    Hier werden Regeln aktiviert bzw. deaktiviert. Diese Einstellung sind immer die
-    letztgültigen, d.h. hier kann man Einstellungen aus Regelsätzen überschreiben.
-    https://eslint.org/docs/latest/user-guide/configuring/rules
-    */
+  // Hier können Regeln festgelegt werden und ggf. Vorgaben
+  // aus Regelsätzen überschrieben werden, ihr habt also
+  // das letzte Wort, ob eine Regel angewandt wird.
   rules: {
     'no-var': 'error', // "off", "warn" oder "error", alternativ 0,1 oder 2
-    'prefer-const': 'warn',
+    'prefer-const': 'error',
+    'object-shorthand': 'warn',
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
   },
+  plugins: ['react'],
 };
