@@ -1,0 +1,17 @@
+export default [
+  'result',
+  'target',
+  'flying',
+  'random',
+  'strong',
+  'breath',
+  'flinch',
+  'animal',
+  'pretty',
+  'danger',
+  'resort',
+  'counts',
+  'goalie',
+  'resets',
+  'driver',
+];
