@@ -1,11 +1,21 @@
 import { useReducer, useState } from 'react';
 
 export function useProcessInput() {
+  // Rundenzähler: beinhaltet den State der akutellen Rate-Runde
+  // Startwert für Rundenzähler ist 0
+  const [currentRound, setCurrentRound] = useState(0);
+  const [firstRound, setFirstRound] = useState('');
+  const [secondRound, setSecondRound] = useState('');
+  const [thirdRound, setThirdRound] = useState('');
+  const [fourthRound, setFourthRound] = useState('');
+  const [fifthRound, setFifthRound] = useState('');
+  const [sixthRound, setSixthRound] = useState('');
+
   const [checkedInput, setCheckedInput] = useState({});
 
   // useReducer
   // Die Eingabe wird über die selbst geschriebene "Reducer"-Funktion (processInput) verarbeitet.
-  // Aufgerufen wird die Funktion über die setArrayGuess-Funktion.
+  // Aufgerufen wird die Funktion über die dispatchArrayGuess-Funktion.
   const [arrayGuess, dispatchArrayGuess] = useReducer(processInput, []);
 
   //Überprüft ob das Wort im Dictionary vorhanden ist.
@@ -25,17 +35,42 @@ export function useProcessInput() {
         console.log('Das Wort gibt es nicht');
         setCheckedInput({ isGuessWordCorrect: response.ok, arrayGuess });
         console.log(checkedInput);
-        // throw new Error('Fehler beim Laden der Daten');
+        throw new Error('Fehler beim Laden der Daten');
       }
 
-      const jsonData = await response.json();
+      if (response.ok) {
+        console.log(
+          'Das Wort gibt es. Bitte einmal hochzählen und Buchstaben des Wortes auswerten'
+        );
+        setCheckedInput({
+          isGuessWordCorrect: response.ok,
+          arrayGuess,
+          currentRound,
+        });
 
-      if (jsonData.Response === 'False') {
-        throw new Error(jsonData.Error);
+        switch (currentRound) {
+          case 0:
+            setFirstRound(arrayGuess);
+            break;
+          case 1:
+            setSecondRound(arrayGuess);
+            break;
+          case 2:
+            setThirdRound(arrayGuess);
+            break;
+          case 3:
+            setFourthRound(arrayGuess);
+            break;
+          case 4:
+            setFifthRound(arrayGuess);
+            break;
+          case 5:
+            setSixthRound(arrayGuess);
+            break;
+        }
+
+        incrementCounterForRounds();
       }
-
-      setCheckedInput({ isGuessWordCorrect: response.ok, arrayGuess });
-      console.log(checkedInput);
     } catch (error) {
       console.log(error);
     }
@@ -56,6 +91,7 @@ export function useProcessInput() {
     switch (true) {
       case message.input === 'Enter' && arrayGuess.length == 6:
         fetchDictionary(arrayGuess);
+        arrayGuess = [];
         return arrayGuess;
 
       case pattern.test(message.input) &&
@@ -64,10 +100,29 @@ export function useProcessInput() {
         return [...arrayGuess, message.input];
 
       case message.input === 'Backspace':
-        console.log(arrayGuess);
         return arrayGuess.slice(0, arrayGuess.length - 1);
     }
     return arrayGuess;
   }
-  return { arrayGuess, dispatchArrayGuess, checkedInput };
+
+  // Erhöht die Counter für gespielte Runden
+  function incrementCounterForRounds() {
+    setCurrentRound(currentRound + 1);
+  }
+
+  return {
+    arrayGuess,
+    dispatchArrayGuess,
+    checkedInput,
+    currentRound,
+    firstRound,
+    secondRound,
+    thirdRound,
+    fourthRound,
+    fifthRound,
+    sixthRound,
+    setCheckedInput,
+  };
 }
+
+// TODO: Eine Funktion schreiben, die den Counter für gespielte Runden um eins erhöht, wenn das guessWord ein korrektes Wort ist. (response.ok => true)
