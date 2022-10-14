@@ -10,8 +10,20 @@ export default function ReactComponents() {
   const [searchedWord, setSearchedWord] = useState('');
   console.log(searchedWord);
 
-  //-------- Custom Hook ----------------
-  const { arrayGuess, dispatchArrayGuess, checkedInput } = useProcessInput();
+  //-------- Custom Hook ------------- (return)
+  const {
+    arrayGuess,
+    dispatchArrayGuess,
+    currentRound,
+    firstRound,
+    secondRound,
+    thirdRound,
+    fourthRound,
+    fifthRound,
+    sixthRound,
+    checkedInput,
+    setCheckedInput,
+  } = useProcessInput();
 
   // keyHandler on document für die Eingabe mit der Tastatur
   useEffect(() => {
@@ -24,7 +36,18 @@ export default function ReactComponents() {
 
   return (
     <div>
-      <ContainerLetters arrayGuess={arrayGuess} checkedInput={checkedInput} />
+      <ContainerLetters
+        arrayGuess={arrayGuess}
+        currentRound={currentRound}
+        firstRound={firstRound}
+        secondRound={secondRound}
+        thirdRound={thirdRound}
+        fourthRound={fourthRound}
+        fifthRound={fifthRound}
+        sixthRound={sixthRound}
+        checkedInput={checkedInput}
+        setCheckedInput={setCheckedInput}
+      />
       <Keyboard dispatchArrayGuess={dispatchArrayGuess} />
     </div>
   );
