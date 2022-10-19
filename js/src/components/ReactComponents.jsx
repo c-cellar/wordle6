@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
 import arrayWords from '../../arrayWords';
+
+// Hooks
+import { useEffect } from 'react';
 import { useProcessInput } from '../hooks/useProcessInput';
 
 // Components
@@ -7,13 +9,9 @@ import ContainerLetters from './ContainerLetters';
 import Keyboard from './Keyboard';
 
 export default function ReactComponents() {
-  const [searchedWord, setSearchedWord] = useState('');
-  console.log(searchedWord);
-
-  //-------- Custom Hook ------------- (return)
+  //-------- Custom Hook(Rückgaben) -------------
   const {
     arrayGuess,
-    dispatchArrayGuess,
     currentRound,
     firstRound,
     secondRound,
@@ -21,8 +19,8 @@ export default function ReactComponents() {
     fourthRound,
     fifthRound,
     sixthRound,
-    checkedInput,
-    setCheckedInput,
+    setSearchedWord,
+    dispatchArrayGuess,
   } = useProcessInput();
 
   // keyHandler on document für die Eingabe mit der Tastatur
@@ -32,6 +30,8 @@ export default function ReactComponents() {
     });
 
     setSearchedWord(arrayWords[0]);
+
+    getSelectedTheme();
   }, []);
 
   return (
@@ -45,12 +45,17 @@ export default function ReactComponents() {
         fourthRound={fourthRound}
         fifthRound={fifthRound}
         sixthRound={sixthRound}
-        checkedInput={checkedInput}
-        setCheckedInput={setCheckedInput}
       />
       <Keyboard dispatchArrayGuess={dispatchArrayGuess} />
     </div>
   );
 }
 
-// TODO: guessWord mit searchedWord vergleichen.
+// checks which theme is/was selected
+function getSelectedTheme() {
+  document.documentElement.classList.length === 0
+    ? document.documentElement.classList.add('light')
+    : '';
+}
+
+// TODO: ausgewähltes Theme im Browser speichern und beim erneuten Laden der Seite auslesen
