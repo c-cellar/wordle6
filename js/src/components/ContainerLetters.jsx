@@ -8,8 +8,6 @@ export default function ContainerLetters({
   fifthRound,
   sixthRound,
 }) {
-  console.log('containerComponent');
-
   return (
     <div className="letterContainer">
       <div className="round" id="first">
