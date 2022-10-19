@@ -1,6 +1,10 @@
 import { useReducer, useState } from 'react';
 
+import { compareArrayGuessWithSearchedWord } from '../../logicFunctions';
+
 export function useProcessInput() {
+  const [searchedWord, setSearchedWord] = useState('');
+
   // Rundenzähler: beinhaltet den State der akutellen Rate-Runde
   // Startwert für Rundenzähler ist 0
   const [currentRound, setCurrentRound] = useState(0);
@@ -11,70 +15,10 @@ export function useProcessInput() {
   const [fifthRound, setFifthRound] = useState('');
   const [sixthRound, setSixthRound] = useState('');
 
-  const [checkedInput, setCheckedInput] = useState({});
-
   // useReducer
   // Die Eingabe wird über die selbst geschriebene "Reducer"-Funktion (processInput) verarbeitet.
   // Aufgerufen wird die Funktion über die dispatchArrayGuess-Funktion.
   const [arrayGuess, dispatchArrayGuess] = useReducer(processInput, []);
-
-  //Überprüft ob das Wort im Dictionary vorhanden ist.
-  async function fetchDictionary(arrayGuess) {
-    if (!Array.isArray(arrayGuess)) {
-      console.log('Ist kein Array!');
-      return;
-    }
-    const wordToCheck = arrayGuess.join('');
-
-    try {
-      const response = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToCheck}`
-      );
-
-      if (!response.ok) {
-        console.log('Das Wort gibt es nicht');
-        setCheckedInput({ isGuessWordCorrect: response.ok, arrayGuess });
-        console.log(checkedInput);
-        throw new Error('Fehler beim Laden der Daten');
-      }
-
-      if (response.ok) {
-        console.log(
-          'Das Wort gibt es. Bitte einmal hochzählen und Buchstaben des Wortes auswerten'
-        );
-        setCheckedInput({
-          isGuessWordCorrect: response.ok,
-          arrayGuess,
-          currentRound,
-        });
-
-        switch (currentRound) {
-          case 0:
-            setFirstRound(arrayGuess);
-            break;
-          case 1:
-            setSecondRound(arrayGuess);
-            break;
-          case 2:
-            setThirdRound(arrayGuess);
-            break;
-          case 3:
-            setFourthRound(arrayGuess);
-            break;
-          case 4:
-            setFifthRound(arrayGuess);
-            break;
-          case 5:
-            setSixthRound(arrayGuess);
-            break;
-        }
-
-        incrementCounterForRounds();
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   // Verarbeitung der Eingabe bzw. vom empfangenen Message-Objekt
   // Bedingungen:
@@ -105,15 +49,75 @@ export function useProcessInput() {
     return arrayGuess;
   }
 
-  // Erhöht die Counter für gespielte Runden
+  //Überprüft ob das Wort im Dictionary vorhanden ist.
+  async function fetchDictionary(arrayGuess) {
+    if (!Array.isArray(arrayGuess)) {
+      console.log('Ist kein Array!');
+      return;
+    }
+    const wordToCheck = arrayGuess.join('');
+
+    try {
+      const response = await fetch(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToCheck}`
+      );
+
+      // wird durchgeführt sobald das eingebenen Wort nicht im Dictionary gefunden wird
+      if (!response.ok) {
+        console.log('Das Wort gibt es nicht');
+        throw new Error('Fehler beim Laden der Daten');
+      }
+
+      // wird durchgeführt wenn das Wort im Dictionary vorhanden ist
+      if (response.ok) {
+        console.log(
+          'Das Wort gibt es. Bitte einmal hochzählen und Buchstaben des Wortes auswerten'
+        );
+
+        // Vergleicht das gesuchte Word mit dem eingegebenen Wort
+        compareArrayGuessWithSearchedWord(
+          arrayGuess,
+          searchedWord,
+          currentRound
+        );
+
+        // setState für Ausgabe des Wortes in der gespielten Runde
+        switch (currentRound) {
+          case 0:
+            setFirstRound(arrayGuess);
+            break;
+          case 1:
+            setSecondRound(arrayGuess);
+            break;
+          case 2:
+            setThirdRound(arrayGuess);
+            break;
+          case 3:
+            setFourthRound(arrayGuess);
+            break;
+          case 4:
+            setFifthRound(arrayGuess);
+            break;
+          case 5:
+            setSixthRound(arrayGuess);
+            break;
+        }
+
+        // Spielrunden Counter wird um eins erhöht für eine neue Eingabe
+        incrementCounterForRounds();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Erhöht den Counter für gespielte Runden
   function incrementCounterForRounds() {
-    setCurrentRound(currentRound + 1);
+    setCurrentRound((currentCount) => currentCount + 1);
   }
 
   return {
     arrayGuess,
-    dispatchArrayGuess,
-    checkedInput,
     currentRound,
     firstRound,
     secondRound,
@@ -121,8 +125,7 @@ export function useProcessInput() {
     fourthRound,
     fifthRound,
     sixthRound,
-    setCheckedInput,
+    setSearchedWord,
+    dispatchArrayGuess,
   };
 }
-
-// TODO: Eine Funktion schreiben, die den Counter für gespielte Runden um eins erhöht, wenn das guessWord ein korrektes Wort ist. (response.ok => true)
