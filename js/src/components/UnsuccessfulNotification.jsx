@@ -1,4 +1,4 @@
-export default function unsuccessfulNotification() {
+export default function UnsuccessfulNotification() {
   return (
     <div id="unsuccessful" className="notification">
       <span>maybe next round...</span>
