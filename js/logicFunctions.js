@@ -8,26 +8,47 @@ export function compareArrayGuessWithSearchedWord(
   arrayGuess.map((el, index) => {
     switch (true) {
       case el === searchedWord[index]:
-        console.log('ich bin grün');
+        addRightPlaceClassTo(currentRound, arrayGuess, index);
         break;
       case searchedWord.includes(el):
-        console.log('ich bin orange');
+        addWrongPlaceClassTo(currentRound, arrayGuess, index);
         break;
       case !searchedWord.includes(el):
-        console.log('ich bin grau!');
+        addWrongClassTo(currentRound, arrayGuess, index);
         break;
     }
   });
 }
 
-function addCorrectPlaceClassTo(currentRound) {
-  console.log('fügt der LetterBox die Klasse correct-place hinzu');
+// Selektor
+const $ = (q) => document.querySelector(q);
+const $$ = (q) => document.querySelectorAll(q);
+
+// fügt der LetterBox und dem Key von dem Virtualkeyboard die Klasse right-place hinzu
+function addRightPlaceClassTo(currentRound, arrayGuess, index) {
+  $$('.LetterBox')[currentRound].childNodes[index].classList.add('rightPlace');
+
+  const key = arrayGuess[index];
+  if ($(`#${key}`).classList.contains('wrongPlace')) {
+    $(`#${key}`).classList.remove('wrongPlace');
+  }
+  $(`#${key}`).classList.add('rightPlace');
 }
 
-function addWrongPlaceClassTo(currentRound) {
-  console.log('fügt der LetterBox die Klasse wrong-place hinzu');
+// fügt der LetterBox und dem Key von dem Virtualkeyboard die Klasse wrong-place hinzu
+function addWrongPlaceClassTo(currentRound, arrayGuess, index) {
+  $$('.LetterBox')[currentRound].childNodes[index].classList.add('wrongPlace');
+
+  const key = arrayGuess[index];
+  if (!$(`#${key}`).classList.contains('rightPlace')) {
+    $(`#${key}`).classList.add('wrongPlace');
+  }
 }
 
-function addWrongClassTo(currentRound) {
-  console.log('fügt der LetterBox die Klasse wrong hinzu');
+// fügt der LetterBox und dem Key von dem Virtualkeyboard die Klasse wrong hinzu
+function addWrongClassTo(currentRound, arrayGuess, index) {
+  $$('.LetterBox')[currentRound].childNodes[index].classList.add('wrong');
+
+  const key = arrayGuess[index];
+  $(`#${key}`).classList.add('wrong');
 }
