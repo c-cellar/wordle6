@@ -4,6 +4,7 @@ import { compareArrayGuessWithSearchedWord } from '../../logicFunctions';
 
 export function useProcessInput() {
   const [searchedWord, setSearchedWord] = useState('');
+  const [statusGame, setStatusGame] = useState(false); //=> ist false solange das Wort nicht erraten wurde
 
   // Rundenzähler: beinhaltet den State der akutellen Rate-Runde
   // Startwert für Rundenzähler ist 0
@@ -81,6 +82,12 @@ export function useProcessInput() {
           currentRound
         );
 
+        // Überprüft ob das Wort erraten wurde und somit das Spiel gewonnen wurde
+        if (searchedWord === wordToCheck) {
+          console.log('Sie haben gewonnen');
+          setStatusGame(true);
+        }
+
         // setState für Ausgabe des Wortes in der gespielten Runde
         switch (currentRound) {
           case 0:
@@ -125,6 +132,7 @@ export function useProcessInput() {
     fourthRound,
     fifthRound,
     sixthRound,
+    statusGame,
     setSearchedWord,
     dispatchArrayGuess,
   };
