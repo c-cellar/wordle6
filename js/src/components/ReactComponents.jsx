@@ -7,6 +7,7 @@ import { useProcessInput } from '../hooks/useProcessInput';
 // Components
 import ContainerLetters from './ContainerLetters';
 import Keyboard from './Keyboard';
+import Notifications from './Notifications';
 
 export default function ReactComponents() {
   //-------- Custom Hook(Rückgaben) -------------
@@ -19,6 +20,7 @@ export default function ReactComponents() {
     fourthRound,
     fifthRound,
     sixthRound,
+    statusGame,
     setSearchedWord,
     dispatchArrayGuess,
   } = useProcessInput();
@@ -46,6 +48,7 @@ export default function ReactComponents() {
         fifthRound={fifthRound}
         sixthRound={sixthRound}
       />
+      <Notifications statusGame={statusGame} />
       <Keyboard dispatchArrayGuess={dispatchArrayGuess} />
     </div>
   );
