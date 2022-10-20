@@ -10,7 +10,7 @@ export default function ContainerLetters({
 }) {
   return (
     <div className="letterContainer">
-      <div className="round" id="first">
+      <div className="LetterBox">
         <div className="box-letter">
           {currentRound == 0 && firstRound == ''
             ? arrayGuess[0]
@@ -42,7 +42,7 @@ export default function ContainerLetters({
             : firstRound[5]}
         </div>
       </div>
-      <div className="round" id="second">
+      <div className="LetterBox">
         <div className="box-letter">
           {currentRound == 1 && secondRound == ''
             ? arrayGuess[0]
@@ -74,7 +74,7 @@ export default function ContainerLetters({
             : secondRound[5]}
         </div>
       </div>
-      <div className="round" id="third">
+      <div className="LetterBox">
         <div className="box-letter">
           {currentRound == 2 && thirdRound == ''
             ? arrayGuess[0]
@@ -106,7 +106,7 @@ export default function ContainerLetters({
             : thirdRound[5]}
         </div>
       </div>
-      <div className="round" id="fourth">
+      <div className="LetterBox">
         <div className="box-letter">
           {currentRound == 3 && fourthRound == ''
             ? arrayGuess[0]
@@ -138,7 +138,7 @@ export default function ContainerLetters({
             : fourthRound[5]}
         </div>
       </div>
-      <div className="round" id="fifth">
+      <div className="LetterBox">
         <div className="box-letter">
           {currentRound == 4 && fifthRound == ''
             ? arrayGuess[0]
@@ -170,7 +170,7 @@ export default function ContainerLetters({
             : fifthRound[5]}
         </div>
       </div>
-      <div className="round" id="sixth">
+      <div className="LetterBox">
         <div className="box-letter">
           {currentRound == 5 && sixthRound == ''
             ? arrayGuess[0]
