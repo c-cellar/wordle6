@@ -31,7 +31,7 @@ header {
 }
 
 /****************** BOX LETTERS  *************************/
-.round {
+.LetterBox {
   font-size: 2rem;
   width: 360px;
   height: 62px;
@@ -40,15 +40,15 @@ header {
   display: flex;
   align-content: space-between;
   justify-content: center;
+}
 
-  .box-letter {
-    border: 2px solid var(--letterbox-border);
-    text-align: center;
-    font-weight: 500;
-    line-height: 55px;
-    margin: 2px;
-    width: 50px;
-  }
+.box-letter {
+  border: 2px solid var(--letterbox-border);
+  text-align: center;
+  font-weight: 500;
+  line-height: 55px;
+  margin: 2px;
+  width: 50px;
 }
 
 /******************** BOX LETTER DARK ***********************/
@@ -67,7 +67,7 @@ header {
 
 /*******************  MEDIA QUERIES **************************/
 @media screen and (max-width: 640px) {
-  .round {
+  .LetterBox {
     font-size: 2rem;
     width: 360px;
     height: 62px;
