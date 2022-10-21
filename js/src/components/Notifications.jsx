@@ -16,12 +16,13 @@ export default function Notifications({
           searchedWord={searchedWord}
         />
       )}
-      {/* {!statusGame && currentRound >= 6 ? (
+
+      {!statusGame && currentRound >= 6 ? (
         <UnsuccessfulNotification searchedWord={searchedWord} />
       ) : (
         ''
-      )} */}
-      <UnsuccessfulNotification searchedWord={searchedWord} />
+      )}
+
       {!isACorrectWord.isCorrect && (
         <NoWordNotification isACorrectWord={isACorrectWord} />
       )}
