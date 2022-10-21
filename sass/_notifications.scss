@@ -10,12 +10,10 @@
 
   z-index: 200;
   padding: 1rem;
-  display: none;
   width: fit-content;
   text-align: center;
   opacity: 1;
   background: var(--grey-dark-95);
-  /* opacity: 0.95; */
   color: var(--grey-bright);
   border: solid 2px var(--grey-bright);
   box-shadow: 0px 0px 1em var(--grey-medium);
@@ -35,7 +33,8 @@
   }
 }
 
-.notification {
+// TODO: add dark mode notification and btn for newGame
+.notification .dark {
   border-radius: 0.5rem;
   box-shadow: inset 0 0 0.25rem var(--grey-bright),
     0 0 0.5rem var(--grey-bright);
