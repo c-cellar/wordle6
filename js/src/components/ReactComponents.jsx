@@ -12,6 +12,7 @@ import Notifications from './Notifications';
 export default function ReactComponents() {
   //-------- Custom Hook(Rückgaben) -------------
   const {
+    searchedWord,
     arrayGuess,
     currentRound,
     firstRound,
@@ -21,6 +22,7 @@ export default function ReactComponents() {
     fifthRound,
     sixthRound,
     statusGame,
+    isACorrectWord,
     setSearchedWord,
     dispatchArrayGuess,
   } = useProcessInput();
@@ -48,7 +50,12 @@ export default function ReactComponents() {
         fifthRound={fifthRound}
         sixthRound={sixthRound}
       />
-      <Notifications statusGame={statusGame} />
+      <Notifications
+        searchedWord={searchedWord}
+        statusGame={statusGame}
+        currentRound={currentRound}
+        isACorrectWord={isACorrectWord}
+      />
       <Keyboard dispatchArrayGuess={dispatchArrayGuess} />
     </div>
   );
