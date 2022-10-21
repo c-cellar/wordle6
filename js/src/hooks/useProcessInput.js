@@ -9,12 +9,20 @@ export function useProcessInput() {
   // Rundenzähler: beinhaltet den State der akutellen Rate-Runde
   // Startwert für Rundenzähler ist 0
   const [currentRound, setCurrentRound] = useState(0);
+
+  // beinhaltet die Worter der einzelnen Raterunde insofern es existierende Wörter sind
   const [firstRound, setFirstRound] = useState('');
   const [secondRound, setSecondRound] = useState('');
   const [thirdRound, setThirdRound] = useState('');
   const [fourthRound, setFourthRound] = useState('');
   const [fifthRound, setFifthRound] = useState('');
   const [sixthRound, setSixthRound] = useState('');
+
+  // beinhaltet false sobald das Wort nicht im Dictionary vorhanden ist.
+  const [isACorrectWord, setIsACorrectWord] = useState({
+    isCorrect: true,
+    noWord: '',
+  });
 
   // useReducer
   // Die Eingabe wird über die selbst geschriebene "Reducer"-Funktion (processInput) verarbeitet.
@@ -63,13 +71,19 @@ export function useProcessInput() {
         `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToCheck}`
       );
 
-      // wird durchgeführt sobald das eingebenen Wort nicht im Dictionary gefunden wird
+      // wird durchgeführt sobald das eingebenen Wort nicht im Dictionary gefunden wird (false wird zu true)
       if (!response.ok) {
+        const noWord = arrayGuess.join('');
+        setIsACorrectWord({ isCorrect: false, noWord });
+        setTimeout(
+          () => setIsACorrectWord({ isCorrect: true, noWord: '' }),
+          1800
+        );
         console.log('Das Wort gibt es nicht');
         throw new Error('Fehler beim Laden der Daten');
       }
 
-      // wird durchgeführt wenn das Wort im Dictionary vorhanden ist
+      // wird durchgeführt wenn das Wort im Dictionary vorhanden ist (true)
       if (response.ok) {
         console.log(
           'Das Wort gibt es. Bitte einmal hochzählen und Buchstaben des Wortes auswerten'
@@ -124,6 +138,7 @@ export function useProcessInput() {
   }
 
   return {
+    searchedWord,
     arrayGuess,
     currentRound,
     firstRound,
@@ -133,6 +148,7 @@ export function useProcessInput() {
     fifthRound,
     sixthRound,
     statusGame,
+    isACorrectWord,
     setSearchedWord,
     dispatchArrayGuess,
   };
