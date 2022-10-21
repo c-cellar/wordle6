@@ -1,13 +1,13 @@
-export default function SuccessfulNotification() {
+export default function SuccessfulNotification({ searchedWord, currentRound }) {
   return (
     <div id="successful" className="notification">
       <span>CONGRATULATIONS</span>
       <p>
-        word:
+        word: {searchedWord}
         <span id="winningWord"></span>
       </p>
       <p>
-        attempts:
+        attempts: {currentRound}
         <span id="rounds"></span>
       </p>
       <button id="btn-successful" className="btn btn-NewGame">
