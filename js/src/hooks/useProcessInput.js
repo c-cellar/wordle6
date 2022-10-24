@@ -10,13 +10,17 @@ export function useProcessInput() {
   // Startwert für Rundenzähler ist 0
   const [currentRound, setCurrentRound] = useState(0);
 
+  // object welches die zu vergleichenden Worte der jeweilig gespielten runde beinhaltet
+  const guessWordObject = {
+    one: [],
+    two: [],
+    three: [],
+    four: [],
+    five: [],
+    six: [],
+  };
   // beinhaltet die Worter der einzelnen Raterunde insofern es existierende Wörter sind
-  const [firstRound, setFirstRound] = useState('');
-  const [secondRound, setSecondRound] = useState('');
-  const [thirdRound, setThirdRound] = useState('');
-  const [fourthRound, setFourthRound] = useState('');
-  const [fifthRound, setFifthRound] = useState('');
-  const [sixthRound, setSixthRound] = useState('');
+  const [guessWordRound, setGuessWordRound] = useState(guessWordObject);
 
   // beinhaltet false sobald das Wort nicht im Dictionary vorhanden ist.
   const [isACorrectWord, setIsACorrectWord] = useState({
@@ -105,22 +109,28 @@ export function useProcessInput() {
         // setState für Ausgabe des Wortes in der gespielten Runde
         switch (currentRound) {
           case 0:
-            setFirstRound(arrayGuess);
+            setGuessWordRound({ ...guessWordRound, one: arrayGuess });
+            console.log(guessWordRound);
             break;
           case 1:
-            setSecondRound(arrayGuess);
+            setGuessWordRound({ ...guessWordRound, two: arrayGuess });
+            console.log(guessWordRound);
             break;
           case 2:
-            setThirdRound(arrayGuess);
+            setGuessWordRound({ ...guessWordRound, three: arrayGuess });
+            console.log(guessWordRound);
             break;
           case 3:
-            setFourthRound(arrayGuess);
+            setGuessWordRound({ ...guessWordRound, four: arrayGuess });
+            console.log(guessWordRound);
             break;
           case 4:
-            setFifthRound(arrayGuess);
+            setGuessWordRound({ ...guessWordRound, five: arrayGuess });
+            console.log(guessWordRound);
             break;
           case 5:
-            setSixthRound(arrayGuess);
+            setGuessWordRound({ ...guessWordRound, six: arrayGuess });
+            console.log(guessWordRound);
             break;
         }
 
@@ -141,15 +151,12 @@ export function useProcessInput() {
     searchedWord,
     arrayGuess,
     currentRound,
-    firstRound,
-    secondRound,
-    thirdRound,
-    fourthRound,
-    fifthRound,
-    sixthRound,
+    guessWordRound,
     statusGame,
     isACorrectWord,
     setSearchedWord,
     dispatchArrayGuess,
+    setCurrentRound,
+    setStatusGame,
   };
 }
