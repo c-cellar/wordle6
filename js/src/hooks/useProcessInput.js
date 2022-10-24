@@ -1,6 +1,7 @@
+import objectGuessRounds from '../../objectGuessRounds';
 import { useReducer, useState } from 'react';
 
-import { compareArrayGuessWithSearchedWord } from '../../logicFunctions';
+import { compareArrayGuessWithSearchedWord } from '../../gameplayFunctions';
 
 export function useProcessInput() {
   const [searchedWord, setSearchedWord] = useState('');
@@ -10,17 +11,9 @@ export function useProcessInput() {
   // Startwert für Rundenzähler ist 0
   const [currentRound, setCurrentRound] = useState(0);
 
-  // object welches die zu vergleichenden Worte der jeweilig gespielten runde beinhaltet
-  const guessWordObject = {
-    one: [],
-    two: [],
-    three: [],
-    four: [],
-    five: [],
-    six: [],
-  };
   // beinhaltet die Worter der einzelnen Raterunde insofern es existierende Wörter sind
-  const [guessWordRound, setGuessWordRound] = useState(guessWordObject);
+  // default ist objectGuessRounds. ein object mit der objekt-struktur die für die Ausgaben benötigt wird
+  const [guessWordRound, setGuessWordRound] = useState(objectGuessRounds);
 
   // beinhaltet false sobald das Wort nicht im Dictionary vorhanden ist.
   const [isACorrectWord, setIsACorrectWord] = useState({
@@ -158,5 +151,6 @@ export function useProcessInput() {
     dispatchArrayGuess,
     setCurrentRound,
     setStatusGame,
+    setGuessWordRound,
   };
 }
