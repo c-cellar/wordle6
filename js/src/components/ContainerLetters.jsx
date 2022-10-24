@@ -1,205 +1,128 @@
 export default function ContainerLetters({
   arrayGuess,
   currentRound,
-  firstRound,
-  secondRound,
-  thirdRound,
-  fourthRound,
-  fifthRound,
-  sixthRound,
+  guessWordRound,
 }) {
   return (
     <div className="letterContainer">
       <div className="LetterBox">
         <div className="box-letter">
-          {currentRound == 0 && firstRound == ''
-            ? arrayGuess[0]
-            : firstRound[0]}
+          {currentRound == 0 ? arrayGuess[0] : guessWordRound.one[0]}
         </div>
         <div className="box-letter">
-          {currentRound == 0 && firstRound == ''
-            ? arrayGuess[1]
-            : firstRound[1]}
+          {currentRound == 0 ? arrayGuess[1] : guessWordRound.one[1]}
         </div>
         <div className="box-letter">
-          {currentRound == 0 && firstRound == ''
-            ? arrayGuess[2]
-            : firstRound[2]}
+          {currentRound == 0 ? arrayGuess[2] : guessWordRound.one[2]}
         </div>
         <div className="box-letter">
-          {currentRound == 0 && firstRound == ''
-            ? arrayGuess[3]
-            : firstRound[3]}
+          {currentRound == 0 ? arrayGuess[3] : guessWordRound.one[3]}
         </div>
         <div className="box-letter">
-          {currentRound == 0 && firstRound == ''
-            ? arrayGuess[4]
-            : firstRound[4]}
+          {currentRound == 0 ? arrayGuess[4] : guessWordRound.one[4]}
         </div>
         <div className="box-letter">
-          {currentRound == 0 && firstRound == ''
-            ? arrayGuess[5]
-            : firstRound[5]}
+          {currentRound == 0 ? arrayGuess[5] : guessWordRound.one[5]}
         </div>
       </div>
       <div className="LetterBox">
         <div className="box-letter">
-          {currentRound == 1 && secondRound == ''
-            ? arrayGuess[0]
-            : secondRound[0]}
+          {currentRound == 1 ? arrayGuess[0] : guessWordRound.two[0]}
         </div>
         <div className="box-letter">
-          {currentRound == 1 && secondRound == ''
-            ? arrayGuess[1]
-            : secondRound[1]}
+          {currentRound == 1 ? arrayGuess[1] : guessWordRound.two[1]}
         </div>
         <div className="box-letter">
-          {currentRound == 1 && secondRound == ''
-            ? arrayGuess[2]
-            : secondRound[2]}
+          {currentRound == 1 ? arrayGuess[2] : guessWordRound.two[2]}
         </div>
         <div className="box-letter">
-          {currentRound == 1 && secondRound == ''
-            ? arrayGuess[3]
-            : secondRound[3]}
+          {currentRound == 1 ? arrayGuess[3] : guessWordRound.two[3]}
         </div>
         <div className="box-letter">
-          {currentRound == 1 && secondRound == ''
-            ? arrayGuess[4]
-            : secondRound[4]}
+          {currentRound == 1 ? arrayGuess[4] : guessWordRound.two[4]}
         </div>
         <div className="box-letter">
-          {currentRound == 1 && secondRound == ''
-            ? arrayGuess[5]
-            : secondRound[5]}
+          {currentRound == 1 ? arrayGuess[5] : guessWordRound.two[5]}
         </div>
       </div>
       <div className="LetterBox">
         <div className="box-letter">
-          {currentRound == 2 && thirdRound == ''
-            ? arrayGuess[0]
-            : thirdRound[0]}
+          {currentRound == 2 ? arrayGuess[0] : guessWordRound.three[0]}
         </div>
         <div className="box-letter">
-          {currentRound == 2 && thirdRound == ''
-            ? arrayGuess[1]
-            : thirdRound[1]}
+          {currentRound == 2 ? arrayGuess[1] : guessWordRound.three[1]}
         </div>
         <div className="box-letter">
-          {currentRound == 2 && thirdRound == ''
-            ? arrayGuess[2]
-            : thirdRound[2]}
+          {currentRound == 2 ? arrayGuess[2] : guessWordRound.three[2]}
         </div>
         <div className="box-letter">
-          {currentRound == 2 && thirdRound == ''
-            ? arrayGuess[3]
-            : thirdRound[3]}
+          {currentRound == 2 ? arrayGuess[3] : guessWordRound.three[3]}
         </div>
         <div className="box-letter">
-          {currentRound == 2 && thirdRound == ''
-            ? arrayGuess[4]
-            : thirdRound[4]}
+          {currentRound == 2 ? arrayGuess[4] : guessWordRound.three[4]}
         </div>
         <div className="box-letter">
-          {currentRound == 2 && thirdRound == ''
-            ? arrayGuess[5]
-            : thirdRound[5]}
+          {currentRound == 2 ? arrayGuess[5] : guessWordRound.three[5]}
         </div>
       </div>
       <div className="LetterBox">
         <div className="box-letter">
-          {currentRound == 3 && fourthRound == ''
-            ? arrayGuess[0]
-            : fourthRound[0]}
+          {currentRound == 3 ? arrayGuess[0] : guessWordRound.four[0]}
         </div>
         <div className="box-letter">
-          {currentRound == 3 && fourthRound == ''
-            ? arrayGuess[1]
-            : fourthRound[1]}
+          {currentRound == 3 ? arrayGuess[1] : guessWordRound.four[1]}
         </div>
         <div className="box-letter">
-          {currentRound == 3 && fourthRound == ''
-            ? arrayGuess[2]
-            : fourthRound[2]}
+          {currentRound == 3 ? arrayGuess[2] : guessWordRound.four[2]}
         </div>
         <div className="box-letter">
-          {currentRound == 3 && fourthRound == ''
-            ? arrayGuess[3]
-            : fourthRound[3]}
+          {currentRound == 3 ? arrayGuess[3] : guessWordRound.four[3]}
         </div>
         <div className="box-letter">
-          {currentRound == 3 && fourthRound == ''
-            ? arrayGuess[4]
-            : fourthRound[4]}
+          {currentRound == 3 ? arrayGuess[4] : guessWordRound.four[4]}
         </div>
         <div className="box-letter">
-          {currentRound == 3 && fourthRound == ''
-            ? arrayGuess[5]
-            : fourthRound[5]}
+          {currentRound == 3 ? arrayGuess[5] : guessWordRound.four[5]}
         </div>
       </div>
       <div className="LetterBox">
         <div className="box-letter">
-          {currentRound == 4 && fifthRound == ''
-            ? arrayGuess[0]
-            : fifthRound[0]}
+          {currentRound == 4 ? arrayGuess[0] : guessWordRound.five[0]}
         </div>
         <div className="box-letter">
-          {currentRound == 4 && fifthRound == ''
-            ? arrayGuess[1]
-            : fifthRound[1]}
+          {currentRound == 4 ? arrayGuess[1] : guessWordRound.five[1]}
         </div>
         <div className="box-letter">
-          {currentRound == 4 && fifthRound == ''
-            ? arrayGuess[2]
-            : fifthRound[2]}
+          {currentRound == 4 ? arrayGuess[2] : guessWordRound.five[2]}
         </div>
         <div className="box-letter">
-          {currentRound == 4 && fifthRound == ''
-            ? arrayGuess[3]
-            : fifthRound[3]}
+          {currentRound == 4 ? arrayGuess[3] : guessWordRound.five[3]}
         </div>
         <div className="box-letter">
-          {currentRound == 4 && fifthRound == ''
-            ? arrayGuess[4]
-            : fifthRound[4]}
+          {currentRound == 4 ? arrayGuess[4] : guessWordRound.five[4]}
         </div>
         <div className="box-letter">
-          {currentRound == 4 && fifthRound == ''
-            ? arrayGuess[5]
-            : fifthRound[5]}
+          {currentRound == 4 ? arrayGuess[5] : guessWordRound.five[5]}
         </div>
       </div>
       <div className="LetterBox">
         <div className="box-letter">
-          {currentRound == 5 && sixthRound == ''
-            ? arrayGuess[0]
-            : sixthRound[0]}
+          {currentRound == 5 ? arrayGuess[0] : guessWordRound.six[0]}
         </div>
         <div className="box-letter">
-          {currentRound == 5 && sixthRound == ''
-            ? arrayGuess[1]
-            : sixthRound[1]}
+          {currentRound == 5 ? arrayGuess[1] : guessWordRound.six[1]}
         </div>
         <div className="box-letter">
-          {currentRound == 5 && sixthRound == ''
-            ? arrayGuess[2]
-            : sixthRound[2]}
+          {currentRound == 5 ? arrayGuess[2] : guessWordRound.six[2]}
         </div>
         <div className="box-letter">
-          {currentRound == 5 && sixthRound == ''
-            ? arrayGuess[3]
-            : sixthRound[3]}
+          {currentRound == 5 ? arrayGuess[3] : guessWordRound.six[3]}
         </div>
         <div className="box-letter">
-          {currentRound == 5 && sixthRound == ''
-            ? arrayGuess[4]
-            : sixthRound[4]}
+          {currentRound == 5 ? arrayGuess[4] : guessWordRound.six[4]}
         </div>
         <div className="box-letter">
-          {currentRound == 5 && sixthRound == ''
-            ? arrayGuess[5]
-            : sixthRound[5]}
+          {currentRound == 5 ? arrayGuess[5] : guessWordRound.six[5]}
         </div>
       </div>
     </div>

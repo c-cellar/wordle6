@@ -15,16 +15,13 @@ export default function ReactComponents() {
     searchedWord,
     arrayGuess,
     currentRound,
-    firstRound,
-    secondRound,
-    thirdRound,
-    fourthRound,
-    fifthRound,
-    sixthRound,
+    guessWordRound,
     statusGame,
     isACorrectWord,
     setSearchedWord,
     dispatchArrayGuess,
+    setCurrentRound,
+    setStatusGame,
   } = useProcessInput();
 
   // keyHandler on document für die Eingabe mit der Tastatur
@@ -43,18 +40,15 @@ export default function ReactComponents() {
       <ContainerLetters
         arrayGuess={arrayGuess}
         currentRound={currentRound}
-        firstRound={firstRound}
-        secondRound={secondRound}
-        thirdRound={thirdRound}
-        fourthRound={fourthRound}
-        fifthRound={fifthRound}
-        sixthRound={sixthRound}
+        guessWordRound={guessWordRound}
       />
       <Notifications
         searchedWord={searchedWord}
         statusGame={statusGame}
         currentRound={currentRound}
         isACorrectWord={isACorrectWord}
+        setCurrentRound={setCurrentRound}
+        setStatusGame={setStatusGame}
       />
       <Keyboard dispatchArrayGuess={dispatchArrayGuess} />
     </div>
