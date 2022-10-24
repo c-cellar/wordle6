@@ -26,7 +26,9 @@ const $$ = (q) => document.querySelectorAll(q);
 
 // fügt der LetterBox und dem Key von dem Virtualkeyboard die Klasse right-place hinzu
 function addRightPlaceClassTo(currentRound, arrayGuess, index) {
-  $$('.LetterBox')[currentRound].childNodes[index].classList.add('rightPlace');
+  $$('.boxLetterContainer')[currentRound].childNodes[index].classList.add(
+    'rightPlace'
+  );
 
   const key = arrayGuess[index];
   if ($(`#${key}`).classList.contains('wrongPlace')) {
@@ -37,7 +39,9 @@ function addRightPlaceClassTo(currentRound, arrayGuess, index) {
 
 // fügt der LetterBox und dem Key von dem Virtualkeyboard die Klasse wrong-place hinzu
 function addWrongPlaceClassTo(currentRound, arrayGuess, index) {
-  $$('.LetterBox')[currentRound].childNodes[index].classList.add('wrongPlace');
+  $$('.boxLetterContainer')[currentRound].childNodes[index].classList.add(
+    'wrongPlace'
+  );
 
   const key = arrayGuess[index];
   if (!$(`#${key}`).classList.contains('rightPlace')) {
@@ -47,7 +51,9 @@ function addWrongPlaceClassTo(currentRound, arrayGuess, index) {
 
 // fügt der LetterBox und dem Key von dem Virtualkeyboard die Klasse wrong hinzu
 function addWrongClassTo(currentRound, arrayGuess, index) {
-  $$('.LetterBox')[currentRound].childNodes[index].classList.add('wrong');
+  $$('.boxLetterContainer')[currentRound].childNodes[index].classList.add(
+    'wrong'
+  );
 
   const key = arrayGuess[index];
   $(`#${key}`).classList.add('wrong');
