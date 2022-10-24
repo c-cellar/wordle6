@@ -52,3 +52,18 @@ function addWrongClassTo(currentRound, arrayGuess, index) {
   const key = arrayGuess[index];
   $(`#${key}`).classList.add('wrong');
 }
+
+// css-Klassen von der Auswertung des Wortes von allen LetterBoxen und keys entfernen
+export function removeClassFrom() {
+  $$('.boxLetter').forEach((el) => {
+    el.classList.remove('rightPlace');
+    el.classList.remove('wrongPlace');
+    el.classList.remove('wrong');
+  });
+
+  $$('.key').forEach((el) => {
+    el.classList.remove('rightPlace');
+    el.classList.remove('wrongPlace');
+    el.classList.remove('wrong');
+  });
+}
