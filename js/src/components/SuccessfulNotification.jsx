@@ -1,4 +1,13 @@
-export default function SuccessfulNotification({ searchedWord, currentRound }) {
+import objectGuessRounds from '../../objectGuessRounds';
+import { removeClassFrom } from '../../gameplayFunctions';
+
+export default function SuccessfulNotification({
+  searchedWord,
+  currentRound,
+  setCurrentRound,
+  setStatusGame,
+  setGuessWordRound,
+}) {
   return (
     <div id="successful" className="notification">
       <span>CONGRATULATIONS</span>
@@ -10,7 +19,16 @@ export default function SuccessfulNotification({ searchedWord, currentRound }) {
         attempts: {currentRound}
         <span id="rounds"></span>
       </p>
-      <button id="btn-successful" className="btn btn-NewGame">
+      <button
+        id="btn-successful"
+        className="btn btn-NewGame"
+        onClick={() => {
+          setCurrentRound(0);
+          setStatusGame(false);
+          setGuessWordRound(objectGuessRounds);
+          removeClassFrom();
+        }}
+      >
         New Game
       </button>
     </div>

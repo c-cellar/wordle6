@@ -9,6 +9,7 @@ export default function Notifications({
   isACorrectWord,
   setCurrentRound,
   setStatusGame,
+  setGuessWordRound,
 }) {
   return (
     <div>
@@ -16,6 +17,9 @@ export default function Notifications({
         <SuccessfulNotification
           currentRound={currentRound}
           searchedWord={searchedWord}
+          setCurrentRound={setCurrentRound}
+          setStatusGame={setStatusGame}
+          setGuessWordRound={setGuessWordRound}
         />
       )}
 
@@ -23,6 +27,7 @@ export default function Notifications({
         <UnsuccessfulNotification
           searchedWord={searchedWord}
           setCurrentRound={setCurrentRound}
+          setGuessWordRound={setGuessWordRound}
           setStatusGame={setStatusGame}
         />
       ) : (

@@ -22,6 +22,7 @@ export default function ReactComponents() {
     dispatchArrayGuess,
     setCurrentRound,
     setStatusGame,
+    setGuessWordRound,
   } = useProcessInput();
 
   // keyHandler on document für die Eingabe mit der Tastatur
@@ -49,6 +50,7 @@ export default function ReactComponents() {
         isACorrectWord={isACorrectWord}
         setCurrentRound={setCurrentRound}
         setStatusGame={setStatusGame}
+        setGuessWordRound={setGuessWordRound}
       />
       <Keyboard dispatchArrayGuess={dispatchArrayGuess} />
     </div>
