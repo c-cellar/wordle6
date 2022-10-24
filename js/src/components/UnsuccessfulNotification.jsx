@@ -1,9 +1,12 @@
+import objectGuessRounds from '../../objectGuessRounds';
 import { useState } from 'react';
+import { removeClassFrom } from '../../gameplayFunctions';
 
 export default function UnsuccessfulNotification({
   searchedWord,
   setCurrentRound,
   setStatusGame,
+  setGuessWordRound,
 }) {
   const [showWord, setShowWord] = useState(false);
 
@@ -21,7 +24,8 @@ export default function UnsuccessfulNotification({
         onClick={() => {
           setCurrentRound(0);
           setStatusGame(false);
-          console.log('New Game');
+          setGuessWordRound(objectGuessRounds);
+          removeClassFrom();
         }}
       >
         New Game
@@ -31,6 +35,4 @@ export default function UnsuccessfulNotification({
 }
 
 // TODO: style show-word button in buttons.scss
-// TODO: Mit klick auf den NewGame-Button:
-// - soll der Runden-Counter auf 0 gesetzt werden
-// - ein neues searchedWord holen
+// TODO: Mit klick auf den NewGame-Button: ein neues searchedWord holen
