@@ -103,27 +103,27 @@ export function useProcessInput() {
         switch (currentRound) {
           case 0:
             setGuessWordRound({ ...guessWordRound, one: arrayGuess });
-            console.log(guessWordRound);
+            // console.log(guessWordRound);
             break;
           case 1:
             setGuessWordRound({ ...guessWordRound, two: arrayGuess });
-            console.log(guessWordRound);
+            // console.log(guessWordRound);
             break;
           case 2:
             setGuessWordRound({ ...guessWordRound, three: arrayGuess });
-            console.log(guessWordRound);
+            // console.log(guessWordRound);
             break;
           case 3:
             setGuessWordRound({ ...guessWordRound, four: arrayGuess });
-            console.log(guessWordRound);
+            // console.log(guessWordRound);
             break;
           case 4:
             setGuessWordRound({ ...guessWordRound, five: arrayGuess });
-            console.log(guessWordRound);
+            // console.log(guessWordRound);
             break;
           case 5:
             setGuessWordRound({ ...guessWordRound, six: arrayGuess });
-            console.log(guessWordRound);
+            // console.log(guessWordRound);
             break;
         }
 
