@@ -17,28 +17,63 @@
   border: 2px solid var(--border-wrong);
 }
 
-.box-letter.box-letter-dark.rightPlace {
+.key.rightPlace {
+  color: var(--color-rightPlace);
+  background: var(--bg-rightPlace);
+  border: 2px solid var(--border-rightPlace);
+}
+
+.key.wrongPlace {
+  color: var(--color-wrongPlace);
+  background: var(--bg-wrongPlace);
+  border: 2px solid var(--border-wrongPlace);
+}
+
+.key.wrong {
+  color: var(--color-wrong);
+  background: var(--bg-wrong);
+  border: 2px solid var(--border-wrong);
+}
+
+.boxLetter.rightPlace {
+  color: var(--color-rightPlace);
+  background: var(--bg-rightPlace);
+  border: 2px solid var(--border-rightPlace);
+}
+
+.boxLetter.wrongPlace {
+  color: var(--color-wrongPlace);
+  background: var(--bg-wrongPlace);
+  border: 2px solid var(--border-wrongPlace);
+}
+.boxLetter.wrong {
+  color: var(--color-wrong);
+  background: var(--bg-wrong);
+  border: 2px solid var(--border-wrong);
+}
+
+.boxLetter.boxLetter-dark.rightPlace {
   box-shadow: inset 0 0 0.5rem var(--text-shadow-rightPlace),
     0 0 0.5rem var(--text-shadow-rightPlace);
   text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-rightPlace),
     0.2rem 0.2rem 1rem var(--text-shadow-rightPlace);
 }
 
-.box-letter.box-letter-dark.wrongPlace {
+.boxLetter.boxLetter-dark.wrongPlace {
   box-shadow: inset 0 0 0.5rem var(--text-shadow-wrongPlace),
     0 0 0.5rem var(--text-shadow-wrongPlace);
   text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-wrongPlace),
     0.2rem 0.2rem 1rem var(--text-shadow-wrongPlace);
 }
 
-.box-letter.box-letter-dark.wrong {
+.boxLetter.boxLetter-dark.wrong {
   box-shadow: inset 0 0 0.5rem var(--text-shadow-wrong),
     0 0 0.5rem var(--text-shadow-wrong);
   text-shadow: -0.2rem -0.2rem 1rem var(--text-shadow-wrong),
     0.2rem 0.2rem 1rem var(--text-shadow-wrong);
 }
 
-.key.box-letter-dark.rightPlace {
+.key.boxLetter-dark.rightPlace {
   border-radius: 0.5rem;
   box-shadow: 0 0 0.5rem var(--text-shadow-rightPlace),
     inset 0 0 0.5rem var(--text-shadow-rightPlace);
@@ -47,7 +82,7 @@
     0.1rem 0.1rem 1rem var(--text-shadow-rightPlace);
 }
 
-.key.box-letter-dark.wrongPlace {
+.key.boxLetter-dark.wrongPlace {
   border-radius: 0.5rem;
   box-shadow: 0 0 0.5rem var(--text-shadow-wrongPlace),
     inset 0 0 0.5rem var(--text-shadow-wrongPlace);
@@ -56,7 +91,7 @@
     0.1rem 0.1rem 1rem var(--text-shadow-wrongPlace);
 }
 
-.key.box-letter-dark.wrong {
+.key.boxLetter-dark.wrong {
   border-radius: 0.5rem;
   box-shadow: 0 0 0.5rem var(--text-shadow-wrong),
     inset 0 0 0.5rem var(--text-shadow-wrong);
