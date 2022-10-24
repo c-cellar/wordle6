@@ -7,6 +7,8 @@ export default function Notifications({
   statusGame,
   currentRound,
   isACorrectWord,
+  setCurrentRound,
+  setStatusGame,
 }) {
   return (
     <div>
@@ -18,7 +20,11 @@ export default function Notifications({
       )}
 
       {!statusGame && currentRound >= 6 ? (
-        <UnsuccessfulNotification searchedWord={searchedWord} />
+        <UnsuccessfulNotification
+          searchedWord={searchedWord}
+          setCurrentRound={setCurrentRound}
+          setStatusGame={setStatusGame}
+        />
       ) : (
         ''
       )}
