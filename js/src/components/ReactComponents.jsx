@@ -1,4 +1,5 @@
 import arrayWords from '../../arrayWords';
+import { openMenu } from '../../burgerMenuFunction';
 
 // Hooks
 import { useEffect } from 'react';
@@ -8,6 +9,7 @@ import { useProcessInput } from '../hooks/useProcessInput';
 import ContainerLetters from './ContainerLetters';
 import Keyboard from './Keyboard';
 import Notifications from './Notifications';
+import Header from './Header';
 
 export default function ReactComponents() {
   //-------- Custom Hook(Rückgaben) -------------
@@ -33,12 +35,17 @@ export default function ReactComponents() {
 
     setSearchedWord(arrayWords[0]);
 
+    document
+      .querySelector('.hamburger-menu-icon')
+      .addEventListener('click', () => openMenu());
+
     const selectedTheme = getSelectedTheme();
     addClassToElementsFor(selectedTheme);
   }, []);
 
   return (
     <div>
+      <Header />
       <ContainerLetters
         arrayGuess={arrayGuess}
         currentRound={currentRound}
