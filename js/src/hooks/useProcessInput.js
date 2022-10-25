@@ -82,10 +82,6 @@ export function useProcessInput() {
 
       // wird durchgeführt wenn das Wort im Dictionary vorhanden ist (true)
       if (response.ok) {
-        console.log(
-          'Das Wort gibt es. Bitte einmal hochzählen und Buchstaben des Wortes auswerten'
-        );
-
         // Vergleicht das gesuchte Word mit dem eingegebenen Wort
         compareArrayGuessWithSearchedWord(
           arrayGuess,
