@@ -23,17 +23,10 @@
   border-radius: 0.5rem;
 }
 
-#searchedWord {
-  margin-top: 0.5rem;
-  display: none;
-  padding: 2px 0px;
-  color: var(--color-wrongPlace);
-}
-
-#btn-showWord {
-  margin-top: 0.5rem;
-  padding: 2px 0px;
-  display: block;
-  color: var(--color-wrongPlace);
-  border: solid 1px var(--color-wrongPlace);
+.show-word {
+  cursor: pointer;
+  border: solid 1px var(--bg-wrongPlace);
+  border-radius: 0.5rem;
+  width: 10rem;
+  height: 2rem;
 }
