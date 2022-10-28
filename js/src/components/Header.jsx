@@ -1,4 +1,17 @@
-export default function Header() {
+import { useEffect } from 'react';
+import {
+  addClassToElementsFor,
+  updateTheme,
+  selectedThemeToLocalStorage,
+  selectTheme,
+} from '../../themeSelection';
+
+export default function Header({ colorTheme, setColorTheme }) {
+  useEffect(() => {
+    updateTheme(colorTheme);
+    selectedThemeToLocalStorage(colorTheme);
+  }, [colorTheme]);
+
   return (
     <header>
       <h1>
@@ -9,11 +22,33 @@ export default function Header() {
       {/* <!-- Radio Buttons --> */}
       <div className="radio-btn-wrapper">
         <label className="container-radio" htmlFor="light">
-          <input type="radio" name="theme_selection" id="light" />
+          <input
+            type="radio"
+            name="theme_selection"
+            id="light"
+            value="light"
+            checked={colorTheme === 'light'}
+            onChange={(e) => {
+              selectTheme(e);
+              addClassToElementsFor(e.target.value);
+              setColorTheme(e.target.value);
+            }}
+          />
           <span className="checkmark"></span>light
         </label>
         <label className="container-radio" htmlFor="dark">
-          <input type="radio" name="theme_selection" id="dark" />
+          <input
+            type="radio"
+            name="theme_selection"
+            id="dark"
+            value="dark"
+            checked={colorTheme === 'dark'}
+            onChange={(e) => {
+              selectTheme(e);
+              addClassToElementsFor(e.target.value);
+              setColorTheme(e.target.value);
+            }}
+          />
           <span className="checkmark"></span>dark/eighties
         </label>
       </div>
@@ -28,10 +63,38 @@ export default function Header() {
         <div className="dropdown-wrapper">
           <ul className="dropdown">
             <li className="dropdown-item" id="lightDropdown">
-              <a href={'funktion'}>light</a>
+              <label className="container-radio" htmlFor="light-dropdown">
+                <input
+                  type="radio"
+                  value="light"
+                  name="theme_selection_dropdown"
+                  id="light-dropdown"
+                  checked={colorTheme === 'light'}
+                  onChange={(e) => {
+                    selectTheme(e);
+                    addClassToElementsFor(e.target.value);
+                    setColorTheme(e.target.value);
+                  }}
+                />
+                <span className="checkmark"></span>light
+              </label>
             </li>
             <li className="dropdown-item" id="darkDropdown">
-              <a href={'funktion'}>dark/eighties</a>
+              <label className="container-radio" htmlFor="dark-dropdown">
+                <input
+                  type="radio"
+                  value="dark"
+                  name="theme_selection_dropdown"
+                  id="dark-dropdown"
+                  checked={colorTheme === 'dark'}
+                  onChange={(e) => {
+                    selectTheme(e);
+                    addClassToElementsFor(e.target.value);
+                    setColorTheme(e.target.value);
+                  }}
+                />
+                <span className="checkmark"></span>dark/eighties
+              </label>
             </li>
           </ul>
         </div>
