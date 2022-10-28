@@ -6,7 +6,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="q"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           Q
@@ -15,7 +18,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="w"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           W
@@ -24,7 +30,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="e"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           E
@@ -33,7 +42,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="r"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           R
@@ -42,7 +54,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="t"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           T
@@ -51,7 +66,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="z"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           Z
@@ -60,7 +78,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="u"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           U
@@ -69,7 +90,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="i"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           I
@@ -78,7 +102,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="o"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           O
@@ -87,7 +114,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="p"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           P
@@ -98,7 +128,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="a"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           A
@@ -107,7 +140,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="s"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           S
@@ -116,7 +152,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="d"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           D
@@ -125,7 +164,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="f"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           F
@@ -134,7 +176,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="g"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           G
@@ -143,7 +188,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="h"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           H
@@ -152,7 +200,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="j"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           J
@@ -161,7 +212,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="k"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           K
@@ -170,7 +224,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="l"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           L
@@ -181,7 +238,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="Enter"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           &#8629;
@@ -190,7 +250,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="y"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           Y
@@ -199,7 +262,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="x"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           X
@@ -208,7 +274,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="c"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           C
@@ -217,7 +286,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="v"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           V
@@ -238,7 +310,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="n"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           N
@@ -247,7 +322,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="m"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           M
@@ -256,7 +334,10 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="Backspace"
           onClick={(e) =>
-            dispatchArrayGuess({ inputType: e.type, input: e.currentTarget.id })
+            dispatchArrayGuess({
+              inputType: e.type,
+              input: e.currentTarget.id,
+            })
           }
         >
           &#8592;
