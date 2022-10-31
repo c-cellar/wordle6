@@ -36,9 +36,14 @@
 /*******************  MEDIA QUERIES **************************/
 @media screen and (max-device-width: 640px), screen and (max-width: 640px) {
   .keyboard {
+    position: absolute;
     display: grid;
     align-items: end;
     align-self: end;
+    bottom: 0px;
+    margin-bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .keyboardRow {
