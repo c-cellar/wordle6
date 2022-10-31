@@ -33,7 +33,16 @@
   }
 }
 
-// TODO: add dark mode notification and btn for newGame
+.show-word {
+  cursor: pointer;
+  background: var(--grey-dark-95);
+  border: solid 1px var(--border-wrongPlace);
+  color: var(--border-wrongPlace);
+  border-radius: 0.5rem;
+  width: 10rem;
+  height: 2rem;
+}
+
 .notification .dark {
   border-radius: 0.5rem;
   box-shadow: inset 0 0 0.25rem var(--grey-bright),
