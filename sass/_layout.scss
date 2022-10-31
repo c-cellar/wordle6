@@ -28,8 +28,16 @@ header {
     }
   }
 }
+/******************** KEYBOARD ****************************/
+.keyboard {
+  margin-top: 2rem;
+}
 
 /****************** BOX LETTERS  *************************/
+.boxLetterWrapper {
+  margin-top: 3rem;
+}
+
 .boxLetterContainer {
   font-size: 2rem;
   width: 360px;
@@ -67,22 +75,16 @@ header {
 
 /*******************  MEDIA QUERIES **************************/
 @media screen and (max-width: 640px) {
+  body {
+    width: 100vw;
+  }
+
   .boxLetterContainer {
     font-size: 2rem;
-    width: 360px;
     height: 62px;
     margin: 0px auto;
-    display: block;
     display: flex;
     align-content: space-between;
     justify-content: center;
   }
-
-  .boxLetter {
-    text-align: center;
-    font-weight: 500;
-    line-height: 55px;
-    margin: 2px;
-    width: 50px;
-  }
-} ;
+}
