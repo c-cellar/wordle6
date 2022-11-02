@@ -66,6 +66,7 @@ export default function ReactComponents() {
         setCurrentRound={setCurrentRound}
         setStatusGame={setStatusGame}
         setGuessWordRound={setGuessWordRound}
+        setSearchedWord={setSearchedWord}
       />
       <Keyboard dispatchArrayGuess={dispatchArrayGuess} />
     </div>

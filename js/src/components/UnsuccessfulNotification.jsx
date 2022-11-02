@@ -1,12 +1,14 @@
 import objectGuessRounds from '../../objectGuessRounds';
 import { useState } from 'react';
-import { removeClassFrom } from '../../gameplayFunctions';
+import { removeClassFrom, getNewWord } from '../../gameplayFunctions';
+import arrayWords from '../../arrayWords';
 
 export default function UnsuccessfulNotification({
   searchedWord,
   setCurrentRound,
   setStatusGame,
   setGuessWordRound,
+  setSearchedWord,
 }) {
   const [showWord, setShowWord] = useState(false);
 
@@ -22,6 +24,8 @@ export default function UnsuccessfulNotification({
         id="btn-unsuccessful"
         className="btn btn-NewGame"
         onClick={() => {
+          const randomNewWord = getNewWord(searchedWord, arrayWords);
+          setSearchedWord(randomNewWord);
           setCurrentRound(0);
           setStatusGame(false);
           setGuessWordRound(objectGuessRounds);
@@ -33,6 +37,3 @@ export default function UnsuccessfulNotification({
     </div>
   );
 }
-
-// TODO: style show-word button in buttons.scss
-// TODO: Mit klick auf den NewGame-Button: ein neues searchedWord holen

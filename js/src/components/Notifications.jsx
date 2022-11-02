@@ -10,6 +10,7 @@ export default function Notifications({
   setCurrentRound,
   setStatusGame,
   setGuessWordRound,
+  setSearchedWord,
 }) {
   return (
     <div>
@@ -20,6 +21,7 @@ export default function Notifications({
           setCurrentRound={setCurrentRound}
           setStatusGame={setStatusGame}
           setGuessWordRound={setGuessWordRound}
+          setSearchedWord={setSearchedWord}
         />
       )}
 
@@ -29,6 +31,7 @@ export default function Notifications({
           setCurrentRound={setCurrentRound}
           setGuessWordRound={setGuessWordRound}
           setStatusGame={setStatusGame}
+          setSearchedWord={setSearchedWord}
         />
       ) : (
         ''

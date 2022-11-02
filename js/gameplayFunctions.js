@@ -73,3 +73,15 @@ export function removeClassFrom() {
     el.classList.remove('wrong');
   });
 }
+
+// Entfernt altes Wort aus dem Array und wählt eine neues Wort aus.
+// Bonus: wöhlt zufällig ein Wort aus dem Array aus
+export function getNewWord(oldWord, array) {
+  const indexPlayedWord = array.indexOf(oldWord);
+  array.splice(indexPlayedWord, 1);
+
+  const randomIndex = Math.floor(Math.random() * array.length);
+  // console.log(array);
+  // console.log(array[randomIndex]);
+  return array[randomIndex];
+}
