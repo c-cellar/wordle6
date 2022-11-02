@@ -46,10 +46,6 @@ function selectTheme(e) {
   }
 }
 
-function selectedThemeToLocalStorage(colorTheme) {
-  localStorage.setItem('theme', JSON.stringify(colorTheme));
-}
-
 function updateTheme(colorTheme) {
   if (colorTheme === 'light') {
     document.documentElement.classList.add('light');
@@ -60,6 +56,13 @@ function updateTheme(colorTheme) {
   }
 }
 
+// speichert ausgewähltes bzw. zuletzt gewähltes Theme im LocalStorage
+function selectedThemeToLocalStorage(colorTheme) {
+  localStorage.setItem('theme', JSON.stringify(colorTheme));
+}
+
+//überprüft welches Theme zuletzt gewählt wurde.
+// Falls kein Theme im localStorage hinterlegt ist, wird das als default 'light' verwendet
 function getThemeFromStorage() {
   const storedTheme = JSON.parse(localStorage.getItem('theme'));
 
