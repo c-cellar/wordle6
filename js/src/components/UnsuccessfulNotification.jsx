@@ -1,7 +1,10 @@
 import objectGuessRounds from '../../objectGuessRounds';
 import { useState } from 'react';
-import { removeClassFrom, getNewWord } from '../../gameplayFunctions';
-import arrayWords from '../../arrayWords';
+import {
+  removeClassFrom,
+  getNewWord,
+  getArrayFromStorage,
+} from '../../gameplayFunctions';
 
 export default function UnsuccessfulNotification({
   searchedWord,
@@ -24,7 +27,8 @@ export default function UnsuccessfulNotification({
         id="btn-unsuccessful"
         className="btn btn-NewGame"
         onClick={() => {
-          const randomNewWord = getNewWord(searchedWord, arrayWords);
+          const arrayWords = getArrayFromStorage('wordleArray');
+          const randomNewWord = getNewWord(arrayWords, searchedWord);
           setSearchedWord(randomNewWord);
           setCurrentRound(0);
           setStatusGame(false);

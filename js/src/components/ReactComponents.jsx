@@ -4,6 +4,11 @@ import {
   addClassToElementsFor,
   getThemeFromStorage,
 } from '../../themeSelection';
+import {
+  getArrayFromStorage,
+  setArrayToLocalStorage,
+  getNewWord,
+} from '../../gameplayFunctions';
 
 // Hooks
 import { useEffect, useState } from 'react';
@@ -42,12 +47,24 @@ export default function ReactComponents() {
       .querySelector('.hamburger-menu-icon')
       .addEventListener('click', () => openMenu());
 
-    // nimmt ein Wort aus dem Array
-    setSearchedWord(arrayWords[0]);
-
     // zuweisen des Themes beim ersten Laden der Application
     getThemeFromStorage();
     addClassToElementsFor(colorTheme);
+
+    // gets the value from localStorage with key='wordleArray'
+    // return null for 'empty' storage
+    const isArrayInStorage = getArrayFromStorage('wordleArray');
+
+    // Wird aufgerufen sobald kein Wert im localStorage gefunden wurde
+    if (isArrayInStorage === null) {
+      setArrayToLocalStorage(arrayWords);
+      setSearchedWord(getNewWord(arrayWords));
+      return;
+    }
+
+    const arrayFromStorage = getArrayFromStorage('wordleArray');
+    console.log(arrayFromStorage);
+    setSearchedWord(getNewWord(arrayFromStorage));
   }, []);
 
   return (

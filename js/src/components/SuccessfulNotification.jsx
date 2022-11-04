@@ -1,6 +1,9 @@
 import objectGuessRounds from '../../objectGuessRounds';
-import arrayWords from '../../arrayWords';
-import { removeClassFrom, getNewWord } from '../../gameplayFunctions';
+import {
+  removeClassFrom,
+  getNewWord,
+  getArrayFromStorage,
+} from '../../gameplayFunctions';
 
 export default function SuccessfulNotification({
   searchedWord,
@@ -25,7 +28,8 @@ export default function SuccessfulNotification({
         id="btn-successful"
         className="btn btn-NewGame"
         onClick={() => {
-          const randomNewWord = getNewWord(searchedWord, arrayWords);
+          const newArrayWords = getArrayFromStorage('wordleArray');
+          const randomNewWord = getNewWord(newArrayWords, searchedWord);
           setSearchedWord(randomNewWord);
           setCurrentRound(0);
           setStatusGame(false);
