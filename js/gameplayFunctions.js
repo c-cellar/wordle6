@@ -74,14 +74,28 @@ export function removeClassFrom() {
   });
 }
 
+// TODO: Refactoring
 // Entfernt altes Wort aus dem Array und wählt eine neues Wort aus.
-// Bonus: wöhlt zufällig ein Wort aus dem Array aus
-export function getNewWord(oldWord, array) {
-  const indexPlayedWord = array.indexOf(oldWord);
-  array.splice(indexPlayedWord, 1);
+// Wöhlt zufällig ein Wort aus dem Array aus
+export function getNewWord(array, oldWord = null) {
+  if (oldWord !== null) {
+    const indexPlayedWord = array.indexOf(oldWord);
+    array.splice(indexPlayedWord, 1);
+    setArrayToLocalStorage(array);
+  }
 
   const randomIndex = Math.floor(Math.random() * array.length);
-  // console.log(array);
-  // console.log(array[randomIndex]);
+  console.log(array[randomIndex]);
   return array[randomIndex];
+}
+
+// speichert ausgewähltes bzw. zuletzt gewähltes Theme im LocalStorage
+export function setArrayToLocalStorage(array) {
+  localStorage.setItem('wordleArray', JSON.stringify(array));
+}
+
+// überprüft ob es einen alten Spielstand im localStorage gibt und gibt diesen als Array zurück.
+export function getArrayFromStorage(key) {
+  const storedArray = JSON.parse(localStorage.getItem(key));
+  return storedArray !== '' ? storedArray : '';
 }
