@@ -3,6 +3,8 @@ import { openMenu } from '../../burgerMenuFunction';
 import {
   addClassToElementsFor,
   getThemeFromStorage,
+  selectedThemeToLocalStorage,
+  updateTheme,
 } from '../../themeSelection';
 import {
   getArrayFromStorage,
@@ -57,6 +59,9 @@ export default function ReactComponents() {
 
     // Wird aufgerufen sobald kein Wert im localStorage gefunden wurde
     if (isArrayInStorage === null) {
+      console.log('ich bin hier');
+      updateTheme('light');
+      selectedThemeToLocalStorage('light');
       setArrayToLocalStorage(arrayWords);
       setSearchedWord(getNewWord(arrayWords));
       return;
