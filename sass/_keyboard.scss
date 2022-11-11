@@ -36,7 +36,7 @@
 /*******************  MEDIA QUERIES **************************/
 @media screen and (max-device-width: 640px), screen and (max-width: 640px) {
   .keyboard {
-    position: absolute;
+    position: fixed;
     display: grid;
     align-items: end;
     align-self: end;
@@ -54,6 +54,7 @@
     border-radius: 5px;
     width: 2rem;
     height: 50px;
+    padding: 0px;
   }
 
   #Enter {
@@ -64,5 +65,13 @@
   #Backspace {
     width: 3.5rem;
     font-size: 2rem;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  .keyboard {
+    position: fixed;
+    bottom: 0px;
+    margin-bottom: 0.5rem;
   }
 }
