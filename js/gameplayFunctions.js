@@ -1,4 +1,9 @@
 'use strict';
+
+import { $, $$ } from './helpers/helpers';
+
+// import { $, $$ } from './helpers/dollarSelector.js';
+
 // Vergleicht das eingegebene Wort (arrayGuess) mit dem gesuchten Wort aus der 'Datenbank' (searchedWord)
 export function compareArrayGuessWithSearchedWord(
   arrayGuess,
@@ -19,10 +24,6 @@ export function compareArrayGuessWithSearchedWord(
     }
   });
 }
-
-// Selektor
-const $ = (q) => document.querySelector(q);
-const $$ = (q) => document.querySelectorAll(q);
 
 // fügt der LetterBox und dem Key von dem Virtualkeyboard die Klasse right-place hinzu
 function addRightPlaceClassTo(currentRound, arrayGuess, index) {
