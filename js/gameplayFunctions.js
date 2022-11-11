@@ -2,8 +2,6 @@
 
 import { $, $$ } from './helpers/helpers';
 
-// import { $, $$ } from './helpers/dollarSelector.js';
-
 // Vergleicht das eingegebene Wort (arrayGuess) mit dem gesuchten Wort aus der 'Datenbank' (searchedWord)
 export function compareArrayGuessWithSearchedWord(
   arrayGuess,
