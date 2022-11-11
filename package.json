@@ -4,7 +4,7 @@
   "description": "wordle6 with react",
   "scripts": {
     "dev": "npm-run-all --parallel server sass-dev postcss-dev parcel-dev",
-    "build": "npm-run-all --sequential clean sass-build postcss-build",
+    "build": "npm-run-all --sequential clean sass-build postcss-build parcel-build",
     "sass-dev": "sass sass:temp --watch --embed-source-map",
     "sass-build": "sass sass:temp --embed-source-map",
     "postcss-dev": "postcss temp/*.css --dir css --use postcss-preset-env --map --watch",
