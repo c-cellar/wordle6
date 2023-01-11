@@ -50,7 +50,7 @@ export default function ReactComponents() {
       .addEventListener('click', () => openMenu());
 
     // zuweisen des Themes beim ersten Laden der Application
-    getThemeFromStorage();
+
     addClassToElementsFor(colorTheme);
 
     // gets the value from localStorage with key='wordleArray'
@@ -59,11 +59,13 @@ export default function ReactComponents() {
 
     // Wird aufgerufen sobald kein Wert im localStorage gefunden wurde
     if (isArrayInStorage === null) {
-      console.log('ich bin hier');
-      updateTheme('light');
-      selectedThemeToLocalStorage('light');
+      // console.log('No previous selected theme in local storage');
+      selectedThemeToLocalStorage(colorTheme);
+      updateTheme(colorTheme);
+      addClassToElementsFor(colorTheme);
       setArrayToLocalStorage(arrayWords);
       setSearchedWord(getNewWord(arrayWords));
+      setColorTheme(colorTheme);
       return;
     }
 

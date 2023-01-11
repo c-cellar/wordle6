@@ -53,21 +53,25 @@ function updateTheme(colorTheme) {
   }
   if (colorTheme === 'dark') {
     document.documentElement.classList.add('dark');
+    return;
   }
 }
 
 // speichert ausgewähltes bzw. zuletzt gewähltes Theme im LocalStorage
-function selectedThemeToLocalStorage(colorTheme) {
-  localStorage.setItem('theme', JSON.stringify(colorTheme));
+function selectedThemeToLocalStorage(colorTheme, key = 'theme') {
+  localStorage.setItem(key, JSON.stringify(colorTheme));
 }
 
 //überprüft welches Theme zuletzt gewählt wurde.
 // Falls kein Theme im localStorage hinterlegt ist, wird das als default 'light' verwendet
-function getThemeFromStorage() {
-  const storedTheme = JSON.parse(localStorage.getItem('theme'));
+function getThemeFromStorage(theme = 'light', key = 'theme') {
+  const storedTheme = JSON.parse(localStorage.getItem(key));
 
-  return storedTheme !== '' ? storedTheme : 'light';
+  return storedTheme !== null ? storedTheme : theme;
 }
+
+
+
 
 export {
   getThemeFromStorage,
