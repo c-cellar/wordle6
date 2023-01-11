@@ -70,9 +70,6 @@ function getThemeFromStorage(theme = 'light', key = 'theme') {
   return storedTheme !== null ? storedTheme : theme;
 }
 
-
-
-
 export {
   getThemeFromStorage,
   addClassToElementsFor,
