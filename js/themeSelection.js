@@ -15,7 +15,12 @@ function addClassToElementsFor(selectedTheme) {
       document.querySelectorAll('.key').forEach((el) => {
         el.classList.add('boxLetter-dark');
       });
+      // HamburgerMenu
+      document.querySelectorAll('.hamburger-menu-icon div').forEach((el) => {
+        el.classList.add('boxLetter-dark');
+      });
       break;
+
     case 'light':
       document.querySelectorAll('h1 > span').forEach((el) => {
         el.classList.remove('header-dark');

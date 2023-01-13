@@ -1,53 +1,59 @@
 /**************** RADIO BUTTON ************************************/
 .radio-btn-wrapper {
+  position: absolute;
+  width: 100%;
+  top: 0;
+
+  display: flex;
+  height: 5rem;
+  justify-content: flex-end;
+  align-items: center;
+
   opacity: 1;
-  float: right;
-  line-height: 70px;
+
+  fieldset {
+    border: 0;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+  }
+
+  input[type='radio'] {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+    margin-left: 0.5rem;
+    outline: 2px solid var(--main-text);
+    outline-offset: 2px;
+
+    &:checked {
+      outline: 2px solid var(--radio-color);
+      background-color: var(--radio-color);
+    }
+  }
 }
 
 /*******************  MEDIA QUERIES *****************/
 @media screen and (max-width: 640px) {
   .radio-btn-wrapper {
+    // position: static;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
-    display: none;
-    float: right;
-    line-height: 70px;
+    z-index: -1;
+    height: fit-content;
   }
-}
 
-/************************ RADIO BUTTON CUSTOM ********************/
-.container-radio {
-  display: inline-block;
-  cursor: pointer;
-  margin-right: 12px;
-}
+  .radio-btn-wrapper.open {
+    height: fit-content;
+    background-color: var(--main-background);
+    opacity: 1;
+    z-index: 0;
+    border-bottom: 1px solid var(--grey-medium);
+    top: 64px;
 
-.container-radio input {
-  opacity: 0;
-  height: 0;
-  width: 0;
-}
-
-.container-radio .checkmark {
-  content: ' ';
-  border: 2px solid;
-  border-radius: 50%;
-  width: 1rem;
-  height: 1rem;
-  display: inline-block;
-  margin-right: 5px;
-  left: 20px;
-  vertical-align: middle;
-}
-
-.container-radio:hover input ~ .checkmark {
-  background: var(--grey-medium);
-  border-color: var(--grey-bright);
-  box-shadow: 0px 0px 2px 1px var(--grey-medium);
-}
-
-.container-radio input:checked ~ .checkmark {
-  background: var(--border-rightPlace);
-  border-color: var(--grey-bright);
-  box-shadow: 0px 0px 2px 1px var(--border-rightPlace);
+    transition: opacity 0.25s ease-out;
+  }
 }

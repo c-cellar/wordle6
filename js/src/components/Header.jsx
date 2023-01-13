@@ -19,9 +19,23 @@ export default function Header({ colorTheme, setColorTheme }) {
         <span className="wrongPlace">E</span>
         <span className="wrong">6</span>
       </h1>
+
+      {/* <!-- Hamburger Menu Dropdown --> */}
+      <div className="hamburger-menu-wrapper">
+        <div className="hamburger-menu-icon">
+          <div className="rightPlace"></div>
+          <div className="wrong"></div>
+          <div className="wrongPlace"></div>
+        </div>
+      </div>
+
       {/* <!-- Radio Buttons --> */}
-      <div className="radio-btn-wrapper">
-        <label className="container-radio" htmlFor="light">
+      <form action="" className="radio-btn-wrapper">
+        <fieldset>
+          <legend hidden>Choose a color scheme</legend>
+          <label className="container-radio" htmlFor="light">
+            {'light'}
+          </label>
           <input
             type="radio"
             name="theme_selection"
@@ -34,9 +48,9 @@ export default function Header({ colorTheme, setColorTheme }) {
               setColorTheme(e.target.value);
             }}
           />
-          <span className="checkmark"></span>light
-        </label>
-        <label className="container-radio" htmlFor="dark">
+          <label className="container-radio" htmlFor="dark">
+            {'dark'}
+          </label>
           <input
             type="radio"
             name="theme_selection"
@@ -49,56 +63,8 @@ export default function Header({ colorTheme, setColorTheme }) {
               setColorTheme(e.target.value);
             }}
           />
-          <span className="checkmark"></span>dark/eighties
-        </label>
-      </div>
-
-      {/* <!-- Hamburger Menu Dropdown --> */}
-      <div className="hamburger-menu-wrapper">
-        <div className="hamburger-menu-icon">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div className="dropdown-wrapper">
-          <ul className="dropdown">
-            <li className="dropdown-item" id="lightDropdown">
-              <label className="container-radio" htmlFor="light-dropdown">
-                <input
-                  type="radio"
-                  value="light"
-                  name="theme_selection_dropdown"
-                  id="light-dropdown"
-                  checked={colorTheme === 'light'}
-                  onChange={(e) => {
-                    selectTheme(e);
-                    addClassToElementsFor(e.target.value);
-                    setColorTheme(e.target.value);
-                  }}
-                />
-                <span className="checkmark"></span>light
-              </label>
-            </li>
-            <li className="dropdown-item" id="darkDropdown">
-              <label className="container-radio" htmlFor="dark-dropdown">
-                <input
-                  type="radio"
-                  value="dark"
-                  name="theme_selection_dropdown"
-                  id="dark-dropdown"
-                  checked={colorTheme === 'dark'}
-                  onChange={(e) => {
-                    selectTheme(e);
-                    addClassToElementsFor(e.target.value);
-                    setColorTheme(e.target.value);
-                  }}
-                />
-                <span className="checkmark"></span>dark/eighties
-              </label>
-            </li>
-          </ul>
-        </div>
-      </div>
+        </fieldset>
+      </form>
     </header>
   );
 }

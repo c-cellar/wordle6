@@ -39,8 +39,16 @@ export default function ReactComponents() {
     setGuessWordRound,
   } = useProcessInput();
 
-  // keyHandler on document für die Eingabe mit der Tastatur
   useEffect(() => {
+    // get viewheight with javascript to avoid problem with vh in mobile browsers (safari)
+    window.addEventListener('resize', () => {
+      const vh = window.innerHeight * 0.01;
+
+      document.documentElement.style.setProperty('--vh', vh + 'px');
+      // console.log(document.documentElement.style.getPropertyValue('--vh'));
+    });
+
+    // keyHandler on document für die Eingabe mit der Tastatur
     document.addEventListener('keydown', (e) => {
       dispatchArrayGuess({ inputType: e.type, input: e.key });
     });
@@ -75,24 +83,27 @@ export default function ReactComponents() {
   }, []);
 
   return (
-    <div>
-      <Header colorTheme={colorTheme} setColorTheme={setColorTheme} />
-      <ContainerLetters
-        arrayGuess={arrayGuess}
-        currentRound={currentRound}
-        guessWordRound={guessWordRound}
-      />
-      <Notifications
-        searchedWord={searchedWord}
-        statusGame={statusGame}
-        currentRound={currentRound}
-        isACorrectWord={isACorrectWord}
-        setCurrentRound={setCurrentRound}
-        setStatusGame={setStatusGame}
-        setGuessWordRound={setGuessWordRound}
-        setSearchedWord={setSearchedWord}
-      />
-      <Keyboard dispatchArrayGuess={dispatchArrayGuess} />
-    </div>
+    <>
+      <div className="component-wrapper">
+        {showModal && <Modal setShowModal={setShowModal} />}
+        <Header colorTheme={colorTheme} setColorTheme={setColorTheme} />
+        <ContainerLetters
+          arrayGuess={arrayGuess}
+          currentRound={currentRound}
+          guessWordRound={guessWordRound}
+        />
+        <Notifications
+          searchedWord={searchedWord}
+          statusGame={statusGame}
+          currentRound={currentRound}
+          isACorrectWord={isACorrectWord}
+          setCurrentRound={setCurrentRound}
+          setStatusGame={setStatusGame}
+          setGuessWordRound={setGuessWordRound}
+          setSearchedWord={setSearchedWord}
+        />
+        <Keyboard dispatchArrayGuess={dispatchArrayGuess} />
+      </div>
+    </>
   );
 }
