@@ -15,6 +15,11 @@ function addClassToElementsFor(selectedTheme) {
       document.querySelectorAll('.key').forEach((el) => {
         el.classList.add('boxLetter-dark');
       });
+      // letters in modal get dark-theme class
+      document.querySelectorAll('.modal-letter').forEach((el) => {
+        el.classList.add('header-dark');
+        el.classList.add('boxLetter-dark');
+      });
       // HamburgerMenu
       document.querySelectorAll('.hamburger-menu-icon div').forEach((el) => {
         el.classList.add('boxLetter-dark');

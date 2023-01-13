@@ -27,7 +27,6 @@ header {
 /*******************  MEDIA QUERIES **************************/
 @media screen and (max-width: 640px) {
   header {
-    margin-bottom: 1rem;
     box-shadow: none;
     border-bottom: 1px solid var(--grey-medium);
   }

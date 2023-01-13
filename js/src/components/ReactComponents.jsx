@@ -21,9 +21,12 @@ import Header from './Header';
 import ContainerLetters from './ContainerLetters';
 import Keyboard from './Keyboard';
 import Notifications from './Notifications';
+import Modal from './Modal';
 
 export default function ReactComponents() {
+  const [showModal, setShowModal] = useState(true);
   const [colorTheme, setColorTheme] = useState(getThemeFromStorage());
+
   //-------- Custom Hook(Rückgaben) -------------
   const {
     searchedWord,
@@ -58,7 +61,6 @@ export default function ReactComponents() {
       .addEventListener('click', () => openMenu());
 
     // zuweisen des Themes beim ersten Laden der Application
-
     addClassToElementsFor(colorTheme);
 
     // gets the value from localStorage with key='wordleArray'
