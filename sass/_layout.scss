@@ -39,7 +39,7 @@ header {
 .boxLetterContainer {
   font-size: 2rem;
   width: fit-content;
-  height: 62px;
+  height: 75px;
   margin: 0px auto;
   display: block;
   display: flex;
@@ -85,6 +85,10 @@ header {
     h1 {
       margin: 1rem auto;
     }
+  }
+
+  .boxLetterContainer {
+    height: 64px;
   }
 
   .boxLetter {
