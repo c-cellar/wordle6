@@ -75,9 +75,9 @@ header {
 @media screen and (max-width: 640px) {
   .component-wrapper {
     height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
+    height: calc((var(--vh, 1vh) * 100 - (env(safe-area-inset-bottom))));
 
-    align-content: start;
+    align-content: space-between;
   }
 
   header {
@@ -88,15 +88,7 @@ header {
   }
 
   .boxLetter {
-    width: 50px;
-  }
-
-  .boxLetterContainer {
-    font-size: 2rem;
-    height: 62px;
-    margin: 0px auto;
-    display: flex;
-    align-content: start;
+    width: 3rem;
   }
 
   .keyboard {
