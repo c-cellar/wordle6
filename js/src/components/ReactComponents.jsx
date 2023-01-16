@@ -1,5 +1,7 @@
 import arrayWords from '../../arrayWords';
 import { openMenu } from '../../burgerMenuFunction';
+import { viewHeight } from '../../viewHeight';
+import { $ } from '../../helpers/helpers';
 import {
   addClassToElementsFor,
   getThemeFromStorage,
@@ -43,22 +45,17 @@ export default function ReactComponents() {
   } = useProcessInput();
 
   useEffect(() => {
-    // get viewheight with javascript to avoid problem with vh in mobile browsers (safari)
-    window.addEventListener('resize', () => {
-      const vh = window.innerHeight * 0.01;
+    // get viewheight with javascript to avoid problem with vh in mobile browsers (safari, chrome)
+    viewHeight();
 
-      document.documentElement.style.setProperty('--vh', vh + 'px');
-      // console.log(document.documentElement.style.getPropertyValue('--vh'));
-    });
+    window.addEventListener('resize', viewHeight);
 
     // keyHandler on document für die Eingabe mit der Tastatur
-    document.addEventListener('keydown', (e) => {
-      dispatchArrayGuess({ inputType: e.type, input: e.key });
-    });
+    document.addEventListener('keydown', (e) =>
+      dispatchArrayGuess({ inputType: e.type, input: e.key })
+    );
 
-    document
-      .querySelector('.hamburger-menu-icon')
-      .addEventListener('click', () => openMenu());
+    $('.hamburger-menu-icon').addEventListener('click', () => openMenu());
 
     // zuweisen des Themes beim ersten Laden der Application
     addClassToElementsFor(colorTheme);
