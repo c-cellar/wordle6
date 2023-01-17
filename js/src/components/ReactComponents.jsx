@@ -15,7 +15,7 @@ import {
 } from '../../gameplayFunctions';
 
 // Hooks
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { useProcessInput } from '../hooks/useProcessInput';
 
 // Components
@@ -44,12 +44,14 @@ export default function ReactComponents() {
     setGuessWordRound,
   } = useProcessInput();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // get viewheight with javascript to avoid problem with vh in mobile browsers (safari, chrome)
     viewHeight();
 
     window.addEventListener('resize', viewHeight);
+  });
 
+  useEffect(() => {
     // keyHandler on document für die Eingabe mit der Tastatur
     document.addEventListener('keydown', (e) =>
       dispatchArrayGuess({ inputType: e.type, input: e.key })
