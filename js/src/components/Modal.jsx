@@ -4,10 +4,9 @@ export default function Modal({ setShowModal }) {
       <div className="modal-rules">
         <h2>How to play</h2>
         <p>
-          A random english word with six letters is to be find and you are just
-          allowed to type in words with the same length. After every input, the
-          input will be compared to the unknown word. Afterwards the word will
-          be colorized.
+          Try to guess the six-letter-word. Fill in your guess and press enter,
+          your guess will then be compared to the unknown word.Each letter is
+          then checked to see if it is in the correct position.
         </p>
         <div>
           <h3>
@@ -20,8 +19,8 @@ export default function Modal({ setShowModal }) {
             </dt>
             <dd>
               If the letter or the background of the box with the letter, is
-              shining green. This shows you, that the letter is part of the word
-              and at the right spot.
+              shining green, the letter is part of the word and at the right
+              spot.
             </dd>
           </dl>
           <h3>
@@ -34,9 +33,9 @@ export default function Modal({ setShowModal }) {
               <span className="modal-letter wrongPlace">B</span>
             </dt>
             <dd>
-              In this case, the box with the letter or the letter itself shines
-              in yellow. This means, the letter is at the wrong spot but its in
-              the searched word.
+              In this case, the box with the letter or the letter itself glows
+              yellow. This means, the letter is at the wrong spot but is in the
+              searched word.
             </dd>
           </dl>
 
@@ -48,7 +47,10 @@ export default function Modal({ setShowModal }) {
             <dt>
               <span className="modal-letter wrong">C</span>
             </dt>
-            <dd>If its colored in grey. The letter isnt used in the word.</dd>
+            <dd>
+              If the letter is colored in grey. The letter is not used in the
+              word.
+            </dd>
           </dl>
         </div>
       </div>
