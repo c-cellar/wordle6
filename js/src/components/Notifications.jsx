@@ -6,7 +6,7 @@ export default function Notifications({
   searchedWord,
   statusGame,
   currentRound,
-  isACorrectWord,
+  userWordleGuess,
   setCurrentRound,
   setStatusGame,
   setGuessWordRound,
@@ -37,8 +37,8 @@ export default function Notifications({
         ''
       )}
 
-      {!isACorrectWord.isCorrect && (
-        <NoWordNotification isACorrectWord={isACorrectWord} />
+      {!userWordleGuess.isCorrect && (
+        <NoWordNotification userWordleGuess={userWordleGuess} />
       )}
     </div>
   );

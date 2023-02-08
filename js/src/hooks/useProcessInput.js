@@ -11,20 +11,17 @@ export function useProcessInput() {
   // Startwert für Rundenzähler ist 0
   const [currentRound, setCurrentRound] = useState(0);
 
-  // beinhaltet die Worter der einzelnen Raterunde insofern es existierende Wörter sind
-  // default ist objectGuessRounds. ein object mit der objekt-struktur die für die Ausgaben benötigt wird
+  // beinhaltet die Worter der einzelnen Raterunde
   const [guessWordRound, setGuessWordRound] = useState(objectGuessRounds);
 
   // beinhaltet false sobald das Wort nicht im Dictionary vorhanden ist.
-  const [isACorrectWord, setIsACorrectWord] = useState({
+  const [userWordleGuess, setUserWordleGuess] = useState({
     isCorrect: true,
-    noWord: '',
+    word: '',
   });
 
-  // useReducer
-  // Die Eingabe wird über die selbst geschriebene "Reducer"-Funktion (processInput) verarbeitet.
-  // Aufgerufen wird die Funktion über die dispatchArrayGuess-Funktion.
-  const [arrayGuess, dispatchArrayGuess] = useReducer(processInput, []);
+  // useReducer-Hook
+  const [arrayGuess, dispatchUserInput] = useReducer(processInput, []);
 
   // Verarbeitung der Eingabe bzw. vom empfangenen Message-Objekt
   // Bedingungen:
@@ -33,23 +30,23 @@ export function useProcessInput() {
   // 3. Ist die maximale Anzahl von Elementen im Array erreicht,
   //    - werden keine weiteren Buchstaben ins Array aufgenommen
   //    - keine weiteren Eingaben außer 'Backspace' und 'Enter' erlaubt
-  function processInput(arrayGuess, message) {
+  function processInput(arrayGuess, userInput) {
     // nur der Input von Buchstaben wird weiterverarbeitet
     const pattern = /[A-Za-z]/;
     const maxLengthArray = 6;
 
     switch (true) {
-      case message.input === 'Enter' && arrayGuess.length == 6:
+      case userInput.input === 'Enter' && arrayGuess.length == 6:
         fetchDictionary(arrayGuess);
         arrayGuess = [];
         return arrayGuess;
 
-      case pattern.test(message.input) &&
-        message.input.length < 2 &&
+      case pattern.test(userInput.input) &&
+        userInput.input.length < 2 &&
         arrayGuess.length < maxLengthArray:
-        return [...arrayGuess, message.input];
+        return [...arrayGuess, userInput.input];
 
-      case message.input === 'Backspace':
+      case userInput.input === 'Backspace':
         return arrayGuess.slice(0, arrayGuess.length - 1);
     }
     return arrayGuess;
@@ -57,26 +54,20 @@ export function useProcessInput() {
 
   //Überprüft ob das Wort im Dictionary vorhanden ist.
   async function fetchDictionary(arrayGuess) {
-    if (!Array.isArray(arrayGuess)) {
-      console.log('Ist kein Array!');
-      return;
-    }
-    const wordToCheck = arrayGuess.join('');
+    const wordleGuess = arrayGuess.join('');
 
     try {
       const response = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToCheck}`
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${wordleGuess}`
       );
 
       // wird durchgeführt sobald das eingebenen Wort nicht im Dictionary gefunden wird (false wird zu true)
       if (!response.ok) {
-        const noWord = arrayGuess.join('');
-        setIsACorrectWord({ isCorrect: false, noWord });
+        setUserWordleGuess({ isCorrect: false, word: wordleGuess });
         setTimeout(
-          () => setIsACorrectWord({ isCorrect: true, noWord: '' }),
+          () => setUserWordleGuess({ isCorrect: true, word: '' }),
           1800
         );
-        console.log('Das Wort gibt es nicht');
         throw new Error('Fehler beim Laden der Daten');
       }
 
@@ -90,7 +81,7 @@ export function useProcessInput() {
         );
 
         // Überprüft ob das Wort erraten wurde und somit das Spiel gewonnen wurde
-        if (searchedWord === wordToCheck) {
+        if (searchedWord === wordleGuess) {
           console.log('Sie haben gewonnen');
           setStatusGame(true);
         }
@@ -99,7 +90,6 @@ export function useProcessInput() {
         switch (currentRound) {
           case 0:
             setGuessWordRound({ ...guessWordRound, one: arrayGuess });
-            // console.log(guessWordRound);
             break;
           case 1:
             setGuessWordRound({ ...guessWordRound, two: arrayGuess });
@@ -127,7 +117,7 @@ export function useProcessInput() {
         incrementCounterForRounds();
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
@@ -142,9 +132,9 @@ export function useProcessInput() {
     currentRound,
     guessWordRound,
     statusGame,
-    isACorrectWord,
+    userWordleGuess,
     setSearchedWord,
-    dispatchArrayGuess,
+    dispatchUserInput,
     setCurrentRound,
     setStatusGame,
     setGuessWordRound,

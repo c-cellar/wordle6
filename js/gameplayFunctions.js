@@ -84,11 +84,9 @@ export function getNewWord(array, oldWord = null) {
   }
 
   const randomIndex = Math.floor(Math.random() * array.length);
-  console.log(array[randomIndex]);
   return array[randomIndex];
 }
 
-// speichert ausgewähltes bzw. zuletzt gewähltes Theme im LocalStorage
 export function setArrayToLocalStorage(array) {
   localStorage.setItem('wordleArray', JSON.stringify(array));
 }

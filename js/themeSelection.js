@@ -76,7 +76,6 @@ function selectedThemeToLocalStorage(colorTheme, key = 'theme') {
 // Falls kein Theme im localStorage hinterlegt ist, wird das als default 'light' verwendet
 function getThemeFromStorage(theme = 'light', key = 'theme') {
   const storedTheme = JSON.parse(localStorage.getItem(key));
-
   return storedTheme !== null ? storedTheme : theme;
 }
 

@@ -1,4 +1,4 @@
-export default function Keyboard({ dispatchArrayGuess }) {
+export default function Keyboard({ dispatchUserInput }) {
   return (
     <div className="keyboard">
       <div className="keyboardRow">
@@ -6,8 +6,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="q"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -18,8 +18,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="w"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -30,8 +30,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="e"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -42,8 +42,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="r"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -54,8 +54,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="t"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -66,8 +66,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="z"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -78,8 +78,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="u"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -90,8 +90,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="i"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -102,8 +102,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="o"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -114,8 +114,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="p"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -128,8 +128,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="a"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -140,8 +140,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="s"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -152,8 +152,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="d"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -164,8 +164,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="f"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -176,8 +176,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="g"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -188,8 +188,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="h"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -200,8 +200,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="j"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -212,8 +212,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="k"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -224,8 +224,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="l"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -238,8 +238,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="Enter"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -250,8 +250,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="y"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -262,8 +262,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="x"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -274,8 +274,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="c"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -286,8 +286,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="v"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -298,8 +298,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="b"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -310,8 +310,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="n"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -322,8 +322,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="m"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }
@@ -334,8 +334,8 @@ export default function Keyboard({ dispatchArrayGuess }) {
           className="key"
           id="Backspace"
           onClick={(e) =>
-            dispatchArrayGuess({
-              inputType: e.type,
+            dispatchUserInput({
+              // inputType: e.type,
               input: e.currentTarget.id,
             })
           }

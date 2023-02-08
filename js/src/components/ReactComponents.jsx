@@ -5,8 +5,8 @@ import { $ } from '../../helpers/helpers';
 import {
   addClassToElementsFor,
   getThemeFromStorage,
-  selectedThemeToLocalStorage,
-  updateTheme,
+  // selectedThemeToLocalStorage,
+  // updateTheme,
 } from '../../themeSelection';
 import {
   getArrayFromStorage,
@@ -36,9 +36,9 @@ export default function ReactComponents() {
     currentRound,
     guessWordRound,
     statusGame,
-    isACorrectWord,
+    userWordleGuess,
     setSearchedWord,
-    dispatchArrayGuess,
+    dispatchUserInput,
     setCurrentRound,
     setStatusGame,
     setGuessWordRound,
@@ -47,14 +47,13 @@ export default function ReactComponents() {
   useLayoutEffect(() => {
     // get viewheight with javascript to avoid problem with vh in mobile browsers (safari, chrome)
     viewHeight();
-
     window.addEventListener('resize', viewHeight);
   });
 
   useEffect(() => {
-    // keyHandler on document für die Eingabe mit der Tastatur
-    document.addEventListener('keydown', (e) =>
-      dispatchArrayGuess({ inputType: e.type, input: e.key })
+    // keyHandler on document for keyboard input
+    document.addEventListener('keyup', (e) =>
+      dispatchUserInput({ input: e.key })
     );
 
     $('.hamburger-menu-icon').addEventListener('click', () => openMenu());
@@ -62,49 +61,37 @@ export default function ReactComponents() {
     // zuweisen des Themes beim ersten Laden der Application
     addClassToElementsFor(colorTheme);
 
-    // gets the value from localStorage with key='wordleArray'
-    // return null for 'empty' storage
-    const isArrayInStorage = getArrayFromStorage('wordleArray');
-
     // Wird aufgerufen sobald kein Wert im localStorage gefunden wurde
-    if (isArrayInStorage === null) {
-      // console.log('No previous selected theme in local storage');
-      selectedThemeToLocalStorage(colorTheme);
-      updateTheme(colorTheme);
-      addClassToElementsFor(colorTheme);
+    if (getArrayFromStorage('wordleArray') === null) {
       setArrayToLocalStorage(arrayWords);
       setSearchedWord(getNewWord(arrayWords));
-      setColorTheme(colorTheme);
       return;
     }
 
     const arrayFromStorage = getArrayFromStorage('wordleArray');
-    console.log(arrayFromStorage);
     setSearchedWord(getNewWord(arrayFromStorage));
   }, []);
 
   return (
-    <>
-      <div className="component-wrapper">
-        {showModal && <Modal setShowModal={setShowModal} />}
-        <Header colorTheme={colorTheme} setColorTheme={setColorTheme} />
-        <ContainerLetters
-          arrayGuess={arrayGuess}
-          currentRound={currentRound}
-          guessWordRound={guessWordRound}
-        />
-        <Notifications
-          searchedWord={searchedWord}
-          statusGame={statusGame}
-          currentRound={currentRound}
-          isACorrectWord={isACorrectWord}
-          setCurrentRound={setCurrentRound}
-          setStatusGame={setStatusGame}
-          setGuessWordRound={setGuessWordRound}
-          setSearchedWord={setSearchedWord}
-        />
-        <Keyboard dispatchArrayGuess={dispatchArrayGuess} />
-      </div>
-    </>
+    <div className="component-wrapper">
+      {showModal && <Modal setShowModal={setShowModal} />}
+      <Header colorTheme={colorTheme} setColorTheme={setColorTheme} />
+      <ContainerLetters
+        arrayGuess={arrayGuess}
+        currentRound={currentRound}
+        guessWordRound={guessWordRound}
+      />
+      <Notifications
+        searchedWord={searchedWord}
+        statusGame={statusGame}
+        currentRound={currentRound}
+        userWordleGuess={userWordleGuess}
+        setCurrentRound={setCurrentRound}
+        setStatusGame={setStatusGame}
+        setGuessWordRound={setGuessWordRound}
+        setSearchedWord={setSearchedWord}
+      />
+      <Keyboard dispatchUserInput={dispatchUserInput} />
+    </div>
   );
 }
