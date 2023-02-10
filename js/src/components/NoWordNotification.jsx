@@ -8,8 +8,8 @@ export default function NoWordNotification({ userWordleGuess, colorTheme }) {
   });
   return (
     <div id="noWord-notification" className="notification">
-      <span id="noWord">{userWordleGuess.word.toUpperCase()}</span>
-      <span>is not valid</span>
+      <p id="noWord">{userWordleGuess.word.toUpperCase()}</p>
+      <p>is not valid</p>
     </div>
   );
 }

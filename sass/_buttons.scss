@@ -2,19 +2,18 @@
 .btn-NewGame {
   padding: 10px;
   margin-top: 0.5rem;
-  font-size: 1rem;
-  color: var(--grey-bright);
-  background-color: var(--border-rightPlace);
+  font-size: 1.25rem;
+  color: var(--border-rightPlace);
+  background-color: var(--btn-newGame-background);
+
   border: 2px solid var(--border-rightPlace);
-  box-shadow: inset 0 0 0.5rem var(--text-shadow-rightPlace),
-    0 0 0.5rem var(--text-shadow-rightPlace);
 
   &:hover {
-    border: 2px solid var(--color-rightPlace);
+    cursor: pointer;
+    color: var(--grey-bright);
     background-color: var(--border-rightPlace);
-    box-shadow: inset 0 0 0.5rem var(--text-shadow-rightPlace),
-      0 0 0.5rem var(--text-shadow-rightPlace),
-      0 0 1rem var(--text-shadow-rightPlace);
+    box-shadow: inset 0 0 0.5rem var(--btn-newGame-shadow),
+      0 0 0.5rem var(--btn-newGame-shadow);
   }
 }
 

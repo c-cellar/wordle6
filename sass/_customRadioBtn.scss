@@ -5,7 +5,6 @@
   top: 0;
 
   display: flex;
-  height: 5rem;
   justify-content: flex-end;
   align-items: center;
 
@@ -16,6 +15,11 @@
     display: flex;
     width: fit-content;
     align-items: center;
+    margin-block: 1rem;
+  }
+
+  label:hover {
+    cursor: pointer;
   }
 
   input[type='radio'] {

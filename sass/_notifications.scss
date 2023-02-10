@@ -1,6 +1,7 @@
 /****************** NOTIFICATIONS *******************************/
 .notification {
   /* center element mit position absolute */
+  font-size: 1.25rem;
   position: absolute;
   top: 30vh;
   left: 0;
@@ -9,19 +10,18 @@
   margin-right: auto;
 
   z-index: 200;
-  padding: 1rem;
+  padding: 1.5rem;
   width: fit-content;
   text-align: center;
   opacity: 1;
-  background: var(--grey-dark-95);
-  color: var(--grey-bright);
-  border: solid 2px var(--grey-bright);
-  box-shadow: 0px 0px 1em var(--grey-medium);
+  background: var(--notification-background);
+  border: solid 2px var(--notification-border);
+  box-shadow: 0px 0px 15px var(--notification-box-shadow);
 
   > p {
     display: block;
-    margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
   }
 
   > span {
@@ -35,15 +35,23 @@
 
 .show-word {
   cursor: pointer;
-  background: var(--grey-dark-95);
-  border: solid 1px var(--border-wrongPlace);
-  color: var(--border-wrongPlace);
+  background: var(--btn-showWord-background);
+  color: var(--btn-showWord-color);
+  border: solid 2px var(--yellow);
   border-radius: 0.5rem;
   width: 10rem;
-  height: 2rem;
+  height: fit-content;
+  padding-block: 0.25;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--yellow);
+    color: var(--grey-bright);
+    border-color: var(--yellow);
+  }
 }
 
-.notification .dark {
+.notification.dark {
   border-radius: 0.5rem;
   box-shadow: inset 0 0 0.25rem var(--grey-bright),
     0 0 0.5rem var(--grey-bright);
