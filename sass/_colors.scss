@@ -1,23 +1,22 @@
 :root {
   // variablen zum Beschreiben der Farbe
-  --grey-dark: #383838;
-  --grey-dark-95: #383838f2;
-  --grey-dark-80: #3f3f3f80;
-  --grey-medium-2: #515151;
-  --grey-medium: #969696;
-  --grey-bright-80: #ffffff80;
-  --grey-bright: #fafafa;
-  --grey-bright-2: #ecefef;
-  --grey-bright-80: #fafafae8;
-  --bright-green: #20f91d;
-  --green: #0e8014;
-  --bright-yellow: #ffff00;
-  --yellow: #e2bc11;
-  --grey-middle: #828282;
-  --grey-middle-80: #b9b9b9e6;
-  --black-95: #1a1a1acc;
-  --black-modal: #1a1a1aef;
-  --black: #1a1a1a;
+  --grey-dark: hsl(0, 0%, 22%);
+  --grey-dark-95: hsla(0, 0%, 22%, 0.95);
+  --grey-dark-80: hsla(0, 0%, 25%, 0.8);
+  --grey-medium-2: hsl(0, 0%, 32%);
+  --grey-medium: hsl(0, 0%, 59%);
+  --grey-bright-80: hsla(0, 0%, 100%, 0.9);
+  --grey-bright: hsl(0, 0%, 98%);
+  --grey-bright-2: hsl(180, 9%, 93%);
+  --bright-green: hsl(119, 95%, 55%);
+  --green: hsl(123, 80%, 28%);
+  --bright-yellow: hsl(60, 100%, 50%);
+  --yellow: hsl(49, 86%, 48%);
+  --grey-middle: hsl(0, 0%, 51%);
+  --grey-middle-80: hsla(0, 0%, 73%, 0.8);
+  --black-95: hsla(0, 0%, 10%, 0.95);
+  --black-modal: hsla(0, 0%, 10%, 0.95);
+  --black: hsl(0, 0%, 10%);
 }
 
 /* =============== 80'er style ==================== */
@@ -44,6 +43,14 @@
 
   --background-modal: var(--black-modal);
   --radio-color: var(--bright-green);
+  --btn-newGame-shadow: var(--bright-green);
+  --btn-newGame-background: var(--black-modal);
+  --notification-background: var(--black-modal);
+  --notification-border: var(--grey-bright);
+  --notification-box-shadow: var(--grey-medium);
+  --btn-showWord-background: var(--back-modal);
+  --btn-showWord-border: var(--yellow);
+  --btn-showWord-color: var(--yellow);
 }
 
 /* =================== light style =============== */
@@ -66,4 +73,12 @@
 
   --background-modal: var(--grey-bright-80);
   --radio-color: var(--green);
+  --btn-newGame-shadow: none;
+  --btn-newGame-background: var(--grey-bright);
+  --notification-background: var(--grey-bright);
+  --notification-border: var(--grey-dark-80);
+  --notification-box-shadow: var(--grey-medium);
+  --btn-showWord-background: var(--grey-bright);
+  --btn-showWord-border: var(--yellow);
+  --btn-showWord-color: var(--yellow);
 }
