@@ -2,6 +2,27 @@
 
 import { $, $$ } from './helpers/helpers';
 
+export function removePlayedWordFromArray(arrayOfWordsForGame, playedWord) {
+  const indexPlayedWord = arrayOfWordsForGame.indexOf(playedWord);
+  arrayOfWordsForGame.splice(indexPlayedWord, 1);
+  setArrayToLocalStorage(arrayOfWordsForGame);
+}
+
+export function getNewWord(array) {
+  const randomIndex = Math.floor(Math.random() * array.length);
+  return array[randomIndex];
+}
+
+export function setArrayToLocalStorage(array) {
+  localStorage.setItem('wordleArray', JSON.stringify(array));
+}
+
+// überprüft ob es einen alten Spielstand im localStorage gibt und gibt diesen als Array zurück.
+export function getArrayFromStorage(key) {
+  const storedArray = JSON.parse(localStorage.getItem(key));
+  return storedArray !== '' ? storedArray : '';
+}
+
 // Vergleicht das eingegebene Wort (arrayGuess) mit dem gesuchten Wort aus der 'Datenbank' (searchedWord)
 export function compareArrayGuessWithSearchedWord(
   arrayGuess,
@@ -71,28 +92,4 @@ export function removeClassFrom() {
     el.classList.remove('wrongPlace');
     el.classList.remove('wrong');
   });
-}
-
-// TODO: Refactoring
-// Entfernt altes Wort aus dem Array und wählt eine neues Wort aus.
-// Wöhlt zufällig ein Wort aus dem Array aus
-export function getNewWord(array, oldWord = null) {
-  if (oldWord !== null) {
-    const indexPlayedWord = array.indexOf(oldWord);
-    array.splice(indexPlayedWord, 1);
-    setArrayToLocalStorage(array);
-  }
-
-  const randomIndex = Math.floor(Math.random() * array.length);
-  return array[randomIndex];
-}
-
-export function setArrayToLocalStorage(array) {
-  localStorage.setItem('wordleArray', JSON.stringify(array));
-}
-
-// überprüft ob es einen alten Spielstand im localStorage gibt und gibt diesen als Array zurück.
-export function getArrayFromStorage(key) {
-  const storedArray = JSON.parse(localStorage.getItem(key));
-  return storedArray !== '' ? storedArray : '';
 }

@@ -1,6 +1,4 @@
-import objectGuessRounds from '../../objectGuessRounds';
 import { useReducer, useState } from 'react';
-
 import { compareArrayGuessWithSearchedWord } from '../../gameplayFunctions';
 
 export function useProcessInput() {
@@ -11,8 +9,8 @@ export function useProcessInput() {
   // Startwert für Rundenzähler ist 0
   const [currentRound, setCurrentRound] = useState(0);
 
-  // beinhaltet die Worter der einzelnen Raterunde
-  const [guessWordRound, setGuessWordRound] = useState(objectGuessRounds);
+  // contains the userInput(value) for each round(key) in an object.
+  const [userGuessWords, setUserGuessWords] = useState(userGuessesRounds);
 
   // beinhaltet false sobald das Wort nicht im Dictionary vorhanden ist.
   const [userWordleGuess, setUserWordleGuess] = useState({
@@ -39,7 +37,7 @@ export function useProcessInput() {
       case userInput.input === 'Enter' && arrayGuess.length == 6:
         fetchDictionary(arrayGuess);
         arrayGuess = [];
-        return arrayGuess;
+        break;
 
       case pattern.test(userInput.input) &&
         userInput.input.length < 2 &&
@@ -71,53 +69,56 @@ export function useProcessInput() {
         throw new Error('Fehler beim Laden der Daten');
       }
 
-      // wird durchgeführt wenn das Wort im Dictionary vorhanden ist (true)
-      if (response.ok) {
-        // Vergleicht das gesuchte Word mit dem eingegebenen Wort
-        compareArrayGuessWithSearchedWord(
-          arrayGuess,
-          searchedWord,
-          currentRound
-        );
+      // Vergleicht das gesuchte Word mit dem eingegebenen Wort
+      compareArrayGuessWithSearchedWord(arrayGuess, searchedWord, currentRound);
 
-        // Überprüft ob das Wort erraten wurde und somit das Spiel gewonnen wurde
-        if (searchedWord === wordleGuess) {
-          console.log('Sie haben gewonnen');
-          setStatusGame(true);
-        }
+      // Überprüft ob das Wort erraten wurde und somit das Spiel gewonnen wurde
+      checksForWin(searchedWord, wordleGuess);
 
-        // setState für Ausgabe des Wortes in der gespielten Runde
-        switch (currentRound) {
-          case 0:
-            setGuessWordRound({ ...guessWordRound, one: arrayGuess });
-            break;
-          case 1:
-            setGuessWordRound({ ...guessWordRound, two: arrayGuess });
-            // console.log(guessWordRound);
-            break;
-          case 2:
-            setGuessWordRound({ ...guessWordRound, three: arrayGuess });
-            // console.log(guessWordRound);
-            break;
-          case 3:
-            setGuessWordRound({ ...guessWordRound, four: arrayGuess });
-            // console.log(guessWordRound);
-            break;
-          case 4:
-            setGuessWordRound({ ...guessWordRound, five: arrayGuess });
-            // console.log(guessWordRound);
-            break;
-          case 5:
-            setGuessWordRound({ ...guessWordRound, six: arrayGuess });
-            // console.log(guessWordRound);
-            break;
-        }
+      // setState für Ausgabe des Wortes in der gespielten Runde
+      pushValideGuessWordToUserGuessWords(
+        setUserGuessWords,
+        userGuessWords,
+        arrayGuess,
+        currentRound
+      );
 
-        // Spielrunden Counter wird um eins erhöht für eine neue Eingabe
-        incrementCounterForRounds();
-      }
+      // Spielrunden Counter wird um eins erhöht für eine neue Eingabe
+      incrementCounterForRounds();
     } catch (error) {
       // console.log(error);
+    }
+  }
+
+  function checksForWin(searchedWord, wordleGuess) {
+    searchedWord === wordleGuess ? setStatusGame(true) : null;
+  }
+
+  function pushValideGuessWordToUserGuessWords(
+    setUserGuessWords,
+    userGuessWords,
+    arrayGuess,
+    currentRound
+  ) {
+    switch (currentRound) {
+      case 0:
+        setUserGuessWords({ ...userGuessWords, one: arrayGuess });
+        break;
+      case 1:
+        setUserGuessWords({ ...userGuessWords, two: arrayGuess });
+        break;
+      case 2:
+        setUserGuessWords({ ...userGuessWords, three: arrayGuess });
+        break;
+      case 3:
+        setUserGuessWords({ ...userGuessWords, four: arrayGuess });
+        break;
+      case 4:
+        setUserGuessWords({ ...userGuessWords, five: arrayGuess });
+        break;
+      case 5:
+        setUserGuessWords({ ...userGuessWords, six: arrayGuess });
+        break;
     }
   }
 
@@ -130,13 +131,23 @@ export function useProcessInput() {
     searchedWord,
     arrayGuess,
     currentRound,
-    guessWordRound,
+    userGuessWords,
     statusGame,
     userWordleGuess,
+    userGuessesRounds,
     setSearchedWord,
     dispatchUserInput,
     setCurrentRound,
     setStatusGame,
-    setGuessWordRound,
+    setUserGuessWords,
   };
 }
+
+const userGuessesRounds = {
+  one: [],
+  two: [],
+  three: [],
+  four: [],
+  five: [],
+  six: [],
+};
