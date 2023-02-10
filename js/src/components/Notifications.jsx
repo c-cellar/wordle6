@@ -3,42 +3,51 @@ import SuccessfulNotification from './SuccessfulNotification';
 import UnsuccessfulNotification from './UnsuccessfulNotification';
 
 export default function Notifications({
+  colorTheme,
   searchedWord,
   statusGame,
   currentRound,
   userWordleGuess,
   setCurrentRound,
   setStatusGame,
-  setGuessWordRound,
+  setUserGuessWords,
   setSearchedWord,
+  userGuessesRounds,
 }) {
   return (
     <div>
       {statusGame && (
         <SuccessfulNotification
+          userGuessesRounds={userGuessesRounds}
           currentRound={currentRound}
           searchedWord={searchedWord}
           setCurrentRound={setCurrentRound}
           setStatusGame={setStatusGame}
-          setGuessWordRound={setGuessWordRound}
+          setUserGuessWords={setUserGuessWords}
           setSearchedWord={setSearchedWord}
+          colorTheme={colorTheme}
         />
       )}
 
       {!statusGame && currentRound >= 6 ? (
         <UnsuccessfulNotification
+          userGuessesRounds={userGuessesRounds}
           searchedWord={searchedWord}
           setCurrentRound={setCurrentRound}
-          setGuessWordRound={setGuessWordRound}
+          setUserGuessWords={setUserGuessWords}
           setStatusGame={setStatusGame}
           setSearchedWord={setSearchedWord}
+          colorTheme={colorTheme}
         />
       ) : (
         ''
       )}
 
       {!userWordleGuess.isCorrect && (
-        <NoWordNotification userWordleGuess={userWordleGuess} />
+        <NoWordNotification
+          userWordleGuess={userWordleGuess}
+          colorTheme={colorTheme}
+        />
       )}
     </div>
   );

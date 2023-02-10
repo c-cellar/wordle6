@@ -5,8 +5,6 @@ import { $ } from '../../helpers/helpers';
 import {
   addClassToElementsFor,
   getThemeFromStorage,
-  // selectedThemeToLocalStorage,
-  // updateTheme,
 } from '../../themeSelection';
 import {
   getArrayFromStorage,
@@ -34,14 +32,15 @@ export default function ReactComponents() {
     searchedWord,
     arrayGuess,
     currentRound,
-    guessWordRound,
+    userGuessWords,
     statusGame,
     userWordleGuess,
+    userGuessesRounds,
     setSearchedWord,
     dispatchUserInput,
     setCurrentRound,
     setStatusGame,
-    setGuessWordRound,
+    setUserGuessWords,
   } = useProcessInput();
 
   useLayoutEffect(() => {
@@ -79,16 +78,18 @@ export default function ReactComponents() {
       <ContainerLetters
         arrayGuess={arrayGuess}
         currentRound={currentRound}
-        guessWordRound={guessWordRound}
+        userGuessWords={userGuessWords}
       />
       <Notifications
+        colorTheme={colorTheme}
         searchedWord={searchedWord}
         statusGame={statusGame}
         currentRound={currentRound}
         userWordleGuess={userWordleGuess}
+        userGuessesRounds={userGuessesRounds}
         setCurrentRound={setCurrentRound}
         setStatusGame={setStatusGame}
-        setGuessWordRound={setGuessWordRound}
+        setUserGuessWords={setUserGuessWords}
         setSearchedWord={setSearchedWord}
       />
       <Keyboard dispatchUserInput={dispatchUserInput} />

@@ -1,39 +1,52 @@
-import objectGuessRounds from '../../objectGuessRounds';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   removeClassFrom,
   getNewWord,
   getArrayFromStorage,
+  removePlayedWordFromArray,
 } from '../../gameplayFunctions';
 
 export default function UnsuccessfulNotification({
   searchedWord,
   setCurrentRound,
   setStatusGame,
-  setGuessWordRound,
   setSearchedWord,
+  userGuessesRounds,
+  setUserGuessWords,
+  colorTheme,
 }) {
   const [showWord, setShowWord] = useState(false);
+  const ArrayWords = getArrayFromStorage('wordleArray');
+  const randomNewWord = getNewWord(ArrayWords, searchedWord);
+
+  useEffect(() => {
+    if (colorTheme === 'dark') {
+      document.querySelector('.notification').classList.add(colorTheme);
+    }
+  });
+
+  function startNewGame() {
+    setCurrentRound(0);
+    setStatusGame(false);
+    setUserGuessWords(userGuessesRounds);
+    removeClassFrom();
+    removePlayedWordFromArray(ArrayWords, searchedWord);
+    setSearchedWord(randomNewWord);
+  }
 
   return (
     <div id="unsuccessful" className="notification">
-      <span>maybe next round...</span>
+      <p>maybe next round...</p>
       <p>
         <button className="show-word" onClick={() => setShowWord(!showWord)}>
-          {showWord ? searchedWord : 'show searched word'}
+          {showWord ? searchedWord.toUpperCase() : 'show wordle'}
         </button>
       </p>
       <button
         id="btn-unsuccessful"
         className="btn btn-NewGame"
         onClick={() => {
-          const arrayWords = getArrayFromStorage('wordleArray');
-          const randomNewWord = getNewWord(arrayWords, searchedWord);
-          setSearchedWord(randomNewWord);
-          setCurrentRound(0);
-          setStatusGame(false);
-          setGuessWordRound(objectGuessRounds);
-          removeClassFrom();
+          startNewGame();
         }}
       >
         New Game

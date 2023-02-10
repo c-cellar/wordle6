@@ -35,34 +35,37 @@ export default function Header({ colorTheme, setColorTheme }) {
           <legend hidden>Choose a color scheme</legend>
           <label className="container-radio" htmlFor="light">
             {'light'}
+
+            <input
+              type="radio"
+              name="theme_selection"
+              id="light"
+              value="light"
+              checked={colorTheme === 'light'}
+              onChange={(e) => {
+                selectTheme(e);
+                addClassToElementsFor(e.target.value);
+                setColorTheme(e.target.value);
+              }}
+            />
           </label>
-          <input
-            type="radio"
-            name="theme_selection"
-            id="light"
-            value="light"
-            checked={colorTheme === 'light'}
-            onChange={(e) => {
-              selectTheme(e);
-              addClassToElementsFor(e.target.value);
-              setColorTheme(e.target.value);
-            }}
-          />
+
           <label className="container-radio" htmlFor="dark">
             {'dark'}
+
+            <input
+              type="radio"
+              name="theme_selection"
+              id="dark"
+              value="dark"
+              checked={colorTheme === 'dark'}
+              onChange={(e) => {
+                selectTheme(e);
+                addClassToElementsFor(e.target.value);
+                setColorTheme(e.target.value);
+              }}
+            />
           </label>
-          <input
-            type="radio"
-            name="theme_selection"
-            id="dark"
-            value="dark"
-            checked={colorTheme === 'dark'}
-            onChange={(e) => {
-              selectTheme(e);
-              addClassToElementsFor(e.target.value);
-              setColorTheme(e.target.value);
-            }}
-          />
         </fieldset>
       </form>
     </header>

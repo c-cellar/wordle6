@@ -1,8 +1,9 @@
-import objectGuessRounds from '../../objectGuessRounds';
+import { useEffect } from 'react';
 import {
   removeClassFrom,
   getNewWord,
   getArrayFromStorage,
+  removePlayedWordFromArray,
 } from '../../gameplayFunctions';
 
 export default function SuccessfulNotification({
@@ -10,31 +11,47 @@ export default function SuccessfulNotification({
   currentRound,
   setCurrentRound,
   setStatusGame,
-  setGuessWordRound,
+  setUserGuessWords,
   setSearchedWord,
+  userGuessesRounds,
+  colorTheme,
 }) {
+  const ArrayWords = getArrayFromStorage('wordleArray');
+  const randomNewWord = getNewWord(ArrayWords, searchedWord);
+
+  useEffect(() => {
+    if (colorTheme === 'dark') {
+      document.querySelector('.notification').classList.add(colorTheme);
+    }
+  });
+
+  function startNewGame() {
+    setCurrentRound(0);
+    setStatusGame(false);
+    setUserGuessWords(userGuessesRounds);
+    removeClassFrom();
+    removePlayedWordFromArray(ArrayWords, searchedWord);
+    setSearchedWord(randomNewWord);
+  }
+
   return (
     <div id="successful" className="notification">
-      <span>CONGRATULATIONS</span>
+      <span>
+        <strong>CONGRATULATION</strong>
+      </span>
       <p>
-        word: {searchedWord}
+        Word: {searchedWord.toUpperCase()}
         <span id="winningWord"></span>
       </p>
       <p>
-        attempts: {currentRound}
+        Attempts: {currentRound}
         <span id="rounds"></span>
       </p>
       <button
         id="btn-successful"
         className="btn btn-NewGame"
         onClick={() => {
-          const newArrayWords = getArrayFromStorage('wordleArray');
-          const randomNewWord = getNewWord(newArrayWords, searchedWord);
-          setSearchedWord(randomNewWord);
-          setCurrentRound(0);
-          setStatusGame(false);
-          setGuessWordRound(objectGuessRounds);
-          removeClassFrom();
+          startNewGame();
         }}
       >
         New Game
