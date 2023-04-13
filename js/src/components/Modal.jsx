@@ -10,7 +10,7 @@ export default function Modal({ setShowModal }) {
         </p>
         <div>
           <h3>
-            Letter is at the{' '}
+            Letter is at the
             <span className="modal-letter rightPlace">correct position</span>
           </h3>
           <dl className="dl-rules">
@@ -24,7 +24,7 @@ export default function Modal({ setShowModal }) {
             </dd>
           </dl>
           <h3>
-            Letter is at the{' '}
+            Letter is at the
             <span className="modal-letter wrongPlace">wrong position</span>
           </h3>
 
