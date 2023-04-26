@@ -1,4 +1,3 @@
-import arrayWords from '../../arrayWords';
 import { openMenu } from '../../burgerMenuFunction';
 import { viewHeight } from '../../viewHeight';
 import { $ } from '../../helpers/helpers';
@@ -11,6 +10,8 @@ import {
   setArrayToLocalStorage,
   getNewWord,
 } from '../../gameplayFunctions';
+
+import { getWordsFromDatabase } from '../../wordlist';
 
 // Hooks
 import { useEffect, useLayoutEffect, useState } from 'react';
@@ -26,6 +27,9 @@ import Modal from './Modal';
 export default function ReactComponents() {
   const [showModal, setShowModal] = useState(true);
   const [colorTheme, setColorTheme] = useState(getThemeFromStorage());
+
+  const [loading, setLoading] = useState(false);
+  const [databaseWordlist, setDatabaseWordlist] = useState(null);
 
   //-------- Custom Hook(Rückgaben) -------------
   const {
@@ -43,6 +47,17 @@ export default function ReactComponents() {
     setUserGuessWords,
   } = useProcessInput();
 
+  // window.addEventListener('load', () => {});
+  const fetchData = async () => {
+    // Wird aufgerufen sobald kein Wert im localStorage gefunden wurde
+    setLoading(true);
+
+    const arrayWordsDatabase = await getWordsFromDatabase();
+    setDatabaseWordlist(arrayWordsDatabase);
+
+    setLoading(false);
+  };
+
   useLayoutEffect(() => {
     // get viewheight with javascript to avoid problem with vh in mobile browsers (safari, chrome)
     viewHeight();
@@ -50,26 +65,33 @@ export default function ReactComponents() {
   });
 
   useEffect(() => {
-    // keyHandler on document for keyboard input
-    document.addEventListener('keyup', (e) =>
-      dispatchUserInput({ input: e.key })
-    );
+    if (!loading) {
+      if (getArrayFromStorage('wordleArray') === null) {
+        setArrayToLocalStorage(databaseWordlist);
+        setSearchedWord(getNewWord(databaseWordlist));
+        return;
+      }
 
-    $('.hamburger-menu-icon').addEventListener('click', () => openMenu());
-
-    // zuweisen des Themes beim ersten Laden der Application
-    addClassToElementsFor(colorTheme);
-
-    // Wird aufgerufen sobald kein Wert im localStorage gefunden wurde
-    if (getArrayFromStorage('wordleArray') === null) {
-      setArrayToLocalStorage(arrayWords);
-      setSearchedWord(getNewWord(arrayWords));
-      return;
+      const arrayFromStorage = getArrayFromStorage('wordleArray');
+      setSearchedWord(getNewWord(arrayFromStorage));
     }
+  }, [loading]);
 
-    const arrayFromStorage = getArrayFromStorage('wordleArray');
-    setSearchedWord(getNewWord(arrayFromStorage));
-  }, []);
+  useEffect(() => {
+    if (!showModal) {
+      fetchData();
+
+      // keyHandler on document for keyboard input
+      document.addEventListener('keyup', (e) =>
+        dispatchUserInput({ input: e.key })
+      );
+
+      $('.hamburger-menu-icon').addEventListener('click', () => openMenu());
+
+      // zuweisen des Themes beim ersten Laden der Application
+      addClassToElementsFor(colorTheme);
+    }
+  }, [showModal]);
 
   return (
     <div className="component-wrapper">
