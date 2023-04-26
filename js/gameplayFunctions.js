@@ -9,6 +9,8 @@ export function removePlayedWordFromArray(arrayOfWordsForGame, playedWord) {
 }
 
 export function getNewWord(array) {
+  if (!array) return;
+
   const randomIndex = Math.floor(Math.random() * array.length);
   return array[randomIndex];
 }
